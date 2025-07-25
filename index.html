@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XGR Group</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      font-family: 'Montserrat', sans-serif;
+    }
+    body {
+      background: url('logo-xgr.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
+      position: relative;
+      padding-top: 15vh;
+    }
+    main {
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.65);
+      padding: 30px 20px;
+      border-radius: 12px;
+      max-width: 700px;
+    }
+    main p {
+      font-size: 1.6em;
+      font-weight: 400;
+      color: #f1f1f1;
+      text-shadow: 1px 1px 4px #000;
+    }
+    footer {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.85em;
+      color: #bbbbbb;
+      text-shadow: 1px 1px 2px #000;
+    }
+    footer a {
+      color: #bbbbbb;
+      text-decoration: none;
+    }
+
+    /* 📱 AJUSTES PARA CELULAR */
+    @media (max-width: 600px) {
+      body {
+        padding-top: 10vh; /* ← Trouxe a frase mais pra cima */
+        background-position: center top;
+      }
+      main {
+        padding: 18px 14px;
+        margin: 0 10px;
+      }
+      main p {
+        font-size: 1.15em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p>Estamos construindo algo maior. Nosso foco está na interseção entre tecnologia, liberdade e transformação.</p>
+  </main>
+  <footer>
+    <p>&copy; 2025 XGR Group. Todos os direitos reservados. | <a href="mailto:xgreat@xgreat.com.br">xgreat@xgreat.com.br</a></p>
+  </footer>
+</body>
+</html>
