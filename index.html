@@ -7,117 +7,109 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: Arial, sans-serif;
       background: url('bg-xgr.jpg') no-repeat center center fixed;
       background-size: cover;
-      color: #f0f0f0;
+      color: #fff;
     }
 
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.85);
-      z-index: 999;
-      text-align: center;
-      padding: 10px 0 5px 0;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-      background: linear-gradient(to right, #c9b037, #ffd700);
+    /* Título XGR */
+    .top-header {
+      background: linear-gradient(to right, #b8860b, #000);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      font-size: 2.8rem;
+      text-align: center;
       font-weight: bold;
-      letter-spacing: 2px;
+      padding: 20px 0 10px;
     }
 
-    nav {
+    /* Menu fixo */
+    .navbar {
       position: fixed;
-      top: 60px;
+      top: 80px;
       width: 100%;
-      background-color: rgba(15, 15, 15, 0.95);
-      display: flex;
-      justify-content: center;
-      gap: 20px;
+      background-color: #111;
       padding: 10px 0;
-      z-index: 998;
+      text-align: center;
+      z-index: 999;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
     }
 
-    nav a {
-      color: #f0f0f0;
+    .navbar a {
+      color: #fff;
       text-decoration: none;
+      margin: 0 20px;
       font-weight: bold;
-      transition: color 0.3s ease;
+      transition: color 0.3s;
     }
 
-    nav a:hover {
+    .navbar a:hover {
       color: #ffd700;
     }
 
-    main {
-      margin-top: 130px;
+    /* Conteúdo Central */
+    .content {
+      margin-top: 160px;
       padding: 20px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .welcome-box {
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 30px;
-      border-radius: 12px;
-      max-width: 800px;
       text-align: center;
-      font-size: 1.1rem;
-      line-height: 1.6;
-      backdrop-filter: blur(5px);
     }
 
+    .main-message {
+      display: inline-block;
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      max-width: 90%;
+      margin: auto;
+    }
+
+    /* Rodapé fixo */
     footer {
       position: fixed;
       bottom: 0;
       width: 100%;
-      background: rgba(15, 15, 15, 0.9);
+      background-color: #111;
       text-align: center;
-      padding: 10px 0;
+      padding: 10px;
       font-size: 0.9rem;
+      color: #888;
     }
 
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        gap: 10px;
+    /* Responsivo */
+    @media (max-width: 600px) {
+      .top-header {
+        font-size: 2rem;
       }
 
-      main {
-        padding: 10px;
+      .navbar a {
+        margin: 0 10px;
+        font-size: 0.9rem;
       }
 
-      .welcome-box {
+      .main-message {
         font-size: 1rem;
-        padding: 20px;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Grupo XGR</h1>
-  </header>
+  <div class="top-header">Grupo XGR</div>
 
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="mistérios.html">Mistérios Arcanos</a>
-    <a href="python.html">Python e Automações</a>
-  </nav>
+  <div class="navbar">
+    <a href="#">Início</a>
+    <a href="#">Projetos</a>
+    <a href="#">Automação</a>
+    <a href="#">IA</a>
+    <a href="#">Contato</a>
+  </div>
 
-  <main>
-    <div class="welcome-box">
-      Este espaço está sendo desenvolvido para reunir conteúdos sobre automações, inteligência artificial e estratégias digitais para liberdade e prosperidade.  
-      Acompanhe os avanços e novos lançamentos.
+  <div class="content">
+    <div class="main-message">
+      Este espaço está sendo desenvolvido para reunir conteúdos sobre automações, inteligência artificial e estratégias digitais para liberdade e prosperidade. Acompanhe os avanços e novos lançamentos.
     </div>
-  </main>
+  </div>
 
   <footer>
     &copy; 2025 Grupo XGR. Todos os direitos reservados.
