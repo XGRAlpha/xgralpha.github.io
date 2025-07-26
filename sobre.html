@@ -15,50 +15,43 @@
       color: white;
     }
 
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: rgba(0, 0, 0, 0.85);
-      padding: 10px 0;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.8);
-    }
-
-    .logo {
+    .top-header {
+      font-size: 2.8rem;
       text-align: center;
-      font-size: 2.5em;
       font-weight: bold;
-      background: linear-gradient(45deg, #FFD700, #b8860b);
+      padding: 20px 0 10px;
+      background: linear-gradient(to right, #ffd700, #c9a203, #fff8dc);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 5px;
+      text-shadow: 1px 1px 2px #000, 0 0 10px rgba(255, 215, 0, 0.3);
     }
 
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
+    .navbar {
+      position: fixed;
+      top: 80px;
+      width: 100%;
+      background-color: #111;
+      padding: 10px 0;
+      text-align: center;
+      z-index: 999;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
     }
 
-    nav a {
+    .navbar a {
       color: #fff;
       text-decoration: none;
+      margin: 0 20px;
       font-weight: bold;
       transition: color 0.3s;
     }
 
-    nav a:hover {
-      color: #FFD700;
+    .navbar a:hover {
+      color: #ffd700;
     }
 
-    main {
-      padding: 160px 20px 80px 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      min-height: 70vh;
+    .content {
+      margin-top: 160px;
+      padding: 20px;
       text-align: center;
     }
 
@@ -68,16 +61,18 @@
       background: linear-gradient(45deg, #FFD700, #b8860b);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      text-shadow: 1px 1px 2px #000;
       margin-bottom: 20px;
     }
 
-    .intro {
+    .main-message {
       max-width: 800px;
       background-color: rgba(0, 0, 0, 0.6);
       padding: 30px;
       border-radius: 10px;
       font-size: 1.2em;
       line-height: 1.6;
+      margin: auto;
     }
 
     .em-breve {
@@ -92,24 +87,26 @@
       position: fixed;
       bottom: 0;
       width: 100%;
+      background-color: #111;
       text-align: center;
-      background-color: rgba(0, 0, 0, 0.85);
       padding: 10px;
-      font-size: 0.9em;
+      font-size: 0.9rem;
+      color: #888;
     }
 
-    @media (max-width: 768px) {
-      nav {
-        flex-wrap: wrap;
-        gap: 10px;
+    @media (max-width: 600px) {
+      .top-header {
+        font-size: 2rem;
       }
 
-      .intro {
-        font-size: 1em;
+      .navbar a {
+        margin: 0 10px;
+        font-size: 0.9rem;
       }
 
-      .logo {
-        font-size: 2em;
+      .main-message {
+        font-size: 1rem;
+        padding: 15px;
       }
 
       .title {
@@ -119,26 +116,25 @@
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">GRUPO XGR</div>
-    <nav>
-      <a href="index.html">Início</a>
-      <a href="automacao.html">Automação</a>
-      <a href="projetos.html">Projetos</a>
-      <a href="ia.html">IA</a>
-      <a href="contato.html">Contato</a>
-      <a href="sobre.html">Sobre</a>
-    </nav>
-  </header>
+  <div class="top-header">Grupo XGR</div>
 
-  <main>
+  <div class="navbar">
+    <a href="index.html">Início</a>
+    <a href="projetos.html">Projetos</a>
+    <a href="automacao.html">Automação</a>
+    <a href="ia.html">IA</a>
+    <a href="contato.html">Contato</a>
+    <a href="sobre.html">Sobre</a>
+  </div>
+
+  <div class="content">
     <div class="title">Sobre o Grupo XGR</div>
-    <div class="intro">
+    <div class="main-message">
       O Grupo XGR é uma iniciativa voltada para desenvolver soluções digitais, estratégias de automação, inteligência artificial e caminhos para a verdadeira liberdade tecnológica e financeira.<br><br>
-      Nossa missão é criar, proteger e impulsionar mentes conscientes para um novo tempo.<br><br>
+      Nossa missão é criar, proteger e impulsionar mentes conscientes para um novo tempo.
       <div class="em-breve">Em Breve...</div>
     </div>
-  </main>
+  </div>
 
   <footer>
     &copy; 2025 Grupo XGR. Todos os direitos reservados.
