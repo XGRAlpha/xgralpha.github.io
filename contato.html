@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contato - Grupo XGR</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('contato.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      backdrop-filter: brightness(0.7);
+      color: white;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 10px 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.8);
+    }
+
+    .logo {
+      text-align: center;
+      font-size: 2.5em;
+      font-weight: bold;
+      background: linear-gradient(45deg, #FFD700, #b8860b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 5px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #FFD700;
+    }
+
+    main {
+      padding: 160px 20px 80px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 70vh;
+      text-align: center;
+    }
+
+    .title {
+      font-size: 2.2em;
+      font-weight: bold;
+      background: linear-gradient(45deg, #FFD700, #b8860b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+
+    .intro {
+      max-width: 800px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 10px;
+      font-size: 1.2em;
+      line-height: 1.6;
+    }
+
+    .email {
+      margin-top: 15px;
+      font-size: 1.1em;
+      color: #FFD700;
+      word-break: break-word;
+    }
+
+    .em-breve {
+      margin-top: 20px;
+      font-size: 1.1em;
+      color: #FFD700;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 10px;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .intro {
+        font-size: 1em;
+      }
+
+      .logo {
+        font-size: 2em;
+      }
+
+      .title {
+        font-size: 1.6em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">GRUPO XGR</div>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="automacao.html">Automação</a>
+      <a href="projetos.html">Projetos</a>
+      <a href="ia.html">IA</a>
+      <a href="contato.html">Contato</a>
+      <a href="sobre.html">Sobre</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="title">Contato</div>
+    <div class="intro">
+      Em breve você poderá entrar em contato diretamente com o Grupo XGR para dúvidas, parcerias e suporte estratégico. <br><br>
+      Estamos estruturando o canal de atendimento ideal para preservar sua privacidade e segurança.
+      <div class="email">📧 xgreat@xgreat.com.br</div>
+      <div class="em-breve">Em Breve...</div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Grupo XGR. Todos os direitos reservados.
+  </footer>
+</body>
+</html>
