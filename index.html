@@ -1,81 +1,87 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XGR Group</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>XGR - Grupo Xgreat</title>
   <style>
-    * {
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-    html, body {
-      height: 100%;
-      font-family: 'Montserrat', sans-serif;
-    }
-    body {
-      background: url('logo-xgr.jpg') no-repeat center center fixed;
+      background-image: url('bg-xgr.jpg');
       background-size: cover;
-      color: #ffffff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
+      background-position: center;
+      background-attachment: fixed;
+      font-family: Arial, sans-serif;
+      color: #f0f0f0;
       text-align: center;
-      position: relative;
-      padding-top: 15vh;
-    }
-    main {
-      z-index: 1;
-      background-color: rgba(0, 0, 0, 0.65);
-      padding: 30px 20px;
-      border-radius: 12px;
-      max-width: 700px;
-    }
-    main p {
-      font-size: 1.6em;
-      font-weight: 400;
-      color: #f1f1f1;
-      text-shadow: 1px 1px 4px #000;
-    }
-    footer {
-      position: absolute;
-      bottom: 10px;
-      width: 100%;
-      text-align: center;
-      font-size: 0.85em;
-      color: #bbbbbb;
-      text-shadow: 1px 1px 2px #000;
-    }
-    footer a {
-      color: #bbbbbb;
-      text-decoration: none;
     }
 
-    /* 📱 AJUSTES PARA CELULAR */
-    @media (max-width: 600px) {
-      body {
-        padding-top: 10vh; /* ← Trouxe a frase mais pra cima */
-        background-position: center top;
-      }
-      main {
-        padding: 18px 14px;
-        margin: 0 10px;
-      }
-      main p {
-        font-size: 1.15em;
-      }
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 100px 20px;
+      min-height: 100vh;
     }
+
+    h1 {
+      font-size: 3em;
+      color: #d4af37;
+      letter-spacing: 2px;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      color: #ccc;
+      margin-bottom: 40px;
+    }
+
+    nav {
+      margin-bottom: 50px;
+    }
+
+    nav a {
+      margin: 0 20px;
+      color: #f0f0f0;
+      text-decoration: none;
+      font-weight: bold;
+      border-bottom: 2px solid transparent;
+    }
+
+    nav a:hover {
+      border-bottom: 2px solid #d4af37;
+    }
+
+    footer {
+      margin-top: 100px;
+      font-size: 0.9em;
+      color: #777;
+    }
+
   </style>
 </head>
 <body>
-  <main>
-    <p>Estamos construindo algo maior. Nosso foco está na interseção entre tecnologia, liberdade e transformação.</p>
-  </main>
-  <footer>
-    <p>&copy; 2025 XGR Group. Todos os direitos reservados. | <a href="mailto:xgreat@xgreat.com.br">xgreat@xgreat.com.br</a></p>
-  </footer>
+  <div class="overlay">
+    <h1>Grupo XGR</h1>
+    <h2>Automação, Inteligência Artificial e Liberdade Estratégica</h2>
+
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre o Grupo</a>
+      <a href="projetos.html">Projetos</a>
+      <a href="conteudos.html">Conteúdos</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+
+    <p>Estamos desenvolvendo soluções com foco em independência tecnológica e prosperidade digital.<br>
+    Atualmente em construção: nosso primeiro curso de Python voltado à automação inteligente.</p>
+
+    <p style="margin-top:40px; color: #666;">
+      <em>Mistérios Arcanos é um dos projetos associados, com foco em pesquisa e narrativa crítica sobre temas ocultos e reais.</em>
+    </p>
+
+    <footer>
+      © 2025 Grupo XGR - Todos os direitos reservados.
+    </footer>
+  </div>
 </body>
 </html>
