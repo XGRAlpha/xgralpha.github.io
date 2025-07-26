@@ -1,87 +1,106 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>XGR - Grupo Xgreat</title>
+  <meta charset="UTF-8">
+  <title>Grupo XGR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Google Fonts para estilo épico -->
+  <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
+  
   <style>
     body {
       margin: 0;
       padding: 0;
-      background-image: url('bg-xgr.jpg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
       font-family: Arial, sans-serif;
-      color: #f0f0f0;
+      background-color: #111;
+      color: #fff;
+    }
+
+    /* Título sombrio fixo */
+    .xgr-title {
+      font-family: 'Uncial Antiqua', serif;
+      font-size: 36px;
+      color: #FFD700;
       text-align: center;
+      padding: 20px 0 10px;
+      background-color: #000;
+      text-shadow: 2px 2px 6px #000;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #444;
     }
 
-    .overlay {
-      background-color: rgba(0, 0, 0, 0.85);
-      padding: 100px 20px;
-      min-height: 100vh;
-    }
-
-    h1 {
-      font-size: 3em;
-      color: #d4af37;
-      letter-spacing: 2px;
-    }
-
-    h2 {
-      font-size: 1.5em;
-      color: #ccc;
-      margin-bottom: 40px;
-    }
-
+    /* Menu fixo abaixo do título */
     nav {
-      margin-bottom: 50px;
+      position: fixed;
+      top: 70px;
+      width: 100%;
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
+      z-index: 999;
+      border-bottom: 1px solid #444;
     }
 
     nav a {
-      margin: 0 20px;
-      color: #f0f0f0;
+      color: #FFD700;
       text-decoration: none;
       font-weight: bold;
-      border-bottom: 2px solid transparent;
+      transition: color 0.3s;
     }
 
     nav a:hover {
-      border-bottom: 2px solid #d4af37;
+      color: #fff;
+    }
+
+    /* Espaço para evitar que o conteúdo suba por baixo do header fixo */
+    .spacer {
+      height: 130px;
+    }
+
+    .content {
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
     }
 
     footer {
-      margin-top: 100px;
-      font-size: 0.9em;
-      color: #777;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #000;
+      color: #888;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+      border-top: 1px solid #333;
     }
-
   </style>
 </head>
 <body>
-  <div class="overlay">
-    <h1>Grupo XGR</h1>
-    <h2>Automação, Inteligência Artificial e Liberdade Estratégica</h2>
+  <div class="xgr-title">Grupo XGR</div>
 
-    <nav>
-      <a href="index.html">Início</a>
-      <a href="sobre.html">Sobre o Grupo</a>
-      <a href="projetos.html">Projetos</a>
-      <a href="conteudos.html">Conteúdos</a>
-      <a href="contato.html">Contato</a>
-    </nav>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="cursos.html">Cursos</a>
+    <a href="mistérios.html">Mistérios Arcanos</a>
+    <a href="em-breve.html">Em Desenvolvimento</a>
+  </nav>
 
-    <p>Estamos desenvolvendo soluções com foco em independência tecnológica e prosperidade digital.<br>
-    Atualmente em construção: nosso primeiro curso de Python voltado à automação inteligente.</p>
+  <div class="spacer"></div>
 
-    <p style="margin-top:40px; color: #666;">
-      <em>Mistérios Arcanos é um dos projetos associados, com foco em pesquisa e narrativa crítica sobre temas ocultos e reais.</em>
-    </p>
-
-    <footer>
-      © 2025 Grupo XGR - Todos os direitos reservados.
-    </footer>
+  <div class="content">
+    <h2>Bem-vindo ao Grupo XGR</h2>
+    <p>Este espaço está sendo desenvolvido para reunir conteúdos sobre automações, inteligência artificial e estratégias digitais para liberdade e prosperidade. Acompanhe os avanços e novos lançamentos.</p>
   </div>
+
+  <footer>
+    &copy; 2025 Grupo XGR. Todos os direitos reservados.
+  </footer>
 </body>
 </html>
