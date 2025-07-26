@@ -1,102 +1,113 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Grupo XGR</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Google Fonts para estilo épico -->
-  <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
-  
   <style>
     body {
       margin: 0;
-      padding: 0;
       font-family: Arial, sans-serif;
-      background-color: #111;
+      background: #0c0c0c;
       color: #fff;
     }
 
-    /* Título sombrio fixo */
-    .xgr-title {
-      font-family: 'Uncial Antiqua', serif;
-      font-size: 36px;
-      color: #FFD700;
+    /* Título XGR */
+    .top-header {
+      background: linear-gradient(to right, #b8860b, #000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 2.8rem;
       text-align: center;
+      font-weight: bold;
       padding: 20px 0 10px;
-      background-color: #000;
-      text-shadow: 2px 2px 6px #000;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid #444;
     }
 
-    /* Menu fixo abaixo do título */
-    nav {
+    /* Menu fixo */
+    .navbar {
       position: fixed;
-      top: 70px;
+      top: 80px;
       width: 100%;
-      background-color: #222;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
+      background-color: #111;
       padding: 10px 0;
+      text-align: center;
       z-index: 999;
-      border-bottom: 1px solid #444;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
     }
 
-    nav a {
-      color: #FFD700;
+    .navbar a {
+      color: #fff;
       text-decoration: none;
+      margin: 0 20px;
       font-weight: bold;
       transition: color 0.3s;
     }
 
-    nav a:hover {
-      color: #fff;
+    .navbar a:hover {
+      color: #ffd700;
     }
 
-    /* Espaço para evitar que o conteúdo suba por baixo do header fixo */
-    .spacer {
-      height: 130px;
-    }
-
+    /* Conteúdo Central */
     .content {
+      margin-top: 160px;
       padding: 20px;
-      max-width: 800px;
+      text-align: center;
+    }
+
+    .main-message {
+      display: inline-block;
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      max-width: 90%;
       margin: auto;
     }
 
+    /* Rodapé fixo */
     footer {
       position: fixed;
       bottom: 0;
       width: 100%;
-      background-color: #000;
-      color: #888;
+      background-color: #111;
       text-align: center;
       padding: 10px;
-      font-size: 14px;
-      border-top: 1px solid #333;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    /* Responsivo */
+    @media (max-width: 600px) {
+      .top-header {
+        font-size: 2rem;
+      }
+
+      .navbar a {
+        margin: 0 10px;
+        font-size: 0.9rem;
+      }
+
+      .main-message {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="xgr-title">Grupo XGR</div>
+  <div class="top-header">Grupo XGR</div>
 
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="cursos.html">Cursos</a>
-    <a href="mistérios.html">Mistérios Arcanos</a>
-    <a href="em-breve.html">Em Desenvolvimento</a>
-  </nav>
-
-  <div class="spacer"></div>
+  <div class="navbar">
+    <a href="#">Início</a>
+    <a href="#">Projetos</a>
+    <a href="#">Automação</a>
+    <a href="#">IA</a>
+    <a href="#">Contato</a>
+  </div>
 
   <div class="content">
-    <h2>Bem-vindo ao Grupo XGR</h2>
-    <p>Este espaço está sendo desenvolvido para reunir conteúdos sobre automações, inteligência artificial e estratégias digitais para liberdade e prosperidade. Acompanhe os avanços e novos lançamentos.</p>
+    <div class="main-message">
+      Este espaço está sendo desenvolvido para reunir conteúdos sobre automações, inteligência artificial e estratégias digitais para liberdade e prosperidade. Acompanhe os avanços e novos lançamentos.
+    </div>
   </div>
 
   <footer>
