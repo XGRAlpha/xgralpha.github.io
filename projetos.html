@@ -13,19 +13,17 @@
       color: #fff;
     }
 
-    /* Título XGR */
     .top-header {
-      background: linear-gradient(to right, #b8860b, #000);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
       font-size: 2.8rem;
       text-align: center;
       font-weight: bold;
       padding: 20px 0 10px;
-      text-shadow: 1px 1px 2px #000;
+      background: linear-gradient(to right, #ffd700, #c9a203, #fff8dc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 1px 1px 2px #000, 0 0 10px rgba(255, 215, 0, 0.3);
     }
 
-    /* Menu fixo */
     .navbar {
       position: fixed;
       top: 80px;
@@ -49,11 +47,20 @@
       color: #ffd700;
     }
 
-    /* Conteúdo Central */
     .content {
       margin-top: 160px;
       padding: 20px;
       text-align: center;
+    }
+
+    .title {
+      font-size: 2.2em;
+      font-weight: bold;
+      background: linear-gradient(45deg, #FFD700, #b8860b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 1px 1px 2px #000;
+      margin-bottom: 20px;
     }
 
     .main-message {
@@ -67,16 +74,6 @@
       line-height: 1.6;
     }
 
-    .section-title {
-      font-size: 2.2rem;
-      font-weight: bold;
-      background: linear-gradient(45deg, #FFD700, #b8860b);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 20px;
-    }
-
-    /* Rodapé fixo */
     footer {
       position: fixed;
       bottom: 0;
@@ -88,7 +85,6 @@
       color: #888;
     }
 
-    /* Responsivo */
     @media (max-width: 600px) {
       .top-header {
         font-size: 2rem;
@@ -101,6 +97,10 @@
 
       .main-message {
         font-size: 1rem;
+      }
+
+      .title {
+        font-size: 1.6em;
       }
     }
   </style>
@@ -118,7 +118,7 @@
   </div>
 
   <div class="content">
-    <div class="section-title">Projetos</div>
+    <div class="title">Projetos</div>
     <div class="main-message">
       Esta página reúne os planos e visões futuras do Grupo XGR.<br><br>
       Pretendemos avançar em várias frentes tecnológicas e estratégicas, desde plataformas de aprendizado automatizado até ferramentas de blindagem digital, soluções descentralizadas e inteligência artificial aplicada à autonomia pessoal.<br><br>
