@@ -4,21 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Diagnóstico XGR Digital</title>
-  <meta name="description" content="Diagnóstico automático de presença digital da XGR Digital. Informe seu site e e-mail para receber uma análise inicial." />
+  <meta name="description" content="Diagnóstico automático de presença digital da XGR Digital. Informe seu site para receber uma análise inicial." />
   <meta name="robots" content="index, follow" />
   <style>
     :root {
       --bg: #0a0c10;
       --panel: #12161d;
-      --panel-2: #171c24;
-      --line: rgba(255,255,255,.08);
+      --line: rgba(255,255,255,.09);
       --text: #f4f7fb;
       --muted: #9ca7b7;
       --gold: #c8a96b;
       --gold-2: #e3c58b;
       --danger: #e06a6a;
       --ok: #5fc58a;
-      --warn: #e2b45e;
       --shadow: 0 20px 60px rgba(0,0,0,.35);
       --radius: 22px;
     }
@@ -28,8 +26,8 @@
     body {
       font-family: Inter, Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(200,169,107,.12), transparent 28%),
-        radial-gradient(circle at bottom right, rgba(200,169,107,.08), transparent 20%),
+        radial-gradient(circle at top left, rgba(200,169,107,.14), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(200,169,107,.08), transparent 22%),
         var(--bg);
       color: var(--text);
       line-height: 1.5;
@@ -37,7 +35,7 @@
 
     .site-header {
       border-bottom: 1px solid rgba(255,255,255,.08);
-      background: rgba(5, 7, 12, .82);
+      background: rgba(5, 7, 12, .86);
       backdrop-filter: blur(10px);
       position: sticky;
       top: 0;
@@ -58,7 +56,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 0;
       flex-wrap: wrap;
       border-top: 1px solid rgba(255,255,255,.06);
       background: rgba(0,0,0,.22);
@@ -94,21 +91,17 @@
     }
 
     .card {
-      background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.015));
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.018));
       border: 1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       backdrop-filter: blur(6px);
     }
 
-    .hero-main, .form-card, .section {
-      padding: 30px;
-    }
+    .hero-main, .form-card, .section { padding: 30px; }
 
     .eyebrow {
       display: inline-flex;
-      align-items: center;
-      gap: 8px;
       padding: 8px 12px;
       border: 1px solid rgba(200,169,107,.25);
       border-radius: 999px;
@@ -118,6 +111,7 @@
       text-transform: uppercase;
       background: rgba(200,169,107,.06);
       margin-bottom: 16px;
+      font-weight: 800;
     }
 
     h1 {
@@ -127,26 +121,10 @@
       letter-spacing: -.03em;
     }
 
-    h2 {
-      margin: 0 0 10px;
-      font-size: 25px;
-      letter-spacing: -.02em;
-    }
-
-    h3 {
-      margin: 0 0 12px;
-      font-size: 18px;
-    }
-
-    .lead, .section-sub, .muted {
-      color: var(--muted);
-    }
-
-    .lead {
-      font-size: 17px;
-      max-width: 62ch;
-      margin: 0 0 22px;
-    }
+    h2 { margin: 0 0 10px; font-size: 25px; letter-spacing: -.02em; }
+    h3 { margin: 0 0 12px; font-size: 18px; }
+    .lead, .section-sub, .muted { color: var(--muted); }
+    .lead { font-size: 17px; max-width: 62ch; margin: 0 0 22px; }
 
     .hero-points {
       display: grid;
@@ -163,23 +141,17 @@
       font-size: 14px;
     }
 
-    .point strong {
-      color: var(--text);
-      display: block;
-      margin-bottom: 4px;
-      font-size: 15px;
-    }
+    .point strong { color: var(--text); display: block; margin-bottom: 4px; font-size: 15px; }
 
-    form {
-      display: grid;
-      gap: 16px;
-    }
+    form { display: grid; gap: 16px; }
 
-    .field label {
-      display: block;
-      font-weight: 700;
-      margin-bottom: 8px;
-      font-size: 14px;
+    .field label { display: block; font-weight: 800; margin-bottom: 8px; font-size: 14px; }
+
+    .optional {
+      color: var(--gold-2);
+      font-size: 12px;
+      font-weight: 800;
+      margin-left: 5px;
     }
 
     .field input {
@@ -200,26 +172,16 @@
       background: rgba(255,255,255,.06);
     }
 
-    .field small {
-      display: block;
-      margin-top: 7px;
-      color: var(--muted);
-      font-size: 12px;
-    }
+    .field small { display: block; margin-top: 7px; color: var(--muted); font-size: 12px; }
 
-    .actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 4px;
-    }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
 
     button, a.button-link {
       border: 0;
       cursor: pointer;
       border-radius: 14px;
       padding: 14px 18px;
-      font-weight: 700;
+      font-weight: 800;
       font-size: 14px;
       transition: transform .16s ease, opacity .16s ease;
       text-decoration: none;
@@ -232,21 +194,9 @@
     button:hover, a.button-link:hover { transform: translateY(-1px); }
     button:disabled { opacity: .55; cursor: not-allowed; transform: none; }
 
-    .btn-primary {
-      background: linear-gradient(180deg, var(--gold-2), var(--gold));
-      color: #16120b;
-    }
-
-    .btn-secondary {
-      background: var(--panel);
-      color: var(--text);
-      border: 1px solid var(--line);
-    }
-
-    .btn-whatsapp {
-      background: linear-gradient(180deg, #30d66b, #1ea851);
-      color: #04130a;
-    }
+    .btn-primary { background: linear-gradient(180deg, var(--gold-2), var(--gold)); color: #16120b; }
+    .btn-secondary { background: var(--panel); color: var(--text); border: 1px solid var(--line); }
+    .btn-whatsapp { background: linear-gradient(180deg, #30d66b, #1ea851); color: #04130a; }
 
     .status-box {
       margin-top: 16px;
@@ -264,7 +214,6 @@
 
     .section { margin-bottom: 22px; }
     .section-sub { margin: 0 0 22px; }
-
     .result { display: none; }
     .result.visible { display: block; }
 
@@ -296,28 +245,15 @@
       border: 1px solid rgba(255,255,255,.06);
     }
 
-    .score-number {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-    }
-
-    .score-number strong {
-      display: block;
-      font-size: 40px;
-      line-height: 1;
-    }
-
-    .score-number span {
-      color: var(--muted);
-      font-size: 13px;
-    }
+    .score-number { position: relative; z-index: 1; text-align: center; }
+    .score-number strong { display: block; font-size: 40px; line-height: 1; }
+    .score-number span { color: var(--muted); font-size: 13px; }
 
     .badge {
       display: inline-flex;
       padding: 10px 12px;
       border-radius: 999px;
-      font-weight: 800;
+      font-weight: 900;
       font-size: 13px;
       margin-bottom: 10px;
       text-transform: uppercase;
@@ -343,12 +279,7 @@
       padding: 18px;
     }
 
-    .report-list {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
+    .report-list { margin: 0; padding-left: 18px; color: var(--muted); }
     .report-list li + li { margin-top: 8px; }
 
     .raw-box {
@@ -365,12 +296,7 @@
     }
 
     .raw-box.visible { display: block; }
-
-    .footer-note {
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: 13px;
-    }
+    .footer-note { margin-top: 18px; color: var(--muted); font-size: 13px; }
 
     @media (max-width: 920px) {
       .hero, .report, .score-row { grid-template-columns: 1fr; }
@@ -407,25 +333,13 @@
         <div class="eyebrow">Diagnóstico XGR Digital</div>
         <h1>Descubra o nível real da presença digital do seu negócio.</h1>
         <p class="lead">
-          Informe o endereço do site e um e-mail de contato. A análise automática será enviada para o fluxo da XGR e retornará uma leitura inicial com pontos fortes, falhas e prioridades.
+          Informe o endereço do site para gerar uma análise automática. O e-mail é opcional e serve apenas para contato comercial, caso você queira ajuda para corrigir os pontos encontrados.
         </p>
         <div class="hero-points">
-          <div class="point">
-            <strong>Análise automática</strong>
-            O sistema verifica estrutura, SEO, rastreamento, políticas e sinais básicos de conversão.
-          </div>
-          <div class="point">
-            <strong>Relatório objetivo</strong>
-            O retorno mostra o que existe, o que falta e o que deve ser corrigido primeiro.
-          </div>
-          <div class="point">
-            <strong>Lead qualificado</strong>
-            O contato chega com site, e-mail e diagnóstico, sem depender de adivinhação comercial.
-          </div>
-          <div class="point">
-            <strong>Motor n8n</strong>
-            O processamento roda via automação externa, não nessa página estática, porque GitHub Pages não faz milagre.
-          </div>
+          <div class="point"><strong>Análise automática</strong>O sistema verifica estrutura, SEO, rastreamento, políticas e sinais básicos de conversão.</div>
+          <div class="point"><strong>Relatório na tela</strong>O resultado aparece aqui mesmo, com pontos fortes, falhas e prioridades.</div>
+          <div class="point"><strong>Exportação em TXT</strong>Você pode salvar o diagnóstico em arquivo de texto para consultar depois.</div>
+          <div class="point"><strong>Orçamento direto</strong>Depois do resultado, você pode chamar a XGR Digital para ajuda e orçamento.</div>
         </div>
       </div>
 
@@ -442,9 +356,9 @@
           </div>
 
           <div class="field">
-            <label for="leadEmail">E-mail para contato</label>
-            <input id="leadEmail" name="email" type="email" placeholder="contato@empresa.com.br" required autocomplete="email" />
-            <small>Usado para identificação do diagnóstico e contato comercial da XGR Digital.</small>
+            <label for="leadEmail">E-mail para contato <span class="optional">opcional</span></label>
+            <input id="leadEmail" name="email" type="email" placeholder="contato@empresa.com.br" autocomplete="email" />
+            <small>Opcional. Serve apenas para contato caso você queira ajuda ou orçamento.</small>
           </div>
 
           <div class="actions">
@@ -471,31 +385,25 @@
         <div>
           <div class="badge critico" id="scoreBadge">Aguardando análise</div>
           <h3 id="headline">Diagnóstico ainda não gerado.</h3>
-          <p class="muted" id="summary">Preencha site e e-mail para iniciar a automação.</p>
+          <p class="muted" id="summary">Preencha o site para iniciar a automação.</p>
         </div>
       </div>
 
       <div class="report">
         <div class="report-block">
           <h3>Pontos positivos</h3>
-          <ul class="report-list" id="positiveList">
-            <li>Aguardando retorno do fluxo.</li>
-          </ul>
+          <ul class="report-list" id="positiveList"><li>Aguardando retorno do fluxo.</li></ul>
         </div>
         <div class="report-block">
           <h3>Pontos críticos</h3>
-          <ul class="report-list" id="criticalList">
-            <li>Aguardando retorno do fluxo.</li>
-          </ul>
+          <ul class="report-list" id="criticalList"><li>Aguardando retorno do fluxo.</li></ul>
         </div>
       </div>
 
       <div class="report">
         <div class="report-block">
           <h3>Prioridades</h3>
-          <ul class="report-list" id="priorityList">
-            <li>Aguardando retorno do fluxo.</li>
-          </ul>
+          <ul class="report-list" id="priorityList"><li>Aguardando retorno do fluxo.</li></ul>
         </div>
         <div class="report-block">
           <h3>Recomendação comercial</h3>
@@ -504,13 +412,14 @@
       </div>
 
       <div class="actions" id="resultActions">
-        <a class="button-link btn-whatsapp" id="whatsappSummary" href="#" target="_blank" rel="noopener noreferrer">Falar com a XGR Digital</a>
+        <a class="button-link btn-whatsapp" id="whatsappSummary" href="#" target="_blank" rel="noopener noreferrer">Quero ajuda e orçamento</a>
+        <button class="btn-secondary" id="downloadTxt" type="button">Salvar resultado em TXT</button>
         <button class="btn-secondary" id="copyDiagnosis" type="button">Copiar diagnóstico</button>
         <button class="btn-secondary" id="toggleRaw" type="button">Ver JSON</button>
       </div>
 
       <pre class="raw-box" id="rawResult"></pre>
-      <div class="footer-note">Diagnóstico gerado automaticamente via n8n. A leitura final pode ser refinada pela equipe XGR Digital.</div>
+      <div class="footer-note">Diagnóstico gerado automaticamente via n8n. A leitura final pode ser refinada pela equipe XGR Digital antes de qualquer orçamento.</div>
     </section>
   </div>
 
@@ -538,6 +447,7 @@
     const recommendation = document.getElementById('recommendation');
     const whatsappSummary = document.getElementById('whatsappSummary');
     const copyDiagnosis = document.getElementById('copyDiagnosis');
+    const downloadTxt = document.getElementById('downloadTxt');
     const toggleRaw = document.getElementById('toggleRaw');
     const rawResult = document.getElementById('rawResult');
 
@@ -599,15 +509,8 @@
       return data?.aiReport || data?.report || data?.relatorio || data?.analysis || data?.analise || data?.result?.aiReport || {};
     }
 
-    function renderList(element, items, emptyText) {
-      const clean = toArray(items);
-      element.innerHTML = clean.length
-        ? clean.map(item => `<li>${escapeHtml(String(item))}</li>`).join('')
-        : `<li>${escapeHtml(emptyText)}</li>`;
-    }
-
     function escapeHtml(text) {
-      return text
+      return String(text)
         .replaceAll('&', '&amp;')
         .replaceAll('<', '&lt;')
         .replaceAll('>', '&gt;')
@@ -615,8 +518,14 @@
         .replaceAll("'", '&#039;');
     }
 
+    function renderList(element, items, emptyText) {
+      const clean = toArray(items);
+      element.innerHTML = clean.length
+        ? clean.map(item => `<li>${escapeHtml(String(item))}</li>`).join('')
+        : `<li>${escapeHtml(emptyText)}</li>`;
+    }
+
     function buildWhatsappMessage(data) {
-      if (data?.whatsappMessage) return data.whatsappMessage;
       const report = pickReport(data);
       const score = getScore(data);
       const level = getLevel(data, score);
@@ -625,50 +534,59 @@
       const priorities = toArray(report.priorities || data?.topPriorities || data?.prioridades || data?.missing).slice(0, 5);
 
       return [
-        'Olá, fiz o diagnóstico do meu site pela XGR Digital.',
+        'Olá, fiz o diagnóstico do meu site pela XGR Digital e quero ajuda/orçamento para corrigir os pontos encontrados.',
         '',
         `Site analisado: ${url}`,
-        `E-mail: ${email}`,
+        email ? `E-mail: ${email}` : 'E-mail: não informado',
         `Nota: ${score}/100`,
         `Nível: ${level}`,
         '',
         'Principais prioridades:',
         ...(priorities.length ? priorities.map(item => `- ${item}`) : ['- Aguardando avaliação detalhada']),
         '',
-        'Quero entender como corrigir.'
+        'Quero entender o que precisa ser feito e quanto custaria.'
       ].join('\n');
     }
 
-    function buildCopyText(data) {
+    function buildTxt(data) {
       const report = pickReport(data);
       const score = getScore(data);
       const level = getLevel(data, score);
       const positive = toArray(report.positivePoints || report.pontosPositivos || data?.found);
       const critical = toArray(report.criticalPoints || report.pontosCriticos || data?.missing);
       const priorities = toArray(report.priorities || data?.topPriorities || data?.prioridades);
+      const email = data?.email || leadEmailInput.value.trim();
 
       return [
-        'Diagnóstico XGR Digital',
+        'DIAGNÓSTICO XGR DIGITAL',
+        '=======================',
         '',
         `Site: ${data?.url || normalizeUrl(siteUrlInput.value)}`,
-        `E-mail: ${data?.email || leadEmailInput.value.trim()}`,
+        `E-mail: ${email || 'não informado'}`,
         `Nota: ${score}/100`,
         `Nível: ${level}`,
         '',
+        'RESUMO',
         report.headline || 'Leitura inicial do cenário digital.',
-        report.summary || '',
+        report.summary || data?.summary || data?.message || '',
         '',
-        'Pontos positivos:',
+        'PONTOS POSITIVOS',
         ...(positive.length ? positive.map(item => `- ${item}`) : ['- Não informado']),
         '',
-        'Pontos críticos:',
+        'PONTOS CRÍTICOS',
         ...(critical.length ? critical.map(item => `- ${item}`) : ['- Não informado']),
         '',
-        'Prioridades:',
+        'PRIORIDADES',
         ...(priorities.length ? priorities.map(item => `- ${item}`) : ['- Não informado']),
         '',
-        'Recomendação:',
-        report.commercialRecommendation || report.recomendacaoComercial || 'Falar com a XGR Digital para revisar a estrutura.'
+        'RECOMENDAÇÃO',
+        report.commercialRecommendation || report.recomendacaoComercial || data?.recommendation || 'Falar com a XGR Digital para revisar a estrutura e definir a próxima correção.',
+        '',
+        'Contato XGR Digital',
+        'WhatsApp: +55 11 91213-1177',
+        'Site: https://xgreat.com.br',
+        '',
+        'Gerado automaticamente pela ferramenta de diagnóstico da XGR Digital.'
       ].join('\n');
     }
 
@@ -698,7 +616,6 @@
 
       rawResult.textContent = JSON.stringify(data, null, 2);
       rawResult.classList.remove('visible');
-
       whatsappSummary.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildWhatsappMessage(data))}`;
       resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -710,8 +627,8 @@
       const normalizedUrl = normalizeUrl(siteUrlInput.value);
       const email = leadEmailInput.value.trim();
 
-      if (!normalizedUrl || !email) {
-        showStatus('Preencha o site e o e-mail antes de gerar o diagnóstico.', 'error');
+      if (!normalizedUrl) {
+        showStatus('Preencha o endereço do site antes de gerar o diagnóstico.', 'error');
         return;
       }
 
@@ -720,7 +637,7 @@
 
       const payload = {
         url: normalizedUrl,
-        email,
+        email: email || '',
         source: 'diagnostico-xgreat-html',
         page: window.location.href,
         submittedAt: new Date().toISOString()
@@ -759,12 +676,28 @@
       lastResult = null;
     }
 
+    function downloadResultTxt() {
+      if (!lastResult) return;
+      const text = buildTxt(lastResult);
+      const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const site = (lastResult.url || 'diagnostico').replace(/^https?:\/\//, '').replace(/[^a-z0-9.-]/gi, '-');
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `diagnostico-xgr-${site}.txt`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
     form.addEventListener('submit', submitDiagnostic);
     clearBtn.addEventListener('click', clearForm);
+    downloadTxt.addEventListener('click', downloadResultTxt);
     copyDiagnosis.addEventListener('click', async () => {
       if (!lastResult) return;
       try {
-        await navigator.clipboard.writeText(buildCopyText(lastResult));
+        await navigator.clipboard.writeText(buildTxt(lastResult));
         copyDiagnosis.textContent = 'Diagnóstico copiado';
         setTimeout(() => copyDiagnosis.textContent = 'Copiar diagnóstico', 1700);
       } catch (error) {
