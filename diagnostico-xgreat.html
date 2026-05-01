@@ -35,6 +35,50 @@
       line-height: 1.5;
     }
 
+    .site-header {
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: rgba(5, 7, 12, .82);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .site-brand {
+      text-align: center;
+      padding: 22px 16px 14px;
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1;
+      font-weight: 900;
+      color: #d6b12f;
+      letter-spacing: -.04em;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,.06);
+      background: rgba(0,0,0,.22);
+    }
+
+    .navbar a {
+      color: rgba(255,255,255,.82);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 14px 18px;
+      transition: color .16s ease, background .16s ease;
+    }
+
+    .navbar a:hover,
+    .navbar a.active {
+      color: var(--gold-2);
+      background: rgba(200,169,107,.07);
+    }
+
     .wrap {
       width: min(1120px, calc(100% - 32px));
       margin: 0 auto;
@@ -335,6 +379,8 @@
     }
 
     @media (max-width: 620px) {
+      .site-brand { padding-top: 18px; font-size: 32px; }
+      .navbar a { padding: 12px 11px; font-size: 13px; }
       .wrap { width: min(100% - 20px, 1120px); padding-top: 20px; }
       .hero-main, .form-card, .section { padding: 20px; }
       h1 { font-size: 32px; }
@@ -343,6 +389,18 @@
   </style>
 </head>
 <body>
+  <header class="site-header">
+    <div class="site-brand">XGreat</div>
+    <nav class="navbar" aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="automacao.html">Soluções</a>
+      <a href="projetos.html">Projetos</a>
+      <a href="contato.html">Contato</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="diagnostico-xgreat.html" class="active">Diagnóstico</a>
+    </nav>
+  </header>
+
   <div class="wrap">
     <section class="hero">
       <div class="card hero-main">
