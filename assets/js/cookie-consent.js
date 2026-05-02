@@ -1,4 +1,21 @@
 (function () {
+  var header = document.querySelector('.top-header');
+
+  if (header && !header.querySelector('.brand-link')) {
+    var text = (header.textContent || '').trim() || 'XGreat';
+    header.textContent = '';
+
+    var link = document.createElement('a');
+    link.className = 'brand-link';
+    link.href = 'index.html';
+    link.setAttribute('aria-label', 'Voltar para a página inicial da XGreat');
+    link.textContent = text;
+
+    header.appendChild(link);
+  }
+})();
+
+(function () {
   var storageKey = 'xgr_cookie_choice';
   var banner = document.getElementById('xgrCookieBanner');
   var acceptBtn = document.getElementById('xgrCookieAccept');
