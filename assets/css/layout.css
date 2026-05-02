@@ -83,7 +83,8 @@
   z-index: 999;
 }
 
-.navbar a {
+.navbar a,
+.nav-dropdown__trigger {
   display: inline-block;
   margin: 0 16px;
   font-size: 0.95rem;
@@ -93,7 +94,72 @@
 }
 
 .navbar a:hover,
-.navbar a.active {
+.navbar a.active,
+.nav-dropdown:hover .nav-dropdown__trigger,
+.nav-dropdown:focus-within .nav-dropdown__trigger {
+  color: #f5d76e;
+}
+
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-dropdown__trigger {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+}
+
+.nav-dropdown__trigger::after {
+  content: "▾";
+  margin-left: 6px;
+  font-size: 0.72em;
+  color: rgba(245, 215, 110, 0.86);
+}
+
+.nav-dropdown__menu {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  min-width: 230px;
+  padding: 10px;
+  border: 1px solid rgba(245, 215, 110, 0.18);
+  border-radius: 14px;
+  background: rgba(8, 10, 16, 0.96);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.38);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, -6px);
+  transition: 0.22s ease;
+  text-align: left;
+  z-index: 1200;
+}
+
+.nav-dropdown:hover .nav-dropdown__menu,
+.nav-dropdown:focus-within .nav-dropdown__menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+
+.nav-dropdown__menu a {
+  display: block;
+  margin: 0;
+  padding: 11px 12px;
+  border-radius: 10px;
+  color: #f1f1f1;
+  font-size: 0.9rem;
+  line-height: 1.25;
+}
+
+.nav-dropdown__menu a:hover,
+.nav-dropdown__menu a.active {
+  background: rgba(245, 215, 110, 0.08);
   color: #f5d76e;
 }
 
@@ -270,9 +336,15 @@
     padding: 12px 10px;
   }
 
-  .navbar a {
+  .navbar a,
+  .nav-dropdown__trigger {
     margin: 6px 8px;
     font-size: 0.88rem;
+  }
+
+  .nav-dropdown__menu {
+    min-width: 210px;
+    top: calc(100% + 8px);
   }
 
   .hero {
@@ -308,7 +380,9 @@ body.page-home {
   background-color: #08111f;
 }
 
-body.page-automacao {
+body.page-automacao,
+body.page-xgr-digital,
+body.page-xgr-automacao-bi {
   background:
     linear-gradient(rgba(5, 8, 20, 0.82), rgba(5, 8, 20, 0.9)),
     url('../../automacao.jpg') no-repeat center center fixed;
