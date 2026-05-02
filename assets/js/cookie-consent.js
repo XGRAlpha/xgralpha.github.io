@@ -1,7 +1,8 @@
 (function () {
-  var header = document.querySelector('.top-header');
+  function normalizeHeader() {
+    var header = document.querySelector('.top-header');
+    if (!header || header.querySelector('.brand-link')) return;
 
-  if (header && !header.querySelector('.brand-link')) {
     var text = (header.textContent || '').trim() || 'XGreat';
     header.textContent = '';
 
@@ -13,22 +14,9 @@
 
     header.appendChild(link);
   }
-})();
 
-(function () {
-  var navbars = document.querySelectorAll('.navbar');
-  var currentPath = window.location.pathname.split('/').pop() || 'index.html';
-
-  navbars.forEach(function (navbar) {
-    if (navbar.querySelector('.nav-dropdown')) return;
-
-    var links = Array.prototype.slice.call(navbar.querySelectorAll('a'));
-    var frontLink = links.find(function (link) {
-      return (link.textContent || '').trim().toLowerCase() === 'frentes';
-    });
-
-    if (!frontLink) return;
-
+  function createDropdown() {
+    var currentPath = window.location.pathname.split('/').pop() || 'index.html';
     var dropdown = document.createElement('div');
     dropdown.className = 'nav-dropdown';
 
@@ -58,15 +46,63 @@
     dropdown.appendChild(trigger);
     dropdown.appendChild(menu);
 
-    frontLink.replaceWith(dropdown);
-
     dropdown.addEventListener('mouseenter', function () {
       trigger.setAttribute('aria-expanded', 'true');
     });
     dropdown.addEventListener('mouseleave', function () {
       trigger.setAttribute('aria-expanded', 'false');
     });
-  });
+
+    trigger.addEventListener('click', function () {
+      var expanded = trigger.getAttribute('aria-expanded') === 'true';
+      trigger.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      dropdown.classList.toggle('is-open', !expanded);
+    });
+
+    return dropdown;
+  }
+
+  function normalizeNav() {
+    var navbars = document.querySelectorAll('.navbar');
+
+    navbars.forEach(function (navbar) {
+      if (navbar.querySelector('.nav-dropdown')) return;
+
+      var links = Array.prototype.slice.call(navbar.querySelectorAll('a'));
+      var frontLink = links.find(function (link) {
+        return (link.textContent || '').trim().toLowerCase() === 'frentes';
+      });
+
+      if (frontLink) {
+        frontLink.replaceWith(createDropdown());
+        return;
+      }
+
+      var inicioLink = links.find(function (link) {
+        var text = (link.textContent || '').trim().toLowerCase();
+        return text === 'início' || text === 'inicio';
+      });
+
+      var solucoesLink = links.find(function (link) {
+        var text = (link.textContent || '').trim().toLowerCase();
+        return text === 'soluções' || text === 'solucoes';
+      });
+
+      if (inicioLink && solucoesLink) {
+        navbar.insertBefore(createDropdown(), solucoesLink);
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () {
+      normalizeHeader();
+      normalizeNav();
+    });
+  } else {
+    normalizeHeader();
+    normalizeNav();
+  }
 })();
 
 (function () {
