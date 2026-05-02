@@ -13,7 +13,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projetos | XGreat</title>
-  <meta name="description" content="Veja projetos, soluções implantadas e cases da XGreat, incluindo XGR Digital e XGR Automação & BI." />
+  <meta name="description" content="Projetos, cases e soluções implantadas pela XGreat, incluindo XGR Digital e XGR Automação & BI." />
   <link rel="canonical" href="https://xgreat.com.br/projetos.html" />
   <meta name="robots" content="index, follow" />
   <meta property="og:site_name" content="XGreat" />
@@ -35,10 +35,19 @@
   <link rel="stylesheet" href="assets/css/components.css">
 </head>
 <body class="page-projetos">
-  <div class="top-header">XGreat</div>
+  <header class="top-header">
+    <a class="brand-link" href="index.html" aria-label="Voltar para a página inicial da XGreat">XGreat</a>
+  </header>
 
   <nav class="navbar">
     <a href="index.html">Início</a>
+    <div class="nav-dropdown">
+      <button class="nav-dropdown__trigger" type="button" aria-haspopup="true" aria-expanded="false">Frentes</button>
+      <div class="nav-dropdown__menu">
+        <a href="xgr-digital.html">XGR Digital</a>
+        <a href="xgr-automacao-bi.html">XGR Automação &amp; BI</a>
+      </div>
+    </div>
     <a href="automacao.html">Soluções</a>
     <a href="projetos.html" class="active">Projetos</a>
     <a href="contato.html">Contato</a>
@@ -48,25 +57,19 @@
   <main>
     <section class="hero">
       <div class="hero-box">
+        <span class="eyebrow">Portfólio e execução</span>
         <h1>Projetos da XGreat</h1>
-        <p>
-          Aqui ficam os trabalhos reais já publicados, em pré-lançamento ou em evolução operacional.
-          A XGreat atua da base técnica até a entrega final, cobrindo domínio, DNS, estrutura do site,
-          identidade visual, implantação, ajustes operacionais e soluções digitais para a operação rodar de verdade.
-        </p>
+        <p>Aqui ficam cases, implantações e soluções que já saíram do discurso e viraram entrega real. Projeto sem entrega é só post bonito para enganar algoritmo cansado.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#cases-publicados">Ver cases</a>
-          <a class="btn btn-secondary" href="#solucoes-implantadas">Ver soluções implantadas</a>
+          <a class="btn btn-primary" href="#cases-publicados">Ver cases digitais</a>
+          <a class="btn btn-secondary" href="#solucoes-implantadas">Ver automações</a>
         </div>
       </div>
     </section>
 
     <section class="section" id="cases-publicados">
-      <h2 class="section-title">Cases publicados e pré-lançamentos</h2>
-      <p class="section-subtitle">
-        A página de soluções mostra as frentes de atuação. Aqui entra o que já saiu do discurso e virou entrega concreta,
-        com projeto real, link ativo e material visual para comprovar execução.
-      </p>
+      <h2 class="section-title">Cases digitais</h2>
+      <p class="section-subtitle">Projetos ligados à frente XGR Digital: presença online, estrutura técnica, domínio, loja, navegação e base comercial.</p>
 
       <div class="cards">
         <article class="card">
@@ -74,26 +77,17 @@
             <img src="case_eom.png" alt="Prévia do projeto Empreenda ou Morra" loading="lazy">
             <span class="case-thumb-badge">Clique para ampliar</span>
           </button>
-          <div class="case-topline">
-            <span class="case-status">Publicado</span>
-            <span class="case-brand">XGR Digital</span>
-          </div>
+          <div class="case-topline"><span class="case-status">Publicado</span><span class="case-brand">XGR Digital</span></div>
           <h3>Empreenda ou Morra</h3>
-          <p class="case-summary">
-            Estrutura digital desenvolvida do zero como case autoral, com foco em presença online, identidade visual,
-            organização da navegação e implantação técnica completa para um projeto com posicionamento forte.
-          </p>
+          <p class="case-summary">Estrutura digital autoral desenvolvida como case de presença online, identidade visual, domínio, navegação e implantação técnica.</p>
           <ul>
             <li>Estruturação completa do site e da presença digital</li>
             <li>Configuração de domínio, DNS e base técnica</li>
             <li>Identidade visual aplicada ao ambiente web</li>
-            <li>Organização de páginas, navegação e apresentação do projeto</li>
+            <li>Organização de páginas, navegação e apresentação</li>
           </ul>
           <div class="case-links">
-            <a class="case-link is-primary" href="https://empreendaoumorra.com.br" target="_blank" rel="noopener noreferrer" aria-label="Abrir site Empreenda ou Morra">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"></path><path d="M5 5h6v2H7v10h10v-4h2v6H5V5z"></path></svg>
-              <span>empreendaoumorra.com.br</span>
-            </a>
+            <a class="case-link is-primary" href="https://empreendaoumorra.com.br" target="_blank" rel="noopener noreferrer"><span>empreendaoumorra.com.br</span></a>
           </div>
         </article>
 
@@ -102,44 +96,26 @@
             <img src="case_useb.png" alt="Prévia do projeto Use B Closet" loading="lazy">
             <span class="case-thumb-badge">Clique para ampliar</span>
           </button>
-          <div class="case-topline">
-            <span class="case-status">Pré-lançamento</span>
-            <span class="case-brand">XGR Digital</span>
-          </div>
+          <div class="case-topline"><span class="case-status">Pré-lançamento</span><span class="case-brand">XGR Digital</span></div>
           <h3>Use B Closet</h3>
-          <p class="case-summary">
-            E-commerce de moda feminina em fase final de implantação, com estrutura premium, operação comercial preparada
-            para lançamento e base técnica organizada para crescer com consistência desde o início.
-          </p>
+          <p class="case-summary">E-commerce de moda feminina em implantação, com estrutura premium, operação comercial preparada e base técnica organizada para lançamento.</p>
           <ul>
             <li>Implantação técnica da loja virtual em Shopify</li>
             <li>Domínio, DNS, estrutura do ambiente e configuração operacional</li>
-            <li>Organização de catálogo, coleções, experiência visual e base comercial</li>
+            <li>Organização de catálogo, coleções e experiência visual</li>
             <li>Preparação para lançamento com operação pronta para venda</li>
           </ul>
           <div class="case-links">
-            <a class="case-link is-primary" href="https://usebcloset.com.br" target="_blank" rel="noopener noreferrer" aria-label="Abrir site Use B Closet">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"></path><path d="M5 5h6v2H7v10h10v-4h2v6H5V5z"></path></svg>
-              <span>usebcloset.com.br</span>
-            </a>
-            <a class="case-mini-link" href="https://www.instagram.com/usebcloseet?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram da Use B Closet">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5A3.5 3.5 0 1 0 12 15.5 3.5 3.5 0 0 0 12 8.5zm5.25-2.38a1.13 1.13 0 1 1 0 2.26 1.13 1.13 0 0 1 0-2.26z"></path></svg>
-              <span>Instagram da marca</span>
-            </a>
+            <a class="case-link is-primary" href="https://usebcloset.com.br" target="_blank" rel="noopener noreferrer"><span>usebcloset.com.br</span></a>
+            <a class="case-mini-link" href="https://www.instagram.com/usebcloseet?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer"><span>Instagram da marca</span></a>
           </div>
         </article>
-      </div>
-
-      <div class="highlight-box">
-        O portfólio cresce com entrega real. Melhor assim. Já existe gente demais vendendo fumaça com layout bonito e zero execução por trás.
       </div>
     </section>
 
     <section class="section" id="solucoes-implantadas">
       <h2 class="section-title">Soluções implantadas</h2>
-      <p class="section-subtitle">
-        Além de sites e e-commerces, a XGreat também registra soluções operacionais implantadas pela frente XGR Automação &amp; BI. Aqui entra o que resolve processo real, não apresentação perfumada para enganar reunião.
-      </p>
+      <p class="section-subtitle">Projetos ligados à frente XGR Automação &amp; BI: processos, dados, controle operacional e redução de retrabalho.</p>
 
       <div class="cards">
         <article class="card">
@@ -147,26 +123,17 @@
             <img src="banner_refugio315_ifood_real.png" alt="Banner do case Refúgio 315 Restaurante" loading="lazy">
             <span class="case-thumb-badge">Clique para ampliar</span>
           </button>
-          <div class="case-topline">
-            <span class="case-status">Solução implantada</span>
-            <span class="case-brand">XGR Automação &amp; BI</span>
-          </div>
+          <div class="case-topline"><span class="case-status">Solução implantada</span><span class="case-brand">XGR Automação &amp; BI</span></div>
           <h3>Refúgio 315 Restaurante | Gestão de entregas</h3>
-          <p class="case-summary">
-            Solução operacional aplicada ao ambiente de restaurante para controle de entregas, organização de registros enviados por motoboys e apoio à conferência administrativa de pagamentos.
-          </p>
+          <p class="case-summary">Solução aplicada para controle de entregas, organização de registros enviados por motoboys e apoio à conferência administrativa de pagamentos.</p>
           <ul>
             <li>Registro operacional de entregas realizadas por motoboys</li>
-            <li>Organização de informações enviadas durante a rotina de entrega</li>
+            <li>Organização de informações durante a rotina</li>
             <li>Base para conferência administrativa e controle de pagamento</li>
             <li>Consulta e histórico para reduzir perda de informação</li>
-            <li>Aplicação prática em operação real de restaurante</li>
           </ul>
           <div class="case-links">
-            <a class="case-link is-primary" href="https://www.ifood.com.br/delivery/sao-bernardo-do-campo-sp/refugio-315-restaurante-nova-petropolis/13508940-dd89-40e4-9304-d2427ec24c27" target="_blank" rel="noopener noreferrer" aria-label="Abrir Refúgio 315 Restaurante no iFood">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"></path><path d="M5 5h6v2H7v10h10v-4h2v6H5V5z"></path></svg>
-              <span>Ver operação no iFood</span>
-            </a>
+            <a class="case-link is-primary" href="https://www.ifood.com.br/delivery/sao-bernardo-do-campo-sp/refugio-315-restaurante-nova-petropolis/13508940-dd89-40e4-9304-d2427ec24c27" target="_blank" rel="noopener noreferrer"><span>Ver operação no iFood</span></a>
           </div>
         </article>
 
@@ -175,32 +142,19 @@
             <img src="banner_sabor_cor_bendita_ifood_real.png" alt="Banner do case Sabor e Cor Bendita" loading="lazy">
             <span class="case-thumb-badge">Clique para ampliar</span>
           </button>
-          <div class="case-topline">
-            <span class="case-status">Solução implantada</span>
-            <span class="case-brand">XGR Automação &amp; BI</span>
-          </div>
+          <div class="case-topline"><span class="case-status">Solução implantada</span><span class="case-brand">XGR Automação &amp; BI</span></div>
           <h3>Sabor &amp; Cor Bendita | Gestão de entregas</h3>
-          <p class="case-summary">
-            Segunda operação com a mesma solução de automação aplicada para gestão de entregas, organização de registros operacionais e apoio à conferência administrativa.
-          </p>
+          <p class="case-summary">Segunda operação com automação aplicada para gestão de entregas, organização de registros operacionais e apoio à conferência administrativa.</p>
           <ul>
-            <li>Aplicação da automação em operação real de delivery</li>
+            <li>Aplicação em operação real de delivery</li>
             <li>Controle de entregas realizadas por motoboys</li>
             <li>Organização dos dados para conferência e pagamento</li>
-            <li>Redução de controle manual por prints, mensagens soltas e planilhas remendadas</li>
-            <li>Registro vinculado ao CNPJ 49.777.587/0001-39</li>
+            <li>Redução de controle manual por prints e planilhas remendadas</li>
           </ul>
           <div class="case-links">
-            <a class="case-link is-primary" href="https://cnpj.biz/49777587000139" target="_blank" rel="noopener noreferrer" aria-label="Abrir cadastro do CNPJ 49.777.587/0001-39">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"></path><path d="M5 5h6v2H7v10h10v-4h2v6H5V5z"></path></svg>
-              <span>Ver cadastro CNPJ</span>
-            </a>
+            <a class="case-link is-primary" href="https://cnpj.biz/49777587000139" target="_blank" rel="noopener noreferrer"><span>Ver cadastro CNPJ</span></a>
           </div>
         </article>
-      </div>
-
-      <div class="highlight-box">
-        Essa frente tem valor porque mexe no bolso e na operação: entrega registrada, pagamento conferível e menos dependência de conversa solta. Parece óbvio, mas o mercado ainda trata processo como se fosse bilhete colado na geladeira.
       </div>
     </section>
   </main>
@@ -208,42 +162,17 @@
   <footer class="xgr-site-footer">
     <div class="xgr-site-footer__inner">
       <div class="xgr-site-footer__brand">&copy; 2023-2026 XGreat | Grupo XGR. Todos os direitos reservados.</div>
-      <nav class="xgr-site-footer__links" aria-label="Links institucionais">
-        <a href="privacidade.html">Privacidade</a>
-        <a href="cookies.html">Cookies</a>
-        <a href="contato.html">Contato</a>
-        <a class="xgr-site-footer__social" href="https://www.instagram.com/xgreat.digital?igsh=bjJqa28zZ3Z6ZmR3" target="_blank" rel="noopener noreferrer" aria-label="Instagram da XGR Digital">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5A3.5 3.5 0 1 0 12 15.5 3.5 3.5 0 0 0 12 8.5zm5.25-2.38a1.13 1.13 0 1 1 0 2.26 1.13 1.13 0 0 1 0-2.26z"></path></svg>
-          <span>Instagram</span>
-        </a>
-      </nav>
+      <nav class="xgr-site-footer__links" aria-label="Links institucionais"><a href="privacidade.html">Privacidade</a><a href="cookies.html">Cookies</a><a href="contato.html">Contato</a><a class="xgr-site-footer__social" href="https://www.instagram.com/xgreat.digital?igsh=bjJqa28zZ3Z6ZmR3" target="_blank" rel="noopener noreferrer" aria-label="Instagram da XGR Digital"><span>Instagram</span></a></nav>
     </div>
   </footer>
 
   <div class="xgr-cookie-banner" id="xgrCookieBanner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
-    <div class="xgr-cookie-banner__content">
-      <div class="xgr-cookie-banner__text">
-        Este site utiliza cookies e tecnologias semelhantes para funcionamento básico e medição de acesso.
-        Ao clicar em <strong>“Aceitar”</strong>, você concorda com o uso dessas tecnologias conforme nossa
-        <a href="cookies.html">Política de Cookies</a> e <a href="privacidade.html">Política de Privacidade</a>.
-      </div>
-      <div class="xgr-cookie-banner__actions">
-        <button class="xgr-cookie-btn" type="button" id="xgrCookieReject">Recusar</button>
-        <button class="xgr-cookie-btn primary" type="button" id="xgrCookieAccept">Aceitar</button>
-      </div>
-    </div>
+    <div class="xgr-cookie-banner__content"><div class="xgr-cookie-banner__text">Este site utiliza cookies e tecnologias semelhantes para funcionamento básico e medição de acesso. Ao clicar em <strong>“Aceitar”</strong>, você concorda com o uso dessas tecnologias conforme nossa <a href="cookies.html">Política de Cookies</a> e <a href="privacidade.html">Política de Privacidade</a>.</div><div class="xgr-cookie-banner__actions"><button class="xgr-cookie-btn" type="button" id="xgrCookieReject">Recusar</button><button class="xgr-cookie-btn primary" type="button" id="xgrCookieAccept">Aceitar</button></div></div>
   </div>
 
-  <div class="modal" id="caseModal" aria-hidden="true" role="dialog" aria-label="Visualização ampliada do case">
-    <div class="modal__dialog">
-      <button class="modal__close" type="button" id="caseModalClose" aria-label="Fechar imagem ampliada">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.71 12 12l6.3 6.29-1.42 1.42L10.59 13.4 4.29 19.71 2.87 18.3 9.17 12 2.87 5.71 4.29 4.29l6.3 6.3 6.29-6.3z"></path></svg>
-      </button>
-      <img class="modal__image" id="caseModalImage" src="" alt="">
-    </div>
-  </div>
+  <div class="modal" id="caseModal" aria-hidden="true" role="dialog" aria-label="Visualização ampliada do case"><div class="modal__dialog"><button class="modal__close" type="button" id="caseModalClose" aria-label="Fechar imagem ampliada"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.71 12 12l6.3 6.29-1.42 1.42L10.59 13.4 4.29 19.71 2.87 18.3 9.17 12 2.87 5.71 4.29 4.29l6.3 6.3 6.29-6.3z"></path></svg></button><img class="modal__image" id="caseModalImage" src="" alt=""></div></div>
 
-  <script src="assets/js/cookie-consent.js"></script>
+  <script src="assets/js/cookie-consent.js?v=4"></script>
   <script>
     (function () {
       var modal = document.getElementById('caseModal');
@@ -251,33 +180,15 @@
       var closeBtn = document.getElementById('caseModalClose');
       var triggers = document.querySelectorAll('.case-thumb');
       if (!modal || !modalImage || !closeBtn || !triggers.length) return;
-      function openModal(src, title) {
-        modalImage.src = src;
-        modalImage.alt = title || 'Imagem ampliada do case';
-        modal.classList.add('is-open');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-      }
-      function closeModal() {
-        modal.classList.remove('is-open');
-        modal.setAttribute('aria-hidden', 'true');
-        modalImage.src = '';
-        modalImage.alt = '';
-        document.body.style.overflow = '';
-      }
-      triggers.forEach(function (trigger) {
-        trigger.addEventListener('click', function () {
-          openModal(trigger.getAttribute('data-image'), trigger.getAttribute('data-title'));
-        });
-      });
+      function openModal(src, title) { modalImage.src = src; modalImage.alt = title || 'Imagem ampliada do case'; modal.classList.add('is-open'); modal.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; }
+      function closeModal() { modal.classList.remove('is-open'); modal.setAttribute('aria-hidden', 'true'); modalImage.src = ''; modalImage.alt = ''; document.body.style.overflow = ''; }
+      triggers.forEach(function (trigger) { trigger.addEventListener('click', function () { openModal(trigger.getAttribute('data-image'), trigger.getAttribute('data-title')); }); });
       closeBtn.addEventListener('click', closeModal);
       modal.addEventListener('click', function (event) { if (event.target === modal) closeModal(); });
       document.addEventListener('keydown', function (event) { if (event.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
     })();
   </script>
 
-  <a class="whatsapp-float" href="https://wa.me/5511912131177?text=Olá%2C%20vim%20pelo%20site%20da%20XGreat%20e%20quero%20falar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp" title="Falar no WhatsApp">
-    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.23c-.29-.14-1.69-.83-1.95-.92-.26-.1-.45-.14-.64.14-.19.29-.74.92-.91 1.11-.17.19-.33.22-.62.07-.29-.14-1.2-.44-2.29-1.39-.85-.76-1.42-1.69-1.59-1.98-.17-.29-.02-.45.13-.6.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.13-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-.95 2.43.05 1.43 1.02 2.81 1.16 3 .14.19 2 3.05 4.85 4.27.68.29 1.2.46 1.61.59.68.22 1.3.19 1.79.12.55-.08 1.69-.69 1.93-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33zM16.03 4.5c-6.34 0-11.48 5.12-11.48 11.43 0 2.02.53 3.99 1.53 5.71L4.5 27.5l5.99-1.56a11.5 11.5 0 0 0 5.54 1.42h.01c6.33 0 11.47-5.12 11.47-11.43 0-3.06-1.19-5.93-3.35-8.09A11.4 11.4 0 0 0 16.03 4.5zm0 20.93h-.01a9.54 9.54 0 0 1-4.86-1.33l-.35-.21-3.55.93.95-3.46-.23-.36a9.47 9.47 0 0 1-1.47-5.06c0-5.24 4.29-9.5 9.55-9.5 2.55 0 4.94.99 6.74 2.78a9.41 9.41 0 0 1 2.8 6.72c0 5.24-4.29 9.49-9.56 9.49z"/></svg>
-  </a>
+  <a class="whatsapp-float" href="https://wa.me/5511912131177?text=Olá%2C%20vim%20pelo%20site%20da%20XGreat%20e%20quero%20falar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp" title="Falar no WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.23c-.29-.14-1.69-.83-1.95-.92-.26-.1-.45-.14-.64.14-.19.29-.74.92-.91 1.11-.17.19-.33.22-.62.07-.29-.14-1.2-.44-2.29-1.39-.85-.76-1.42-1.69-1.59-1.98-.17-.29-.02-.45.13-.6.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.13-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-.95 2.43.05 1.43 1.02 2.81 1.16 3 .14.19 2 3.05 4.85 4.27.68.29 1.2.46 1.61.59.68.22 1.3.19 1.79.12.55-.08 1.69-.69 1.93-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33zM16.03 4.5c-6.34 0-11.48 5.12-11.48 11.43 0 2.02.53 3.99 1.53 5.71L4.5 27.5l5.99-1.56a11.5 11.5 0 0 0 5.54 1.42h.01c6.33 0 11.47-5.12 11.47-11.43 0-3.06-1.19-5.93-3.35-8.09A11.4 11.4 0 0 0 16.03 4.5zm0 20.93h-.01a9.54 9.54 0 0 1-4.86-1.33l-.35-.21-3.55.93.95-3.46-.23-.36a9.47 9.47 0 0 1-1.47-5.06c0-5.24 4.29-9.5 9.55-9.5 2.55 0 4.94.99 6.74 2.78a9.41 9.41 0 0 1 2.8 6.72c0 5.24-4.29 9.49-9.56 9.49z"/></svg></a>
 </body>
 </html>
