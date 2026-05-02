@@ -2,19 +2,20 @@
   text-align: center;
   padding: 26px 20px 14px;
   background: rgba(5, 8, 20, 0.3);
-}
-
-.brand-link {
-  display: inline-block;
   font-size: 3rem;
   font-weight: 900;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   font-family: "Trebuchet MS", Arial, sans-serif;
-  background: linear-gradient(110deg, #fff7cc, #f5d76e 28%, #53d8ff 58%, #ffffff 82%);
+  background-image: linear-gradient(110deg, #2d2412 0%, #c9a227 22%, #fff2b2 48%, #d4af37 72%, #0b0b0d 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 20px rgba(83, 216, 255, 0.2), 0 0 18px rgba(245, 215, 110, 0.18);
+  text-shadow: 0 0 18px rgba(245, 215, 110, 0.16), 0 0 22px rgba(0, 0, 0, 0.28);
+}
+
+.brand-link {
+  display: inline-block;
+  color: inherit;
   transition: transform 0.25s ease, filter 0.25s ease;
 }
 
@@ -89,12 +90,11 @@
   position: relative;
   overflow: hidden;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(227, 238, 255, 0.58)),
-    radial-gradient(circle at 18% 20%, rgba(83, 216, 255, 0.24), transparent 32%),
-    radial-gradient(circle at 88% 12%, rgba(245, 215, 110, 0.2), transparent 28%);
-  color: #101725;
-  border-color: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(14px);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.035)),
+    radial-gradient(circle at 18% 20%, rgba(245, 215, 110, 0.09), transparent 32%),
+    radial-gradient(circle at 88% 12%, rgba(0, 0, 0, 0.18), transparent 28%);
+  border-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
 }
 
 .home-hero-box::before {
@@ -102,10 +102,10 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(8, 17, 31, 0.06) 1px, transparent 1px),
-    linear-gradient(rgba(8, 17, 31, 0.05) 1px, transparent 1px);
+    linear-gradient(90deg, rgba(245, 215, 110, 0.055) 1px, transparent 1px),
+    linear-gradient(rgba(245, 215, 110, 0.04) 1px, transparent 1px);
   background-size: 36px 36px;
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,.7), transparent 85%);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,.72), transparent 85%);
   pointer-events: none;
 }
 
@@ -113,13 +113,12 @@
   position: relative;
 }
 
-.home-hero-box h1,
-.home-hero-box p {
-  color: #101725;
+.home-hero-box h1 {
+  color: #ffffff;
 }
 
 .home-hero-box p {
-  color: #253145;
+  color: #d6d9e0;
 }
 
 .hero-actions {
@@ -203,7 +202,7 @@
     font-size: 2.15rem;
   }
 
-  .brand-link {
+  .top-header {
     font-size: 2.35rem;
   }
 }
@@ -217,11 +216,8 @@
 
 @media (max-width: 600px) {
   .top-header {
-    padding: 22px 16px 12px;
-  }
-
-  .brand-link {
     font-size: 2rem;
+    padding: 22px 16px 12px;
   }
 
   .navbar {
@@ -259,8 +255,8 @@
 
 body.page-home {
   background:
-    linear-gradient(rgba(6, 12, 25, 0.58), rgba(6, 12, 25, 0.72)),
-    radial-gradient(circle at 18% 12%, rgba(83, 216, 255, 0.14), transparent 30%),
+    linear-gradient(rgba(6, 12, 25, 0.66), rgba(6, 12, 25, 0.78)),
+    radial-gradient(circle at 18% 12%, rgba(245, 215, 110, 0.08), transparent 30%),
     url('../../bg-xgr.jpg') no-repeat center center fixed;
   background-size: cover;
   background-color: #08111f;
