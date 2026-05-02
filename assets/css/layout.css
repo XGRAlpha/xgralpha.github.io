@@ -2,26 +2,72 @@
   text-align: center;
   padding: 26px 20px 14px;
   background: rgba(5, 8, 20, 0.3);
-  font-size: 3rem;
+  font-size: 3.25rem;
   font-weight: 900;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.035em;
   text-transform: uppercase;
-  font-family: "Trebuchet MS", Arial, sans-serif;
-  background-image: linear-gradient(110deg, #2d2412 0%, #c9a227 22%, #fff2b2 48%, #d4af37 72%, #0b0b0d 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 18px rgba(245, 215, 110, 0.16), 0 0 22px rgba(0, 0, 0, 0.28);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1;
 }
 
 .brand-link {
+  position: relative;
   display: inline-block;
-  color: inherit;
-  transition: transform 0.25s ease, filter 0.25s ease;
+  color: #d4af37;
+  background-image:
+    linear-gradient(115deg, #2a1606 0%, #8b5418 18%, #d59a32 34%, #fff0a8 48%, #a9651c 61%, #5a2c08 76%, #e1b04a 100%),
+    repeating-linear-gradient(35deg, rgba(255,255,255,.26) 0 2px, rgba(0,0,0,.18) 2px 5px, rgba(150,88,18,.28) 5px 9px);
+  background-blend-mode: overlay;
+  background-size: 180% 180%, 42px 42px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 2px 0 rgba(42, 22, 6, 0.92),
+    0 0 12px rgba(212, 175, 55, 0.18),
+    0 0 28px rgba(0, 0, 0, 0.52);
+  filter: drop-shadow(0 3px 1px rgba(0,0,0,.62));
+  animation: xgrGoldPulse 3.8s ease-in-out infinite;
+  transition: filter 0.25s ease, background-position 0.35s ease;
+}
+
+.brand-link::after {
+  content: "";
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: -8px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(245, 215, 110, 0.48), transparent);
+  opacity: 0.55;
 }
 
 .brand-link:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.08);
+  filter: drop-shadow(0 4px 2px rgba(0,0,0,.72)) brightness(1.08);
+  background-position: 100% 0, 0 0;
+}
+
+@keyframes xgrGoldPulse {
+  0%, 100% {
+    transform: scale(1);
+    text-shadow:
+      0 2px 0 rgba(42, 22, 6, 0.92),
+      0 0 10px rgba(212, 175, 55, 0.14),
+      0 0 24px rgba(0, 0, 0, 0.5);
+  }
+  48% {
+    transform: scale(1.018);
+    text-shadow:
+      0 2px 0 rgba(42, 22, 6, 0.96),
+      0 0 18px rgba(245, 215, 110, 0.3),
+      0 0 34px rgba(0, 0, 0, 0.62);
+  }
+  58% {
+    transform: scale(1.028);
+  }
+  68% {
+    transform: scale(1.012);
+  }
 }
 
 .navbar {
@@ -203,7 +249,7 @@
   }
 
   .top-header {
-    font-size: 2.35rem;
+    font-size: 2.45rem;
   }
 }
 
@@ -216,7 +262,7 @@
 
 @media (max-width: 600px) {
   .top-header {
-    font-size: 2rem;
+    font-size: 2.05rem;
     padding: 22px 16px 12px;
   }
 
