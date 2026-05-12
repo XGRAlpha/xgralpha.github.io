@@ -254,6 +254,14 @@ body.page-sobre {
   background-color: #050814;
 }
 
+body.page-modelo-negocio-local {
+  background:
+    linear-gradient(rgba(5, 8, 20, 0.48), rgba(5, 8, 20, 0.82)),
+    url('../../barberxgr.png') no-repeat center center fixed;
+  background-size: cover;
+  background-color: #050814;
+}
+
 body.page-projetos .hero,
 body.page-projetos .section { max-width: 1160px; }
 body.page-projetos .section-subtitle,
