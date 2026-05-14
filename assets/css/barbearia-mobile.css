@@ -1,17 +1,50 @@
 @media (max-width: 900px) {
   body.page-modelo-negocio-local {
+    position: relative;
+    background: #050814 !important;
+    background-image: none !important;
+    overflow-x: hidden;
+  }
+
+  body.page-modelo-negocio-local::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
     background:
-      linear-gradient(rgba(5, 8, 20, 0.28), rgba(5, 8, 20, 0.74)),
-      url('../../bg-barbearia-mobile-xgr.png') no-repeat top center scroll !important;
-    background-size: cover !important;
-    background-color: #050814 !important;
+      linear-gradient(rgba(5, 8, 20, 0.26), rgba(5, 8, 20, 0.74)),
+      url('../../bg-barbearia-mobile-xgr.png') no-repeat top center;
+    background-size: cover;
+    pointer-events: none;
+    transform: translateZ(0);
+  }
+
+  body.page-modelo-negocio-local::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(circle at 50% 12%, rgba(245, 215, 110, 0.10), transparent 34%),
+      linear-gradient(to bottom, rgba(5, 8, 20, 0.08), rgba(5, 8, 20, 0.42));
+    pointer-events: none;
+  }
+
+  body.page-modelo-negocio-local .top-header,
+  body.page-modelo-negocio-local .navbar,
+  body.page-modelo-negocio-local main,
+  body.page-modelo-negocio-local footer,
+  body.page-modelo-negocio-local .whatsapp-float {
+    position: relative;
+    z-index: 1;
   }
 
   body.page-modelo-negocio-local .hero-box,
   body.page-modelo-negocio-local .card,
   body.page-modelo-negocio-local .barber-editorial__text {
-    background-color: rgba(7, 9, 14, 0.72) !important;
+    background-color: rgba(7, 9, 14, 0.70) !important;
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
   body.page-modelo-negocio-local .hero {
