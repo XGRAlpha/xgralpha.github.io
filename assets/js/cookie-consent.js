@@ -46,12 +46,8 @@
     dropdown.appendChild(trigger);
     dropdown.appendChild(menu);
 
-    dropdown.addEventListener('mouseenter', function () {
-      trigger.setAttribute('aria-expanded', 'true');
-    });
-    dropdown.addEventListener('mouseleave', function () {
-      trigger.setAttribute('aria-expanded', 'false');
-    });
+    dropdown.addEventListener('mouseenter', function () { trigger.setAttribute('aria-expanded', 'true'); });
+    dropdown.addEventListener('mouseleave', function () { trigger.setAttribute('aria-expanded', 'false'); });
 
     trigger.addEventListener('click', function () {
       var expanded = trigger.getAttribute('aria-expanded') === 'true';
@@ -88,17 +84,12 @@
         return text === 'soluções' || text === 'solucoes';
       });
 
-      if (inicioLink && solucoesLink) {
-        navbar.insertBefore(createDropdown(), solucoesLink);
-      }
+      if (inicioLink && solucoesLink) navbar.insertBefore(createDropdown(), solucoesLink);
     });
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () {
-      normalizeHeader();
-      normalizeNav();
-    });
+    document.addEventListener('DOMContentLoaded', function () { normalizeHeader(); normalizeNav(); });
   } else {
     normalizeHeader();
     normalizeNav();
@@ -110,48 +101,16 @@
   var banner = document.getElementById('xgrCookieBanner');
   var acceptBtn = document.getElementById('xgrCookieAccept');
   var rejectBtn = document.getElementById('xgrCookieReject');
-
   if (!banner || !acceptBtn || !rejectBtn) return;
 
-  function hideBanner() {
-    banner.classList.remove('show');
-  }
+  function hideBanner() { banner.classList.remove('show'); }
+  function showBanner() { banner.classList.add('show'); }
+  function saveChoice(value) { try { localStorage.setItem(storageKey, value); } catch (e) { console.warn('Não foi possível salvar a preferência de cookies.', e); } }
+  function getChoice() { try { return localStorage.getItem(storageKey); } catch (e) { return null; } }
 
-  function showBanner() {
-    banner.classList.add('show');
-  }
-
-  function saveChoice(value) {
-    try {
-      localStorage.setItem(storageKey, value);
-    } catch (e) {
-      console.warn('Não foi possível salvar a preferência de cookies.', e);
-    }
-  }
-
-  function getChoice() {
-    try {
-      return localStorage.getItem(storageKey);
-    } catch (e) {
-      return null;
-    }
-  }
-
-  var choice = getChoice();
-
-  if (!choice) {
-    showBanner();
-  }
-
-  acceptBtn.addEventListener('click', function () {
-    saveChoice('accepted');
-    hideBanner();
-  });
-
-  rejectBtn.addEventListener('click', function () {
-    saveChoice('rejected');
-    hideBanner();
-  });
+  if (!getChoice()) showBanner();
+  acceptBtn.addEventListener('click', function () { saveChoice('accepted'); hideBanner(); });
+  rejectBtn.addEventListener('click', function () { saveChoice('rejected'); hideBanner(); });
 })();
 
 (function () {
@@ -178,15 +137,11 @@
         max-width: min(1500px, calc(100% - 96px)) !important;
       }
 
-      body[class*="page-modelo-"] .hero-box {
-        border-radius: 30px !important;
-      }
+      body[class*="page-modelo-"] .hero-box { border-radius: 30px !important; }
 
       body[class*="page-modelo-"] .hero-photo,
       body[class*="page-modelo-"] .editorial-photo,
-      body[class*="page-modelo-"] .care-photo {
-        min-height: 500px !important;
-      }
+      body[class*="page-modelo-"] .care-photo { min-height: 500px !important; }
 
       body[class*="page-modelo-"] .hero-photo img,
       body[class*="page-modelo-"] .editorial-photo img,
@@ -195,9 +150,7 @@
       }
 
       body[class*="page-modelo-"] .cards,
-      body[class*="page-modelo-"] .cards-3 {
-        gap: 28px !important;
-      }
+      body[class*="page-modelo-"] .cards-3 { gap: 28px !important; }
 
       body[class*="page-modelo-"] .promo-banner img {
         min-height: 340px;
@@ -281,6 +234,49 @@
       }
 
       @media (max-width: 900px) {
+        body[class*="page-modelo-"] .top-header {
+          padding: 12px 12px 8px !important;
+          font-size: 1.45rem !important;
+        }
+
+        body[class*="page-modelo-"] .brand-link::after { bottom: -4px !important; }
+
+        body[class*="page-modelo-"] .navbar {
+          display: flex !important;
+          align-items: center !important;
+          gap: 8px !important;
+          overflow-x: auto !important;
+          overflow-y: visible !important;
+          white-space: nowrap !important;
+          padding: 9px 10px !important;
+          text-align: left !important;
+          scrollbar-width: none;
+        }
+
+        body[class*="page-modelo-"] .navbar::-webkit-scrollbar { display: none; }
+
+        body[class*="page-modelo-"] .navbar a,
+        body[class*="page-modelo-"] .nav-dropdown__trigger {
+          margin: 0 !important;
+          padding: 8px 10px !important;
+          border-radius: 999px !important;
+          background: rgba(255,255,255,.06) !important;
+          font-size: .82rem !important;
+          flex: 0 0 auto !important;
+        }
+
+        body[class*="page-modelo-"] .nav-dropdown { flex: 0 0 auto !important; }
+        body[class*="page-modelo-"] .nav-dropdown__menu {
+          position: fixed !important;
+          top: 96px !important;
+          left: 12px !important;
+          right: 12px !important;
+          transform: none !important;
+          width: auto !important;
+          min-width: 0 !important;
+          z-index: 4000 !important;
+        }
+
         body[class*="page-modelo-"] .hero,
         body[class*="page-modelo-"] .section,
         body[class*="page-modelo-"] .promo-banner,
@@ -289,7 +285,56 @@
         body.page-modelo-negocio-local .barber-editorial,
         body.page-modelo-comida-local .food-editorial,
         body.page-modelo-estetica-saude .clinic-editorial {
-          max-width: calc(100% - 28px) !important;
+          max-width: calc(100% - 24px) !important;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+        }
+
+        body[class*="page-modelo-"] .hero { padding-top: 28px !important; }
+        body[class*="page-modelo-"] .hero-box { padding: 20px !important; border-radius: 22px !important; }
+        body[class*="page-modelo-"] .hero h1 { font-size: 2rem !important; line-height: 1.12 !important; }
+        body[class*="page-modelo-"] .hero p { font-size: .96rem !important; line-height: 1.6 !important; }
+
+        body.page-modelo-negocio-local {
+          background:
+            linear-gradient(rgba(5, 8, 20, .58), rgba(5, 8, 20, .88)),
+            url('../../barberxgr.png') no-repeat top center scroll !important;
+          background-size: 100% auto !important;
+          background-color: #050814 !important;
+        }
+
+        body[class*="page-modelo-"] .hero-photo,
+        body[class*="page-modelo-"] .editorial-photo,
+        body[class*="page-modelo-"] .care-photo,
+        body.page-modelo-negocio-local .barber-editorial__image,
+        body.page-modelo-comida-local .food-editorial__image,
+        body.page-modelo-estetica-saude .clinic-editorial__image {
+          min-height: 0 !important;
+          height: auto !important;
+          border-radius: 20px !important;
+        }
+
+        body[class*="page-modelo-"] .hero-photo img,
+        body[class*="page-modelo-"] .editorial-photo img,
+        body[class*="page-modelo-"] .care-photo img,
+        body.page-modelo-negocio-local .barber-editorial__image img,
+        body.page-modelo-comida-local .food-editorial__image img,
+        body.page-modelo-estetica-saude .clinic-editorial__image img,
+        body[class*="page-modelo-"] .promo-banner img {
+          width: 100% !important;
+          height: auto !important;
+          min-height: 0 !important;
+          aspect-ratio: 16 / 10 !important;
+          object-fit: cover !important;
+          object-position: center center !important;
+          display: block !important;
+        }
+
+        body.page-modelo-petshop-local .hero-photo img,
+        body.page-modelo-estetica-saude .hero-photo img,
+        body.page-modelo-comida-local .hero-photo img,
+        body.page-modelo-moda-local .hero-photo img {
+          object-position: center center !important;
         }
 
         body.page-modelo-negocio-local .barber-editorial,
@@ -297,6 +342,34 @@
         body.page-modelo-estetica-saude .clinic-editorial {
           grid-template-columns: 1fr;
           text-align: center;
+          margin-bottom: 42px !important;
+        }
+
+        body.page-modelo-negocio-local .barber-editorial__text,
+        body.page-modelo-comida-local .food-editorial__text,
+        body.page-modelo-estetica-saude .clinic-editorial__text,
+        body[class*="page-modelo-"] .lead-demo__box {
+          padding: 22px !important;
+          border-radius: 20px !important;
+        }
+
+        body[class*="page-modelo-"] .cards,
+        body[class*="page-modelo-"] .cards-3,
+        body[class*="page-modelo-"] .care-strip__box {
+          grid-template-columns: 1fr !important;
+          gap: 14px !important;
+        }
+
+        body[class*="page-modelo-"] .whatsapp-float {
+          right: 12px !important;
+          bottom: 12px !important;
+          width: 54px !important;
+          height: 54px !important;
+        }
+
+        body[class*="page-modelo-"] .whatsapp-float svg {
+          width: 43px !important;
+          height: 43px !important;
         }
       }
     `;
@@ -305,16 +378,9 @@
 
   function swapEditorialImages() {
     var swaps = {
-      'modelo-moda-local.html': [
-        ['.editorial-photo img', 'editorial-moda-xgr.png'],
-        ['.promo-banner img', 'banner-moda-xgr.png']
-      ],
-      'modelo-petshop-local.html': [
-        ['.care-photo img', 'editorial-petshop-xgr.png'],
-        ['.promo-banner img', 'banner-petshop-xgr.png']
-      ]
+      'modelo-moda-local.html': [['.editorial-photo img', 'editorial-moda-xgr.png'], ['.promo-banner img', 'banner-moda-xgr.png']],
+      'modelo-petshop-local.html': [['.care-photo img', 'editorial-petshop-xgr.png'], ['.promo-banner img', 'banner-petshop-xgr.png']]
     };
-
     (swaps[path] || []).forEach(function (item) {
       var img = document.querySelector(item[0]);
       if (img) img.src = item[1];
@@ -324,20 +390,17 @@
   function insertEditorialSections() {
     var configs = {
       'modelo-negocio-local.html': {
-        className: 'barber-editorial',
-        image: 'editorial-barbearia-xgr.png',
+        className: 'barber-editorial', image: 'editorial-barbearia-xgr.png',
         title: 'Ambiente, estilo e serviço no mesmo lugar',
         text: 'Esta seção pode mostrar fotos reais da barbearia, detalhes do atendimento, cadeira, ferramentas, espaço físico e diferenciais. É o tipo de bloco que transforma “faço corte” em presença profissional.'
       },
       'modelo-comida-local.html': {
-        className: 'food-editorial',
-        image: 'editorial-comida-xgr.png',
+        className: 'food-editorial', image: 'editorial-comida-xgr.png',
         title: 'Imagem que dá fome e organiza o pedido',
         text: 'Aqui entram fotos reais do cardápio, produtos de maior saída, combos, encomendas e campanha da semana. Comida precisa parecer boa antes do cliente pedir, uma descoberta que alguns cardápios ainda tratam como segredo militar.'
       },
       'modelo-estetica-saude.html': {
-        className: 'clinic-editorial',
-        image: 'editorial-estetica-saude-xgr.png',
+        className: 'clinic-editorial', image: 'editorial-estetica-saude-xgr.png',
         title: 'Confiança antes do agendamento',
         text: 'Esta área pode mostrar ambiente, equipamentos, cuidado visual, equipe, credenciais e diferenciais da clínica. Para saúde e estética, limpeza visual vende segurança antes da primeira mensagem.'
       }
@@ -352,7 +415,6 @@
     var section = document.createElement('section');
     section.className = cfg.className;
     section.innerHTML = '<article class="' + cfg.className + '__text"><h2>' + cfg.title + '</h2><p>' + cfg.text + '</p></article><figure class="' + cfg.className + '__image"><img src="' + cfg.image + '" alt="Imagem editorial do modelo de landing page"></figure>';
-
     anchor.parentNode.insertBefore(section, anchor);
   }
 
@@ -362,9 +424,6 @@
     insertEditorialSections();
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', run);
-  } else {
-    run();
-  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+  else run();
 })();
