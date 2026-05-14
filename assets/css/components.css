@@ -623,3 +623,161 @@ body.page-contato .institutional-contact a:hover {
     font-size: 0.96rem;
   }
 }
+
+/* XGR landing models: real mobile fix, because JS styling was a circus with a clipboard */
+@media (max-width: 900px) {
+  body[class*="page-modelo-"] .top-header {
+    padding: 12px 12px 8px !important;
+    font-size: 1.45rem !important;
+  }
+
+  body[class*="page-modelo-"] .brand-link::after {
+    bottom: -4px !important;
+  }
+
+  body[class*="page-modelo-"] .navbar {
+    position: sticky !important;
+    top: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    white-space: nowrap !important;
+    padding: 9px 10px !important;
+    text-align: left !important;
+    scrollbar-width: none !important;
+  }
+
+  body[class*="page-modelo-"] .navbar::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  body[class*="page-modelo-"] .navbar a,
+  body[class*="page-modelo-"] .nav-dropdown__trigger {
+    margin: 0 !important;
+    padding: 8px 10px !important;
+    border-radius: 999px !important;
+    background: rgba(255,255,255,.07) !important;
+    font-size: .82rem !important;
+    flex: 0 0 auto !important;
+  }
+
+  body[class*="page-modelo-"] .nav-dropdown {
+    flex: 0 0 auto !important;
+  }
+
+  body[class*="page-modelo-"] .nav-dropdown__menu {
+    position: fixed !important;
+    top: 90px !important;
+    left: 12px !important;
+    right: 12px !important;
+    transform: none !important;
+    width: auto !important;
+    min-width: 0 !important;
+    z-index: 4000 !important;
+  }
+
+  body[class*="page-modelo-"] .hero,
+  body[class*="page-modelo-"] .section,
+  body[class*="page-modelo-"] .promo-banner,
+  body[class*="page-modelo-"] .lead-demo,
+  body[class*="page-modelo-"] .care-strip,
+  body.page-modelo-negocio-local .barber-editorial,
+  body.page-modelo-comida-local .food-editorial,
+  body.page-modelo-estetica-saude .clinic-editorial {
+    max-width: calc(100% - 24px) !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  body[class*="page-modelo-"] .hero {
+    padding-top: 28px !important;
+  }
+
+  body[class*="page-modelo-"] .hero-box {
+    padding: 20px !important;
+    border-radius: 22px !important;
+  }
+
+  body[class*="page-modelo-"] .hero h1 {
+    font-size: 2rem !important;
+    line-height: 1.12 !important;
+  }
+
+  body[class*="page-modelo-"] .hero p {
+    font-size: .96rem !important;
+    line-height: 1.6 !important;
+  }
+
+  body.page-modelo-negocio-local {
+    background:
+      linear-gradient(rgba(5, 8, 20, .54), rgba(5, 8, 20, .92)),
+      url('../../barberxgr.png') no-repeat top center scroll !important;
+    background-size: cover !important;
+    background-color: #050814 !important;
+  }
+
+  body[class*="page-modelo-"] .hero-photo,
+  body[class*="page-modelo-"] .editorial-photo,
+  body[class*="page-modelo-"] .care-photo,
+  body.page-modelo-negocio-local .barber-editorial__image,
+  body.page-modelo-comida-local .food-editorial__image,
+  body.page-modelo-estetica-saude .clinic-editorial__image {
+    min-height: 0 !important;
+    height: auto !important;
+    border-radius: 20px !important;
+    background: rgba(255,255,255,.32) !important;
+  }
+
+  body[class*="page-modelo-"] .hero-photo img,
+  body[class*="page-modelo-"] .editorial-photo img,
+  body[class*="page-modelo-"] .care-photo img,
+  body.page-modelo-negocio-local .barber-editorial__image img,
+  body.page-modelo-comida-local .food-editorial__image img,
+  body.page-modelo-estetica-saude .clinic-editorial__image img,
+  body[class*="page-modelo-"] .promo-banner img {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 16 / 9 !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    display: block !important;
+  }
+
+  body.page-modelo-negocio-local .barber-editorial,
+  body.page-modelo-comida-local .food-editorial,
+  body.page-modelo-estetica-saude .clinic-editorial {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+    margin-bottom: 42px !important;
+  }
+
+  body.page-modelo-negocio-local .barber-editorial__text,
+  body.page-modelo-comida-local .food-editorial__text,
+  body.page-modelo-estetica-saude .clinic-editorial__text,
+  body[class*="page-modelo-"] .lead-demo__box {
+    padding: 22px !important;
+    border-radius: 20px !important;
+  }
+
+  body[class*="page-modelo-"] .cards,
+  body[class*="page-modelo-"] .cards-3,
+  body[class*="page-modelo-"] .care-strip__box {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  body[class*="page-modelo-"] .whatsapp-float {
+    right: 12px !important;
+    bottom: 12px !important;
+    width: 54px !important;
+    height: 54px !important;
+  }
+
+  body[class*="page-modelo-"] .whatsapp-float svg {
+    width: 43px !important;
+    height: 43px !important;
+  }
+}
