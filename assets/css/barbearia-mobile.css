@@ -48,9 +48,10 @@
   body.page-modelo-negocio-local .hero-box,
   body.page-modelo-negocio-local .card,
   body.page-modelo-negocio-local .barber-editorial__text {
-    background-color: rgba(7, 9, 14, 0.66) !important;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background-color: rgba(7, 9, 14, 0.46) !important;
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    border-color: rgba(255, 255, 255, 0.10) !important;
   }
 
   body.page-modelo-negocio-local .hero {
