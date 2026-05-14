@@ -1,0 +1,26 @@
+@media (max-width: 900px) {
+  body.page-modelo-negocio-local {
+    background:
+      linear-gradient(rgba(5, 8, 20, 0.28), rgba(5, 8, 20, 0.74)),
+      url('../../bg-barbearia-mobile-xgr.png') no-repeat top center scroll !important;
+    background-size: cover !important;
+    background-color: #050814 !important;
+  }
+
+  body.page-modelo-negocio-local .hero-box,
+  body.page-modelo-negocio-local .card,
+  body.page-modelo-negocio-local .barber-editorial__text {
+    background-color: rgba(7, 9, 14, 0.72) !important;
+    backdrop-filter: blur(8px);
+  }
+
+  body.page-modelo-negocio-local .hero {
+    padding-top: 24px !important;
+  }
+
+  body.page-modelo-negocio-local .hero h1,
+  body.page-modelo-negocio-local .section-title,
+  body.page-modelo-negocio-local .card h3 {
+    text-shadow: 0 3px 14px rgba(0, 0, 0, 0.45);
+  }
+}
