@@ -4,9 +4,9 @@ html {
 
 body.page-modelo-negocio-local {
   background:
-    linear-gradient(rgba(5, 8, 20, 0.20), rgba(5, 8, 20, 0.48)),
-    url('../../barberxgr.png') no-repeat center center scroll !important;
-  background-size: cover !important;
+    linear-gradient(rgba(5, 8, 20, 0.24), rgba(5, 8, 20, 0.52)),
+    url('../../barberxgr.png') no-repeat top center scroll !important;
+  background-size: 100% auto !important;
   background-color: #050814 !important;
 }
 
@@ -75,10 +75,23 @@ body.page-modelo-negocio-local .card p {
   body.page-modelo-negocio-local .top-header,
   body.page-modelo-negocio-local .navbar,
   body.page-modelo-negocio-local main,
-  body.page-modelo-negocio-local footer,
-  body.page-modelo-negocio-local .whatsapp-float {
+  body.page-modelo-negocio-local footer {
     position: relative;
     z-index: 2;
+  }
+
+  body.page-modelo-negocio-local .whatsapp-float {
+    position: fixed !important;
+    right: 14px !important;
+    bottom: 14px !important;
+    width: 58px !important;
+    height: 58px !important;
+    z-index: 9999 !important;
+  }
+
+  body.page-modelo-negocio-local .whatsapp-float svg {
+    width: 46px !important;
+    height: 46px !important;
   }
 
   body.page-modelo-negocio-local .hero-box,
