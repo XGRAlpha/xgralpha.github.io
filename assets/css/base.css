@@ -28,3 +28,180 @@ a {
 button {
   font: inherit;
 }
+
+/* XGR 2026: identidade dark corporativa limpa */
+body.page-home,
+body.page-automacao,
+body.page-xgr-digital,
+body.page-xgr-automacao-bi,
+body.page-projetos,
+body.page-contato,
+body.page-sobre {
+  color: #eef4fb !important;
+  background:
+    radial-gradient(circle at 50% -8%, rgba(60, 82, 116, 0.28), transparent 34%),
+    radial-gradient(circle at 12% 18%, rgba(212, 175, 55, 0.055), transparent 24%),
+    radial-gradient(circle at 88% 22%, rgba(38, 107, 127, 0.12), transparent 30%),
+    linear-gradient(180deg, #07101f 0%, #091524 42%, #06101d 100%) !important;
+  background-attachment: scroll !important;
+  background-size: auto !important;
+}
+
+.top-header {
+  background: transparent !important;
+  padding: 28px 20px 10px !important;
+}
+
+.brand-link {
+  font-size: clamp(2.7rem, 5vw, 4.35rem) !important;
+  letter-spacing: .11em !important;
+  background-image:
+    linear-gradient(115deg, #4e2a08 0%, #a76d1e 22%, #f1c75c 42%, #fff2a9 50%, #d69a2f 62%, #7a430d 82%, #f0cc73 100%) !important;
+  background-size: 220% 220% !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  filter:
+    drop-shadow(0 2px 0 rgba(22, 14, 4, .95))
+    drop-shadow(0 0 15px rgba(214, 154, 47, .22)) !important;
+  text-shadow: none !important;
+}
+
+.brand-link::after {
+  background: linear-gradient(90deg, transparent, rgba(241, 199, 92, .68), transparent) !important;
+  opacity: .72 !important;
+}
+
+.navbar {
+  background: rgba(6, 10, 18, .74) !important;
+  border-top: 1px solid rgba(255,255,255,.06) !important;
+  border-bottom: 1px solid rgba(255,255,255,.08) !important;
+  backdrop-filter: blur(16px) !important;
+}
+
+.navbar a,
+.nav-dropdown__trigger {
+  color: rgba(238, 244, 251, .9) !important;
+}
+
+.navbar a:hover,
+.navbar a.active,
+.nav-dropdown:hover .nav-dropdown__trigger,
+.nav-dropdown:focus-within .nav-dropdown__trigger,
+.nav-dropdown.is-open .nav-dropdown__trigger {
+  color: #f1c75c !important;
+}
+
+.hero,
+.section,
+body.page-projetos .hero,
+body.page-projetos .section {
+  max-width: 1260px !important;
+}
+
+.hero {
+  padding-top: 78px !important;
+}
+
+.hero-box {
+  width: min(100%, 980px) !important;
+  margin: 0 auto !important;
+  background:
+    linear-gradient(135deg, rgba(18, 33, 52, .72), rgba(11, 22, 38, .54)) !important;
+  border: 1px solid rgba(241, 199, 92, .12) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 22px 60px rgba(0,0,0,.3) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.home-hero-box::before {
+  opacity: .26 !important;
+}
+
+.hero h1,
+.section-title {
+  color: #f4f7fb !important;
+  letter-spacing: -0.02em !important;
+}
+
+.hero p,
+.section-subtitle,
+.card p {
+  color: #9ba9ba !important;
+}
+
+.section {
+  padding-left: 32px !important;
+  padding-right: 32px !important;
+}
+
+.cards {
+  gap: 22px !important;
+}
+
+.cards-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+
+.card {
+  background: rgba(13, 28, 46, .74) !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 16px 38px rgba(0,0,0,.22) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+.front-card:first-child,
+.card:hover {
+  border-color: rgba(241, 199, 92, .34) !important;
+}
+
+.card h3 {
+  color: #eef4fb !important;
+}
+
+.card ul {
+  color: #9ba9ba !important;
+}
+
+.eyebrow,
+.case-status,
+body.page-contato .institutional-contact__label {
+  color: #f1c75c !important;
+  border-color: rgba(241, 199, 92, .24) !important;
+  background: rgba(241, 199, 92, .08) !important;
+}
+
+.btn-primary,
+.btn-whatsapp,
+body.page-projetos .case-thumb-badge,
+.xgr-cookie-btn.primary {
+  background: linear-gradient(135deg, #e5b93d, #fff0a3 48%, #c98921) !important;
+  color: #10141b !important;
+  border: 0 !important;
+}
+
+.btn-secondary,
+body.page-projetos .case-link,
+body.page-projetos .case-mini-link {
+  background: rgba(10, 21, 35, .56) !important;
+  border: 1px solid rgba(255,255,255,.13) !important;
+  color: #eef4fb !important;
+}
+
+.btn-secondary:hover,
+body.page-projetos .case-link:hover,
+body.page-projetos .case-mini-link:hover {
+  border-color: rgba(241, 199, 92, .4) !important;
+  color: #f1c75c !important;
+}
+
+.xgr-site-footer {
+  background: transparent !important;
+  border-top: 1px solid rgba(255,255,255,.07) !important;
+}
+
+@media (max-width: 940px) {
+  .cards-3 { grid-template-columns: 1fr !important; }
+  .section { padding-left: 18px !important; padding-right: 18px !important; }
+}
