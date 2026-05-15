@@ -248,16 +248,18 @@ body.page-projetos,
 body.page-contato,
 body.page-sobre {
   background:
-    linear-gradient(rgba(5, 8, 20, 0.68), rgba(5, 8, 20, 0.82)),
-    url('../../background_hitech_xgr.png') no-repeat center center fixed;
-  background-size: cover;
+    radial-gradient(circle at 50% 0%, rgba(45, 76, 112, 0.2), transparent 38%),
+    radial-gradient(circle at 85% 18%, rgba(40, 198, 153, 0.08), transparent 28%),
+    linear-gradient(180deg, #070d19 0%, #08111f 46%, #050814 100%);
+  background-size: auto;
+  background-attachment: scroll;
   background-color: #050814;
 }
 
 body.page-modelo-negocio-local {
   background:
     linear-gradient(rgba(5, 8, 20, 0.48), rgba(5, 8, 20, 0.82)),
-    url('../../barberxgr.png') no-repeat center center fixed;
+    url('../../barberxgr.png') no-repeat center center scroll;
   background-size: cover;
   background-color: #050814;
 }
