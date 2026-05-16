@@ -255,7 +255,7 @@ async function submitDiagnostic(e) {
       data = { message: textResponse.substring(0, 150) };
     }
 
-    if (!response.ok || data?.success === false) {
+    if (!response.ok || data?.success === false || (!data?.score && !data?.aiReport && !data?.level)) {
       throw new Error('Devido ao nível de segurança do seu site, não foi possível gerar um diagnóstico automatizado. Caso queira uma avaliação, nos contate pelo Whatsapp.');
     }
 
@@ -264,6 +264,7 @@ async function submitDiagnostic(e) {
     renderResult(finalData);
   } catch (error) {
     showStatus(error.message || 'Devido ao nível de segurança do seu site, não foi possível gerar um diagnóstico automatizado. Caso queira uma avaliação, nos contate pelo Whatsapp.', 'error');
+    resultSection.classList.remove('visible');
   } finally {
     setLoading(false);
   }
