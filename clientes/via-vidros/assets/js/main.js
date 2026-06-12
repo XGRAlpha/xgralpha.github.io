@@ -1,10 +1,15 @@
 const logoFix=document.createElement('style');
 logoFix.textContent=`
-  .brand{width:72px!important;height:72px!important;padding:6px!important;border-radius:16px!important;background:#fff!important;box-shadow:0 8px 24px #02081740!important;}
-  .brand img{width:58px!important;height:58px!important;max-width:58px!important;max-height:58px!important;object-fit:contain!important;}
-  @media(max-width:560px){.brand{width:58px!important;height:58px!important;border-radius:14px!important;padding:5px!important}.brand img{width:48px!important;height:48px!important;max-width:48px!important;max-height:48px!important}}
+  .brand{width:102px!important;height:102px!important;padding:8px!important;border-radius:18px!important;background:#fff!important;box-shadow:0 8px 24px #02081740!important;}
+  .brand img{width:86px!important;height:86px!important;max-width:86px!important;max-height:86px!important;object-fit:contain!important;}
+  .nav-wrap{height:102px!important;}
+  .site-nav{top:102px;}
+  @media(max-width:560px){.brand{width:80px!important;height:80px!important;border-radius:16px!important;padding:6px!important}.brand img{width:68px!important;height:68px!important;max-width:68px!important;max-height:68px!important}.nav-wrap{height:86px!important}.site-nav{top:86px!important}}
 `;
 document.head.appendChild(logoFix);
+
+const headerLogo=document.querySelector('.brand img');
+if(headerLogo){headerLogo.src='assets/img/ViaVidros_Logo2.png';}
 
 const faviconHref='assets/img/Favicon_VV2.png?v=2';
 document.querySelectorAll('link[rel="icon"],link[rel="shortcut icon"],link[rel="apple-touch-icon"]').forEach((link)=>{link.href=faviconHref;});
