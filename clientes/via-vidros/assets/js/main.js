@@ -1,3 +1,7 @@
+const faviconHref='assets/img/Favicon_VV2.png?v=2';
+document.querySelectorAll('link[rel="icon"],link[rel="shortcut icon"],link[rel="apple-touch-icon"]').forEach((link)=>{link.href=faviconHref;});
+if(!document.querySelector('link[rel="icon"]')){const icon=document.createElement('link');icon.rel='icon';icon.type='image/png';icon.href=faviconHref;document.head.appendChild(icon);}
+
 const year=document.querySelector('#year');if(year){year.textContent=new Date().getFullYear();}
 
 const menuToggle=document.querySelector('.menu-toggle');
