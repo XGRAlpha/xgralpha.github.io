@@ -1,3 +1,11 @@
+const logoFix=document.createElement('style');
+logoFix.textContent=`
+  .brand{width:72px!important;height:72px!important;padding:6px!important;border-radius:16px!important;background:#fff!important;box-shadow:0 8px 24px #02081740!important;}
+  .brand img{width:58px!important;height:58px!important;max-width:58px!important;max-height:58px!important;object-fit:contain!important;}
+  @media(max-width:560px){.brand{width:58px!important;height:58px!important;border-radius:14px!important;padding:5px!important}.brand img{width:48px!important;height:48px!important;max-width:48px!important;max-height:48px!important}}
+`;
+document.head.appendChild(logoFix);
+
 const faviconHref='assets/img/Favicon_VV2.png?v=2';
 document.querySelectorAll('link[rel="icon"],link[rel="shortcut icon"],link[rel="apple-touch-icon"]').forEach((link)=>{link.href=faviconHref;});
 if(!document.querySelector('link[rel="icon"]')){const icon=document.createElement('link');icon.rel='icon';icon.type='image/png';icon.href=faviconHref;document.head.appendChild(icon);}
