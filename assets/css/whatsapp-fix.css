@@ -1,0 +1,59 @@
+.whatsapp-float,
+body[class*="page-modelo-"] .whatsapp-float {
+  position: fixed !important;
+  right: 22px !important;
+  bottom: 22px !important;
+  width: 64px !important;
+  height: 64px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 10000 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 0 !important;
+  overflow: visible !important;
+}
+
+.whatsapp-float svg,
+body[class*="page-modelo-"] .whatsapp-float svg {
+  display: none !important;
+}
+
+.whatsapp-float::before,
+body[class*="page-modelo-"] .whatsapp-float::before {
+  content: "";
+  display: block;
+  width: 52px;
+  height: 52px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%2325d366' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='4.5' d='M32 7C17.6 7 6 18.1 6 31.8c0 5.1 1.6 9.8 4.4 13.8L7.2 57 19 54c3.8 1.8 8.2 2.8 13 2.8 14.4 0 26-11.1 26-25S46.4 7 32 7Z'/%3E%3C/g%3E%3Cpath fill='%2325d366' d='M24.6 18.8c-.9.1-1.7.5-2.3 1.2-1.3 1.3-2.3 3.1-2.3 5.3 0 7.3 8.9 16.9 17.8 19.1 2.3.6 4.5.2 6.1-1.1 1.2-.9 2.1-2.8 2.5-4.2.2-.8-.1-1.5-.8-1.9l-5.2-2.5c-.7-.3-1.5-.2-2 .4l-2.2 2.7c-4.3-1.8-7.8-5.2-10-9.5l2.6-2.1c.6-.5.8-1.3.5-2l-2.4-5.2c-.4-.7-1.1-1.1-1.9-1Z'/%3E%3C/svg%3E");
+  filter: drop-shadow(0 0 6px rgba(37, 211, 102, 0.35)) drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
+}
+
+.whatsapp-float:hover,
+body[class*="page-modelo-"] .whatsapp-float:hover {
+  transform: translateY(-3px) scale(1.06) !important;
+  filter: brightness(1.08) !important;
+}
+
+@media (max-width: 600px) {
+  .whatsapp-float,
+  body[class*="page-modelo-"] .whatsapp-float {
+    width: 58px !important;
+    height: 58px !important;
+    right: 14px !important;
+    bottom: 14px !important;
+  }
+
+  .whatsapp-float::before,
+  body[class*="page-modelo-"] .whatsapp-float::before {
+    width: 46px;
+    height: 46px;
+  }
+}
