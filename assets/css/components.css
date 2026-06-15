@@ -159,6 +159,13 @@ body[class*="page-modelo-"] .whatsapp-float {
   justify-content: center !important;
   z-index: 9999 !important;
   transition: transform 0.25s ease, filter 0.25s ease, opacity 0.25s ease;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 0 !important;
 }
 
 .whatsapp-float:hover,
@@ -172,9 +179,16 @@ body[class*="page-modelo-"] .whatsapp-float svg {
   width: 52px !important;
   height: 52px !important;
   fill: #25d366;
+  display: block !important;
+  transform: none !important;
   filter:
     drop-shadow(0 0 6px rgba(37, 211, 102, 0.35))
     drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
+}
+
+body.page-projetos .whatsapp-float svg[viewBox="0 0 32 32"] {
+  transform: translate(0, 0) scale(1) !important;
+  transform-origin: center center !important;
 }
 
 .xgr-site-footer__brand { color: rgba(255,255,255,.72); font-size: 14px; line-height: 1.6; }
