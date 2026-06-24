@@ -78,6 +78,26 @@
         else if (solucoesLink) navbar.insertBefore(createDropdown(), solucoesLink);
       }
 
+      var allLinks = Array.prototype.slice.call(navbar.querySelectorAll('a'));
+      var hasCrm = allLinks.some(function (link) {
+        return (link.getAttribute('href') || '').indexOf('crm-comercial.html') !== -1;
+      });
+      if (!hasCrm) {
+        var crm = document.createElement('a');
+        crm.href = 'crm-comercial.html';
+        crm.textContent = 'CRM Comercial';
+        if (currentPath === 'crm-comercial.html') crm.className = 'active';
+        var diagRef = Array.prototype.slice.call(navbar.querySelectorAll('a')).find(function (link) {
+          return (link.getAttribute('href') || '') === 'diagnostico-xgreat.html';
+        });
+        var projetosRef = Array.prototype.slice.call(navbar.querySelectorAll('a')).find(function (link) {
+          return (link.getAttribute('href') || '') === 'projetos.html';
+        });
+        if (diagRef) navbar.insertBefore(crm, diagRef);
+        else if (projetosRef) navbar.insertBefore(crm, projetosRef);
+        else navbar.appendChild(crm);
+      }
+
       var hasDiag = Array.prototype.slice.call(navbar.querySelectorAll('a')).some(function (link) {
         return (link.getAttribute('href') || '').indexOf('diagnostico-xgreat.html') !== -1;
       });
@@ -117,7 +137,24 @@
     cases.appendChild(article);
   }
 
-  function runNavigationFixes() { normalizeHeader(); normalizeNav(); normalizeFooter(); addViaVidrosCase(); }
+  function addCrmVisualFix() {
+    if (!document.body.classList.contains('page-crm-comercial') || document.getElementById('xgrCrmVisualFix')) return;
+    var style = document.createElement('style');
+    style.id = 'xgrCrmVisualFix';
+    style.textContent = [
+      'body.page-crm-comercial .crm-board{min-width:0}',
+      'body.page-crm-comercial .crm-pipeline{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}',
+      'body.page-crm-comercial .crm-stage{min-width:0;padding:10px;overflow:hidden}',
+      'body.page-crm-comercial .crm-stage h3{font-size:.72rem;line-height:1.22;letter-spacing:.03em;overflow-wrap:anywhere}',
+      'body.page-crm-comercial .crm-lead{padding:9px;font-size:.78rem;line-height:1.35;overflow-wrap:anywhere;word-break:normal}',
+      'body.page-crm-comercial .crm-lead strong{font-size:.78rem;line-height:1.25;overflow-wrap:anywhere}',
+      '@media (min-width:901px){body.page-crm-comercial .crm-hero-grid{grid-template-columns:minmax(0,1fr) minmax(430px,.95fr)}}',
+      '@media (max-width:1100px) and (min-width:901px){body.page-crm-comercial .crm-board{transform:scale(.96);transform-origin:center right}}'
+    ].join('');
+    document.head.appendChild(style);
+  }
+
+  function runNavigationFixes() { normalizeHeader(); normalizeNav(); normalizeFooter(); addViaVidrosCase(); addCrmVisualFix(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', runNavigationFixes);
   else runNavigationFixes();
 })();
