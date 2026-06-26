@@ -3,6 +3,56 @@
   const menuToggle = document.getElementById('menuToggle');
   const nav = document.getElementById('mainNav');
 
+  function injectTypography(){
+    const fontLink = document.createElement('link');
+    fontLink.rel = 'stylesheet';
+    fontLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap';
+    document.head.appendChild(fontLink);
+
+    const style = document.createElement('style');
+    style.textContent = `
+      :root{
+        --font-title:'Sora',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+        --font-body:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      }
+      body{font-family:var(--font-body);font-weight:500;letter-spacing:-.01em;}
+      .hero-copy h1{
+        font-family:var(--font-title);
+        font-size:clamp(2.75rem,5.15vw,5.35rem);
+        line-height:.98;
+        letter-spacing:-.065em;
+        font-weight:800;
+        max-width:780px;
+      }
+      .section-head h2,.section-copy h2,.contact-card h2,.final-cta h2{
+        font-family:var(--font-title);
+        font-size:clamp(2rem,3.65vw,3.45rem);
+        line-height:1.04;
+        letter-spacing:-.055em;
+        font-weight:800;
+      }
+      .brand-copy strong,.brand-mark,.trust-grid strong,.about-list strong,.feature-grid strong,.service-card h3,.problem-card h3,.step h3,.testimonial strong,.product-grid div,.hero-service-card strong,.floating-proof strong{
+        font-family:var(--font-title);
+        font-weight:700;
+        letter-spacing:-.035em;
+      }
+      .eyebrow,.section-kicker,.media-slot span,.media-placeholder span,.hero-service-card span,.main-nav a,.btn{
+        font-family:var(--font-title);
+        font-weight:700;
+        letter-spacing:.055em;
+      }
+      .main-nav a,.btn{letter-spacing:.015em;}
+      .hero-copy p,.section-head p,.section-copy p,.final-cta p{font-weight:500;letter-spacing:-.015em;}
+      @media (max-width:560px){
+        .hero-copy h1{font-size:clamp(2.45rem,12vw,3.35rem);line-height:1;}
+        .section-head h2,.section-copy h2,.contact-card h2,.final-cta h2{font-size:clamp(1.95rem,9vw,2.6rem);}
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  injectTypography();
+
   function setHeaderState(){
     if(!header) return;
     header.classList.toggle('is-scrolled', window.scrollY > 12);
