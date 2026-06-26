@@ -6,6 +6,17 @@
   let backToTop = null;
 
   function addStyles(){
+    const favicon = document.createElement('link');
+    favicon.rel = 'icon';
+    favicon.type = 'image/png';
+    favicon.href = 'assets/img/Favicom_FE.png?v=1';
+    document.head.appendChild(favicon);
+
+    const appleIcon = document.createElement('link');
+    appleIcon.rel = 'apple-touch-icon';
+    appleIcon.href = 'assets/img/Favicom_FE.png?v=1';
+    document.head.appendChild(appleIcon);
+
     const fonts = document.createElement('link');
     fonts.rel = 'stylesheet';
     fonts.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap';
