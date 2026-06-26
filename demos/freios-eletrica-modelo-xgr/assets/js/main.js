@@ -43,6 +43,11 @@
       }
       .main-nav a,.btn{letter-spacing:.015em;}
       .hero-copy p,.section-head p,.section-copy p,.final-cta p{font-weight:500;letter-spacing:-.015em;}
+      .hero-media.has-video .media-placeholder,
+      .hero-media.has-poster .media-placeholder{display:none;}
+      .hero-media.has-poster{background-size:cover;background-position:center;}
+      .hero-media video{z-index:0;}
+      .hero-media .hero-service-card{z-index:3;}
       @media (max-width:560px){
         .hero-copy h1{font-size:clamp(2.45rem,12vw,3.35rem);line-height:1;}
         .section-head h2,.section-copy h2,.contact-card h2,.final-cta h2{font-size:clamp(1.95rem,9vw,2.6rem);}
@@ -113,41 +118,48 @@
 
   document.querySelectorAll('[data-bg]').forEach(loadBackground);
 
+  function showPoster(hero, posterSrc, posterFallback){
+    if(!posterSrc) return;
+    preloadImage(posterSrc)
+      .catch(function(){
+        return posterFallback ? preloadImage(posterFallback) : Promise.reject();
+      })
+      .then(function(loadedSrc){
+        hero.style.backgroundImage = "url('" + loadedSrc + "')";
+        hero.classList.add('has-poster');
+      })
+      .catch(function(){
+        hero.classList.add('is-missing');
+      });
+  }
+
   function loadHeroVideo(hero){
     const videoSrc = hero.getAttribute('data-video');
     const posterSrc = hero.getAttribute('data-poster');
     const posterFallback = mediaFallback(posterSrc);
-    if(!videoSrc) return;
+    if(!videoSrc) return showPoster(hero, posterSrc, posterFallback);
 
-    fetch(videoSrc, { method: 'HEAD' })
-      .then(function(response){
-        if(!response.ok) throw new Error('video missing');
-        const video = document.createElement('video');
-        video.src = videoSrc;
-        if(posterSrc) video.poster = posterFallback || posterSrc;
-        video.autoplay = true;
-        video.muted = true;
-        video.loop = true;
-        video.playsInline = true;
-        video.setAttribute('aria-hidden', 'true');
-        hero.prepend(video);
-        hero.classList.add('has-video');
-      })
-      .catch(function(){
-        if(!posterSrc) return;
+    const video = document.createElement('video');
+    video.src = videoSrc;
+    if(posterSrc) video.poster = posterFallback || posterSrc;
+    video.autoplay = true;
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.preload = 'auto';
+    video.setAttribute('aria-hidden', 'true');
 
-        preloadImage(posterSrc)
-          .catch(function(){
-            return posterFallback ? preloadImage(posterFallback) : Promise.reject();
-          })
-          .then(function(loadedSrc){
-            hero.style.backgroundImage = "url('" + loadedSrc + "')";
-            hero.classList.add('has-poster');
-          })
-          .catch(function(){
-            hero.classList.add('is-missing');
-          });
-      });
+    video.addEventListener('canplay', function(){
+      hero.prepend(video);
+      hero.classList.add('has-video');
+      video.play().catch(function(){});
+    }, { once: true });
+
+    video.addEventListener('error', function(){
+      showPoster(hero, posterSrc, posterFallback);
+    }, { once: true });
+
+    video.load();
   }
 
   document.querySelectorAll('[data-video]').forEach(loadHeroVideo);
