@@ -8,6 +8,23 @@
     header.classList.toggle('is-scrolled', window.scrollY > 12);
   }
 
+  function mediaFallback(src){
+    if(!src) return null;
+    if(src.endsWith('.jpg')) return src.replace(/\.jpg$/, '.png');
+    if(src.endsWith('.jpeg')) return src.replace(/\.jpeg$/, '.png');
+    return null;
+  }
+
+  function preloadImage(src){
+    return new Promise(function(resolve, reject){
+      if(!src) return reject();
+      const img = new Image();
+      img.onload = function(){ resolve(src); };
+      img.onerror = reject;
+      img.src = src;
+    });
+  }
+
   setHeaderState();
   window.addEventListener('scroll', setHeaderState, { passive: true });
 
@@ -27,17 +44,21 @@
 
   function loadBackground(slot){
     const src = slot.getAttribute('data-bg');
+    const fallback = mediaFallback(src);
     if(!src) return;
 
-    const img = new Image();
-    img.onload = function(){
-      slot.style.backgroundImage = "url('" + src + "')";
-      slot.classList.add('is-loaded');
-    };
-    img.onerror = function(){
-      slot.classList.add('is-missing');
-    };
-    img.src = src;
+    preloadImage(src)
+      .catch(function(){
+        return fallback ? preloadImage(fallback) : Promise.reject();
+      })
+      .then(function(loadedSrc){
+        slot.style.backgroundImage = "url('" + loadedSrc + "')";
+        slot.classList.add('is-loaded');
+        slot.classList.remove('is-missing');
+      })
+      .catch(function(){
+        slot.classList.add('is-missing');
+      });
   }
 
   document.querySelectorAll('[data-bg]').forEach(loadBackground);
@@ -45,6 +66,7 @@
   function loadHeroVideo(hero){
     const videoSrc = hero.getAttribute('data-video');
     const posterSrc = hero.getAttribute('data-poster');
+    const posterFallback = mediaFallback(posterSrc);
     if(!videoSrc) return;
 
     fetch(videoSrc, { method: 'HEAD' })
@@ -52,7 +74,7 @@
         if(!response.ok) throw new Error('video missing');
         const video = document.createElement('video');
         video.src = videoSrc;
-        if(posterSrc) video.poster = posterSrc;
+        if(posterSrc) video.poster = posterFallback || posterSrc;
         video.autoplay = true;
         video.muted = true;
         video.loop = true;
@@ -62,14 +84,19 @@
         hero.classList.add('has-video');
       })
       .catch(function(){
-        if(posterSrc){
-          const img = new Image();
-          img.onload = function(){
-            hero.style.backgroundImage = "url('" + posterSrc + "')";
+        if(!posterSrc) return;
+
+        preloadImage(posterSrc)
+          .catch(function(){
+            return posterFallback ? preloadImage(posterFallback) : Promise.reject();
+          })
+          .then(function(loadedSrc){
+            hero.style.backgroundImage = "url('" + loadedSrc + "')";
             hero.classList.add('has-poster');
-          };
-          img.src = posterSrc;
-        }
+          })
+          .catch(function(){
+            hero.classList.add('is-missing');
+          });
       });
   }
 
