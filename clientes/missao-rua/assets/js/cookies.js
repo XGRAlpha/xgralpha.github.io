@@ -11,7 +11,7 @@
   var favicon=document.querySelector("link[rel='icon']")||document.createElement('link');
   favicon.rel='icon';
   favicon.type='image/svg+xml';
-  favicon.href='assets/img/logo-missao.svg';
+  favicon.href='assets/img/favicon-missao.svg?v=1';
   if(!favicon.parentNode){document.head.appendChild(favicon);}
 
   var style=document.createElement('style');
