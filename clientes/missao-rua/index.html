@@ -10,7 +10,7 @@
   <meta property="og:description" content="Projeto solidário com ações de doação, preparo de refeições e apoio a pessoas em situação de vulnerabilidade." />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#c66a1f" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/style.css?v=2" />
 </head>
 <body>
   <header class="topbar">
@@ -19,19 +19,25 @@
         <span class="brand__mark">MR</span>
         <span class="brand__text"><strong>Missão Rua</strong><span>Juntos somos mais fortes</span></span>
       </a>
-      <nav class="nav" aria-label="Menu principal">
-        <a class="active" href="index.html">Início</a>
-        <a href="sobre.html">Sobre</a>
-        <a href="como-ajudar.html">Como ajudar</a>
-        <a href="transparencia.html">Transparência</a>
-        <a href="contato.html">Contato</a>
-      </nav>
+      <div class="topbar__right">
+        <nav class="nav" aria-label="Menu principal">
+          <a class="active" href="index.html">Início</a>
+          <a href="sobre.html">Sobre</a>
+          <a href="como-ajudar.html">Como ajudar</a>
+          <a href="transparencia.html">Transparência</a>
+          <a href="contato.html">Contato</a>
+        </nav>
+        <a class="header-social" href="https://www.instagram.com/missao.rua/" target="_blank" rel="noopener noreferrer" aria-label="Instagram oficial da Missão Rua">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"></circle></svg>
+          <span class="sr-only">Instagram</span>
+        </a>
+      </div>
     </div>
   </header>
 
   <main>
     <section class="hero">
-      <div class="wrapper hero__grid">
+      <div class="wrapper--wide hero__grid">
         <div>
           <span class="kicker">Projeto solidário local</span>
           <h1>Pequenos gestos. Impacto real.</h1>
@@ -60,7 +66,7 @@
     </section>
 
     <section class="section section--tight">
-      <div class="wrapper callout">
+      <div class="wrapper--wide callout">
         <div>
           <h2>Você pode ajudar de várias formas.</h2>
           <p>Doação material, Pix, voluntariado, preparo de refeições, entrega ou simplesmente compartilhando a missão.</p>
@@ -70,7 +76,7 @@
     </section>
 
     <section class="section">
-      <div class="wrapper">
+      <div class="wrapper--wide">
         <div class="section__head">
           <div>
             <span class="kicker">Como a missão atua</span>
@@ -103,7 +109,7 @@
     </section>
 
     <section class="section">
-      <div class="wrapper split">
+      <div class="wrapper--wide split">
         <div>
           <span class="kicker">Participação</span>
           <h2>Cada pessoa entra com o que pode.</h2>
@@ -119,7 +125,7 @@
     </section>
 
     <section class="section section--tight">
-      <div class="wrapper callout">
+      <div class="wrapper--wide callout">
         <div>
           <h2>Ajude a missão a chegar mais longe.</h2>
           <p>Compartilhar também ajuda. Uma publicação pode chegar em alguém disposto a doar, participar ou apoiar a próxima ação.</p>
@@ -132,13 +138,18 @@
   <footer class="footer">
     <div class="footer__inner">
       <div>
-        <strong>Missão Rua</strong>
+        <strong class="footer__title">Missão Rua</strong>
         <p>Juntos somos mais fortes.</p>
+        <a class="footer-social" href="https://www.instagram.com/missao.rua/" target="_blank" rel="noopener noreferrer" aria-label="Instagram oficial da Missão Rua"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"></circle></svg><span>@missao.rua</span></a>
       </div>
-      <div class="credit">Projeto solidário desenvolvido por <a href="https://xgreat.com.br" target="_blank" rel="noopener noreferrer">XGR Digital</a>.</div>
+      <nav class="footer__links" aria-label="Links institucionais"><a href="sobre.html">Sobre</a><a href="como-ajudar.html">Como ajudar</a><a href="transparencia.html">Transparência</a><a href="contato.html">Contato</a><a href="privacidade.html">Privacidade</a><a href="cookies.html">Cookies</a><a href="termos.html">Termos</a></nav>
+      <div><strong class="footer__title">Projeto solidário</strong><p class="credit">Site solidário desenvolvido por <a href="https://xgreat.com.br" target="_blank" rel="noopener noreferrer">XGR Digital</a>.</p></div>
     </div>
   </footer>
 
-  <a class="float-action" href="https://www.instagram.com/missao.rua/" target="_blank" rel="noopener noreferrer">Enviar mensagem</a>
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Aviso de cookies"><p>Este site usa cookies técnicos para funcionamento básico e preferências. Veja a <a href="cookies.html">Política de Cookies</a>.</p><div class="cookie-actions"><button class="cookie-btn" id="cookieReject" type="button">Recusar</button><button class="cookie-btn primary" id="cookieAccept" type="button">Aceitar</button></div></div>
+  <a class="instagram-float" href="https://www.instagram.com/missao.rua/" target="_blank" rel="noopener noreferrer" aria-label="Instagram oficial"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"></circle></svg></a>
+  <a class="whatsapp-float" href="contato.html#whatsapp" aria-label="Falar pelo WhatsApp" title="WhatsApp da Missão Rua"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.4.7 4.7 1.9 6.7L3.5 29l6.7-1.8c1.8 1 3.8 1.5 5.9 1.5 7.2 0 13-5.7 13-12.8C29 8.7 23.2 3 16 3z"></path></svg></a>
+  <script src="assets/js/cookies.js?v=1"></script>
 </body>
 </html>
