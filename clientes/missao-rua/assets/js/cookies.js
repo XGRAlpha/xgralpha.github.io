@@ -8,12 +8,6 @@
     brand.style.backgroundRepeat='no-repeat';
   }
 
-  var favicon=document.querySelector("link[rel='icon']")||document.createElement('link');
-  favicon.rel='icon';
-  favicon.type='image/svg+xml';
-  favicon.href='assets/img/favicon-missao.svg?v=1';
-  if(!favicon.parentNode){document.head.appendChild(favicon);}
-
   var style=document.createElement('style');
   style.textContent=".instagram-float{display:none!important}.nav a[href='index.html']{order:1}.nav a[href='como-ajudar.html']{order:2}.nav a[href='transparencia.html']{order:3}.nav a[href='contato.html']{order:4}.nav a[href='sobre.html']{order:5}";
   document.head.appendChild(style);
