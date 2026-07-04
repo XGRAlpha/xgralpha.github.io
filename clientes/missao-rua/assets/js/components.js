@@ -1,69 +1,24 @@
 (function(){
-  const pages = {
-    'index.html': 'inicio',
-    '': 'inicio',
-    'como-ajudar.html': 'como-ajudar',
-    'transparencia.html': 'transparencia',
-    'contato.html': 'contato',
-    'sobre.html': 'sobre',
-    'privacidade.html': 'privacidade',
-    'cookies.html': 'cookies',
-    'termos.html': 'termos'
-  };
+  const pages={'index.html':'inicio','':'inicio','como-ajudar.html':'como-ajudar','transparencia.html':'transparencia','contato.html':'contato','sobre.html':'sobre','privacidade.html':'privacidade','cookies.html':'cookies','termos.html':'termos'};
+  const file=(location.pathname.split('/').pop()||'index.html');
+  const active=document.body.dataset.page||pages[file]||'inicio';
+  const nav=[['inicio','index.html','Início'],['como-ajudar','como-ajudar.html','Como ajudar'],['transparencia','transparencia.html','Transparência'],['contato','contato.html','Contato'],['sobre','sobre.html','Sobre']];
+  const instagram='https://www.instagram.com/missao.rua/';
+  const pixKey='214.790.088-75';
 
-  const file = (location.pathname.split('/').pop() || 'index.html');
-  const active = document.body.dataset.page || pages[file] || 'inicio';
+  const style=document.createElement('style');
+  style.textContent=`.site-icon{width:50px;height:50px;border-radius:50%;object-fit:cover;border:3px solid #7c3511;box-shadow:0 8px 22px rgba(126,62,16,.22);background:#ffe4a8}.smart-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.smart-card{position:relative;overflow:hidden;background:linear-gradient(145deg,#fffef8,#fff3df 70%,#f5dfb8);border:1px solid rgba(79,50,25,.14);box-shadow:0 16px 42px rgba(83,45,13,.09);border-radius:26px;padding:24px;display:flex;gap:18px;align-items:flex-start}.smart-card:after{content:'';position:absolute;right:-36px;bottom:-42px;width:128px;height:128px;border-radius:50%;background:rgba(198,106,31,.08)}.icon-badge{width:58px;height:58px;border-radius:20px;display:grid;place-items:center;background:linear-gradient(135deg,#fff6df,#f4c766);box-shadow:0 12px 26px rgba(83,45,13,.12);color:#11394a;flex:0 0 auto;font-weight:1000;font-size:1.25rem}.icon-badge svg{width:30px;height:30px;display:block}.smart-card h3,.smart-card p,.smart-card a,.smart-card button{position:relative;z-index:1}.smart-card h3{margin-bottom:6px}.smart-card p{margin-bottom:14px}.smart-card .btn{min-height:42px;padding:10px 15px;font-size:.92rem}.copy-status{display:block;margin-top:8px;font-size:.9rem;font-weight:800;color:#826851}.whatsapp-float{position:fixed!important;right:22px!important;bottom:22px!important;width:58px!important;height:58px!important;border-radius:50%!important;display:flex!important;align-items:center!important;justify-content:center!important;z-index:90!important;background:#25d366!important;color:#fff!important;font-weight:1000!important;font-size:1.45rem!important;box-shadow:0 16px 40px rgba(37,211,102,.28)!important;border:3px solid #fff!important}.whatsapp-float:hover{transform:translateY(-2px)}@media(max-width:900px){.smart-grid{grid-template-columns:1fr}.smart-card{padding:20px}.icon-badge{width:52px;height:52px}.whatsapp-float{right:16px!important;bottom:16px!important}}`;
+  document.head.appendChild(style);
 
-  const nav = [
-    ['inicio', 'index.html', 'Início'],
-    ['como-ajudar', 'como-ajudar.html', 'Como ajudar'],
-    ['transparencia', 'transparencia.html', 'Transparência'],
-    ['contato', 'contato.html', 'Contato'],
-    ['sobre', 'sobre.html', 'Sobre']
-  ];
+  const iconInstagram='<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"></circle></svg>';
 
-  const headerTarget = document.getElementById('site-header');
-  if(headerTarget){
-    headerTarget.innerHTML = `
-      <header class="topbar">
-        <div class="topbar__inner">
-          <a class="brand" href="index.html" aria-label="Página inicial da Missão Rua">
-            <img src="assets/img/logo-missao.svg" alt="" style="width:50px;height:50px;border-radius:50%;object-fit:cover;border:3px solid #7c3511;box-shadow:0 8px 22px rgba(126,62,16,.22);background:#ffe4a8;">
-            <span class="brand__text"><strong>Missão Rua</strong><span>Juntos somos mais fortes</span></span>
-          </a>
-          <div class="topbar__right">
-            <nav class="nav" aria-label="Menu principal">
-              ${nav.map(([key,href,label]) => `<a class="${active===key?'active':''}" href="${href}">${label}</a>`).join('')}
-            </nav>
-            <a class="header-social" href="https://www.instagram.com/missao.rua/" target="_blank" rel="noopener noreferrer" aria-label="Instagram oficial da Missão Rua">
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"></circle></svg>
-              <span class="sr-only">Instagram</span>
-            </a>
-          </div>
-        </div>
-      </header>`;
-  }
+  const headerTarget=document.getElementById('site-header');
+  if(headerTarget){headerTarget.innerHTML=`<header class="topbar"><div class="topbar__inner"><a class="brand" href="index.html" aria-label="Página inicial da Missão Rua"><img class="site-icon" src="assets/img/logo-missao.svg" alt=""><span class="brand__text"><strong>Missão Rua</strong><span>Juntos somos mais fortes</span></span></a><div class="topbar__right"><nav class="nav" aria-label="Menu principal">${nav.map(([key,href,label])=>`<a class="${active===key?'active':''}" href="${href}">${label}</a>`).join('')}</nav><a class="header-social" href="${instagram}" target="_blank" rel="noopener noreferrer" aria-label="Instagram oficial da Missão Rua">${iconInstagram}<span class="sr-only">Instagram</span></a></div></div></header>`;}
 
-  const footerTarget = document.getElementById('site-footer');
-  if(footerTarget){
-    footerTarget.innerHTML = `
-      <footer class="footer" style="min-height:160px;padding:70px 0 18px;display:flex;align-items:flex-end;">
-        <div class="footer__inner" style="align-items:end;">
-          <div>
-            <strong class="footer__title">Missão Rua</strong>
-            <p>Juntos somos mais fortes.</p>
-            <a class="footer-social" href="https://www.instagram.com/missao.rua/" target="_blank" rel="noopener noreferrer">@missao.rua</a>
-          </div>
-          <nav class="footer__links footer__links--policies" aria-label="Políticas">
-            <a href="privacidade.html">Privacidade</a>
-            <a href="cookies.html">Cookies</a>
-            <a href="termos.html">Termos</a>
-          </nav>
-          <div>
-            <strong class="footer__title">Projeto solidário</strong>
-            <p class="credit">Site solidário desenvolvido por <a href="https://xgreat.com.br" target="_blank" rel="noopener noreferrer">XGR Digital</a>.</p>
-          </div>
-        </div>
-      </footer>`;
-  }
+  const footerTarget=document.getElementById('site-footer');
+  if(footerTarget){footerTarget.innerHTML=`<footer class="footer" style="min-height:160px;padding:70px 0 18px;display:flex;align-items:flex-end;"><div class="footer__inner" style="align-items:end;"><div><strong class="footer__title">Missão Rua</strong><p>Juntos somos mais fortes.</p><a class="footer-social" href="${instagram}" target="_blank" rel="noopener noreferrer">@missao.rua</a></div><nav class="footer__links footer__links--policies" aria-label="Políticas"><a href="privacidade.html">Privacidade</a><a href="cookies.html">Cookies</a><a href="termos.html">Termos</a></nav><div><strong class="footer__title">Projeto solidário</strong><p class="credit">Site solidário desenvolvido por <a href="https://xgreat.com.br" target="_blank" rel="noopener noreferrer">XGR Digital</a>.</p></div></div></footer>`;}
+
+  if(!document.querySelector('.whatsapp-float')){const wa=document.createElement('a');wa.className='whatsapp-float';wa.href='contato.html#whatsapp';wa.setAttribute('aria-label','Falar pelo WhatsApp');wa.setAttribute('title','WhatsApp da Missão Rua');wa.textContent='☎';document.body.appendChild(wa);}
+
+  document.querySelectorAll('[data-copy-pix]').forEach(function(button){button.addEventListener('click',function(){const value=button.getAttribute('data-copy-pix')||pixKey;const status=document.querySelector(button.getAttribute('data-copy-target')||'');const done=function(){if(status){status.textContent='Chave Pix copiada.';}};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(value).then(done).catch(done);}else{const input=document.createElement('input');input.value=value;document.body.appendChild(input);input.select();document.execCommand('copy');document.body.removeChild(input);done();}});});
 })();
