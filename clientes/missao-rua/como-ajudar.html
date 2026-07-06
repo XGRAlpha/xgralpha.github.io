@@ -9,9 +9,102 @@
   <meta name="theme-color" content="#c66a1f">
   <link rel="icon" type="image/png" href="assets/img/Favicon_Missao.png?v=1">
   <link rel="stylesheet" href="assets/css/style.css?v=2">
+
+  <style>
+    .support-card {
+      cursor: pointer;
+      display: block;
+      padding: 0 !important;
+    }
+
+    .support-card summary {
+      list-style: none;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      padding: 24px;
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
+    }
+
+    .support-card summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .support-card summary::after {
+      content: "+";
+      margin-left: auto;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      color: #a74912;
+      font-weight: 1000;
+      box-shadow: 0 8px 18px rgba(83,45,13,.08);
+      flex: 0 0 auto;
+    }
+
+    .support-card[open] summary::after {
+      content: "−";
+    }
+
+    .support-card__content {
+      padding: 0 24px 24px 100px;
+      position: relative;
+      z-index: 1;
+      margin-top: -8px;
+    }
+
+    .support-card__content ul {
+      margin: 0;
+      padding: 14px 16px 14px 20px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.58);
+      border: 1px solid rgba(79,50,25,.10);
+      color: #6b5542;
+      display: grid;
+      gap: 7px;
+    }
+
+    .support-card__hint {
+      display: inline-flex;
+      margin-top: 10px;
+      font-size: .82rem;
+      font-weight: 900;
+      color: #a74912;
+    }
+
+    .support-icon {
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    @media(max-width:900px) {
+      .support-card summary {
+        padding: 20px;
+        gap: 14px;
+      }
+
+      .support-card__content {
+        padding: 0 20px 20px 86px;
+        margin-top: -4px;
+      }
+    }
+
+    @media(max-width:430px) {
+      .support-card__content {
+        padding-left: 20px;
+      }
+    }
+  </style>
 </head>
+
 <body data-page="como-ajudar">
 <div id="site-header"></div>
+
 <main>
   <section class="hero">
     <div class="wrapper--wide help-hero-grid">
@@ -19,29 +112,167 @@
         <span class="kicker">Como ajudar</span>
         <h1>Formas de apoio.</h1>
         <p class="lead">Você pode ajudar com doações, preparo das refeições, entrega, divulgação, parcerias e apoio financeiro.</p>
+
         <div class="actions">
           <button class="btn btn--primary" type="button" data-copy-pix="214.790.088-75" data-copy-target="#pixStatusAjuda">Copiar Pix</button>
           <a class="btn btn--ghost" href="https://www.instagram.com/missao.rua/" target="_blank" rel="noopener noreferrer">Ver Instagram</a>
         </div>
+
         <span class="copy-status" id="pixStatusAjuda">Chave Pix: 214.790.088-75</span>
       </div>
-      <div><img class="help-card-img" src="assets/img/Card_missao.png?v=101" alt="Formas de apoio da Missão Rua"></div>
+
+      <div>
+        <img class="help-card-img" src="assets/img/Card_missao.png?v=101" alt="Formas de apoio da Missão Rua">
+      </div>
     </div>
   </section>
+
   <section class="section">
     <div class="wrapper--wide smart-grid">
-      <article class="smart-card"><span class="icon-badge">1</span><div><h3>Roupas e cobertores</h3><p>Itens limpos e em bom estado ajudam principalmente em dias frios.</p></div></article>
-      <article class="smart-card"><span class="icon-badge">2</span><div><h3>Alimentos</h3><p>Doações ajudam no preparo das refeições e no apoio às ações.</p></div></article>
-      <article class="smart-card"><span class="icon-badge">3</span><div><h3>Utensílios</h3><p>Itens de apoio ajudam na organização, preparo e distribuição.</p></div></article>
-      <article class="smart-card"><span class="icon-badge">4</span><div><h3>Ração</h3><p>A missão também recebe ração para cães e gatos.</p></div></article>
-      <article class="smart-card"><span class="icon-badge">5</span><div><h3>Preparação</h3><p>Ajuda antes das entregas, separando itens e organizando refeições.</p></div></article>
-      <article class="smart-card"><span class="icon-badge">6</span><div><h3>Entrega</h3><p>Participação direta nas ações, com respeito e cuidado.</p></div></article>
-      <article class="smart-card"><span class="icon-badge"><img src="assets/img/insta.png?v=1" alt="Instagram"></span><div><h3>Compartilhamento</h3><p>Divulgar ajuda a missão a alcançar apoiadores, voluntários e parceiros.</p></div></article>
-      <article class="smart-card"><span class="icon-badge"><img src="assets/img/PixIco.png?v=1" alt="Pix"></span><div><h3>Contribuição via Pix</h3><p>Chave oficial: <strong>214.790.088-75</strong></p><button class="btn btn--primary" type="button" data-copy-pix="214.790.088-75" data-copy-target="#pixStatusCard">Copiar chave Pix</button><span class="copy-status" id="pixStatusCard">Clique para copiar.</span></div></article>
+
+      <details class="smart-card support-card">
+        <summary>
+          <span class="icon-badge support-icon">🧥</span>
+          <div>
+            <h3>Roupas e cobertores</h3>
+            <p>Itens limpos e em bom estado ajudam principalmente em dias frios.</p>
+            <span class="support-card__hint">Ver exemplos</span>
+          </div>
+        </summary>
+        <div class="support-card__content">
+          <ul>
+            <li>Agasalhos e blusas de frio</li>
+            <li>Cobertores e mantas</li>
+            <li>Meias, calças e camisetas</li>
+            <li>Itens limpos e próprios para uso</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="smart-card support-card">
+        <summary>
+          <span class="icon-badge support-icon">🍲</span>
+          <div>
+            <h3>Alimentos</h3>
+            <p>Doações ajudam no preparo das refeições e no apoio às ações.</p>
+            <span class="support-card__hint">Ver exemplos</span>
+          </div>
+        </summary>
+        <div class="support-card__content">
+          <ul>
+            <li>Arroz, feijão e macarrão</li>
+            <li>Molho, óleo e temperos</li>
+            <li>Alimentos não perecíveis</li>
+            <li>Itens para preparo de refeições</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="smart-card support-card">
+        <summary>
+          <span class="icon-badge support-icon">🍽️</span>
+          <div>
+            <h3>Utensílios</h3>
+            <p>Itens de apoio ajudam na organização, preparo e distribuição.</p>
+            <span class="support-card__hint">Ver exemplos</span>
+          </div>
+        </summary>
+        <div class="support-card__content">
+          <ul>
+            <li>Marmitas e embalagens</li>
+            <li>Copos e talheres descartáveis</li>
+            <li>Guardanapos e sacolas</li>
+            <li>Recipientes para separação</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="smart-card support-card">
+        <summary>
+          <span class="icon-badge support-icon">🐾</span>
+          <div>
+            <h3>Ração</h3>
+            <p>A missão também recebe ração para cães e gatos.</p>
+            <span class="support-card__hint">Ver exemplos</span>
+          </div>
+        </summary>
+        <div class="support-card__content">
+          <ul>
+            <li>Ração para cães</li>
+            <li>Ração para gatos</li>
+            <li>Sachês</li>
+            <li>Apoio para pets nas ações</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="smart-card support-card">
+        <summary>
+          <span class="icon-badge support-icon">👩‍🍳</span>
+          <div>
+            <h3>Preparação</h3>
+            <p>Ajuda antes das entregas, separando itens e organizando refeições.</p>
+            <span class="support-card__hint">Ver exemplos</span>
+          </div>
+        </summary>
+        <div class="support-card__content">
+          <ul>
+            <li>Separar doações</li>
+            <li>Montar kits de apoio</li>
+            <li>Ajudar no preparo das refeições</li>
+            <li>Organizar materiais antes da saída</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="smart-card support-card">
+        <summary>
+          <span class="icon-badge support-icon">🤝</span>
+          <div>
+            <h3>Entrega</h3>
+            <p>Participação direta nas ações, com respeito e cuidado.</p>
+            <span class="support-card__hint">Ver exemplos</span>
+          </div>
+        </summary>
+        <div class="support-card__content">
+          <ul>
+            <li>Apoiar nas entregas</li>
+            <li>Ajudar na logística</li>
+            <li>Organizar itens no local</li>
+            <li>Participar com respeito e discrição</li>
+          </ul>
+        </div>
+      </details>
+
+      <article class="smart-card">
+        <span class="icon-badge">
+          <img src="assets/img/insta.png?v=1" alt="Instagram">
+        </span>
+        <div>
+          <h3>Compartilhamento</h3>
+          <p>Divulgar ajuda a missão a alcançar apoiadores, voluntários e parceiros.</p>
+          <a class="btn btn--ghost" href="https://www.instagram.com/missao.rua/" target="_blank" rel="noopener noreferrer">Abrir Instagram</a>
+        </div>
+      </article>
+
+      <article class="smart-card">
+        <span class="icon-badge">
+          <img src="assets/img/PixIco.png?v=1" alt="Pix">
+        </span>
+        <div>
+          <h3>Contribuição via Pix</h3>
+          <p>Chave oficial: <strong>214.790.088-75</strong></p>
+          <button class="btn btn--primary" type="button" data-copy-pix="214.790.088-75" data-copy-target="#pixStatusCard">Copiar chave Pix</button>
+          <span class="copy-status" id="pixStatusCard">Clique para copiar.</span>
+        </div>
+      </article>
+
     </div>
   </section>
 </main>
+
 <div id="site-footer"></div>
-<script src="assets/js/components.js?v=103"></script>
+
+<script src="assets/js/components.js?v=104"></script>
 </body>
 </html>
