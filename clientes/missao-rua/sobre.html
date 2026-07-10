@@ -1,1 +1,54 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sobre | Missão Rua</title><link rel="icon" type="image/png" href="assets/img/Favicon_Missao.png?v=1"><link rel="stylesheet" href="assets/css/style.css?v=2"><link rel="stylesheet" href="assets/css/media.css?v=8"></head><body data-page="sobre"><div id="site-header"></div><main><section class="hero"><div class="wrapper--wide"><span class="kicker">Sobre</span><h1>Uma união de pessoas comuns.</h1><p class="lead">A Missão Rua organiza apoio e cuidado para quem precisa.</p></div></section><section class="section"><div class="wrapper--wide grid grid--2"><article class="card"><h3>Quem somos</h3><p>Um projeto local com foco em ação prática.</p></article><article class="card"><h3>Juntos somos mais fortes</h3><p>Cada contribuição ajuda a missão a chegar mais longe.</p></article></div></section></main><div id="site-footer"></div><script src="assets/js/components.js?v=1"></script></body></html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sobre | Missão Rua</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" type="image/png" href="assets/img/Favicon_Missao.png?v=1">
+  <link rel="stylesheet" href="assets/css/style.css?v=2">
+  <link rel="stylesheet" href="assets/css/media.css?v=8">
+  <style>
+    .about-hero-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(430px,1.1fr);gap:48px;align-items:center}
+    .about-main-photo{width:100%;border-radius:32px;box-shadow:0 22px 70px rgba(83,45,13,.14);border:12px solid rgba(255,255,255,.75);object-fit:cover;max-height:560px}
+    .about-photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.about-photo{position:relative;overflow:hidden;border-radius:26px;min-height:290px;box-shadow:0 16px 48px rgba(83,45,13,.11);border:1px solid rgba(79,50,25,.16);background:#fffaf2}.about-photo img{width:100%;height:100%;min-height:290px;object-fit:cover}.about-photo span{position:absolute;left:14px;right:14px;bottom:14px;padding:12px 14px;border-radius:16px;background:rgba(255,250,242,.92);color:#2b2118;font-weight:950;box-shadow:0 10px 28px rgba(0,0,0,.12)}
+    @media(max-width:900px){.about-hero-grid{grid-template-columns:1fr}.about-photo-grid{grid-template-columns:1fr}.about-photo,.about-photo img{min-height:240px}}
+  </style>
+</head>
+<body data-page="sobre">
+<div id="site-header"></div>
+<main>
+  <section class="hero">
+    <div class="wrapper--wide about-hero-grid">
+      <div>
+        <span class="kicker">Sobre</span>
+        <h1>Uma união de pessoas comuns.</h1>
+        <p class="lead">A Missão Rua organiza apoio e cuidado para quem precisa, reunindo voluntários, doações e tempo para transformar pequenos gestos em presença real nas ruas.</p>
+        <div class="actions"><a class="btn btn--primary" href="como-ajudar.html">Como ajudar</a><a class="btn btn--ghost" href="transparencia.html">Ver registros</a></div>
+      </div>
+      <div><img class="about-main-photo" src="assets/img/Equipe1.jpeg?v=1" alt="Voluntários da Missão Rua reunidos"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrapper--wide grid grid--2">
+      <article class="card"><strong class="tag">Quem somos</strong><h3>Um projeto feito por gente que decidiu agir.</h3><p>A missão nasce da disposição de amigos e voluntários que se organizam para arrecadar, preparar e entregar apoio para pessoas em situação de vulnerabilidade.</p></article>
+      <article class="card"><strong class="tag">Juntos somos mais fortes</strong><h3>Cada ajuda vira parte da ação.</h3><p>Doar, preparar, entregar, divulgar ou apoiar financeiramente fortalece a missão e ajuda a manter as próximas ações acontecendo.</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrapper--wide">
+      <div class="section__head"><div><span class="kicker">Bastidores</span><h2>Equipe, preparo e ação.</h2></div><p>Registros simples de quem faz a missão acontecer antes e durante as entregas.</p></div>
+      <div class="about-photo-grid">
+        <article class="about-photo"><img src="assets/img/Equipe2.jpeg?v=1" alt="Equipe da Missão Rua"><span>Voluntários reunidos</span></article>
+        <article class="about-photo"><img src="assets/img/Equipe3.jpeg?v=1" alt="Preparo de alimentos da Missão Rua"><span>Preparo das refeições</span></article>
+        <article class="about-photo"><img src="assets/img/Equipe4.jpeg?v=1" alt="Equipe da Missão Rua em ação"><span>Bastidores da missão</span></article>
+      </div>
+    </div>
+  </section>
+</main>
+<div id="site-footer"></div>
+<script src="assets/js/components.js?v=105"></script>
+</body>
+</html>
