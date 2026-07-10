@@ -16,7 +16,10 @@
     .real-photo-card__caption{position:absolute;left:16px;right:16px;bottom:16px;padding:14px 16px;border-radius:18px;background:rgba(255,250,242,.92);backdrop-filter:blur(8px);box-shadow:0 10px 30px rgba(0,0,0,.12)}
     .real-photo-card__caption strong{display:block;color:#2b2118;font-size:1rem;line-height:1.1}.real-photo-card__caption span{display:block;color:#6f5b48;font-weight:750;font-size:.9rem;margin-top:4px}
     .mission-poster img{width:100%;height:100%;max-height:560px;object-fit:cover;border-radius:32px;box-shadow:0 22px 70px rgba(83,45,13,.14);border:12px solid rgba(255,255,255,.75)}
-    @media(max-width:900px){.real-photo-card,.real-photo-card img{min-height:230px}.mission-poster img{max-height:none}}
+    .participation-banner{display:grid;grid-template-columns:minmax(0,.78fr) minmax(440px,1.22fr);gap:44px;align-items:center;background:linear-gradient(145deg,#fffef8,#fff2d9 72%,#f7dfb8);border:1px solid rgba(79,50,25,.16);border-radius:34px;padding:34px;box-shadow:0 18px 58px rgba(83,45,13,.10);overflow:hidden;position:relative}
+    .participation-banner:after{content:"";position:absolute;right:-70px;bottom:-90px;width:260px;height:260px;border-radius:50%;background:rgba(198,106,31,.08)}
+    .participation-banner__content,.participation-banner__image{position:relative;z-index:1}.participation-banner__content h2{margin-bottom:12px}.participation-banner__content p{max-width:720px}.participation-banner__image img{width:100%;border-radius:28px;box-shadow:0 18px 56px rgba(83,45,13,.12);border:10px solid rgba(255,255,255,.75)}
+    @media(max-width:900px){.real-photo-card,.real-photo-card img{min-height:230px}.mission-poster img{max-height:none}.participation-banner{grid-template-columns:1fr;gap:24px;padding:24px}.participation-banner__image img{border-radius:22px}}
   </style>
 </head>
 <body data-page="inicio">
@@ -39,6 +42,18 @@
   </section>
 
   <section class="section section--tight"><div class="wrapper--wide callout"><div><h2>Você pode ajudar de várias formas.</h2><p>Roupas, cobertores, alimentos, utensílios, ração, Pix, preparo de refeições, entrega ou compartilhamento.</p></div><a class="btn" href="como-ajudar.html">Ver formas de apoio</a></div></section>
+
+  <section class="section section--tight">
+    <div class="wrapper--wide participation-banner">
+      <div class="participation-banner__content">
+        <span class="kicker">Participe</span>
+        <h2>Faça parte das próximas ações.</h2>
+        <p>Apoiar a Missão Rua é ajudar com alimento, roupas, cobertores, preparo, entrega, divulgação ou contribuição via Pix. Cada ajuda fortalece a missão e aproxima mais pessoas de um cuidado real.</p>
+        <div class="actions"><a class="btn btn--primary" href="como-ajudar.html">Quero ajudar</a><a class="btn btn--ghost" href="contato.html">Falar com a missão</a></div>
+      </div>
+      <div class="participation-banner__image"><img src="assets/img/Missao_Participe.jpg?v=2" alt="Cartaz da Missão Rua convidando pessoas a participar e ajudar"></div>
+    </div>
+  </section>
 
   <section class="section">
     <div class="wrapper--wide">
