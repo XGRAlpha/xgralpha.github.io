@@ -4,7 +4,7 @@
   const active=document.body.dataset.page||pages[file]||'inicio';
   const nav=[['inicio','index.html','Início'],['como-ajudar','como-ajudar.html','Como ajudar'],['transparencia','transparencia.html','Transparência'],['contato','contato.html','Contato'],['sobre','sobre.html','Sobre']];
   const instagram='https://www.instagram.com/missao.rua/';
-  const pixKey='214.790.088-75';
+  const pixKey='214.794.088-75';
   const style=document.createElement('style');
   style.textContent=`
     .site-icon{width:50px;height:50px;border-radius:50%;object-fit:cover;border:3px solid #7c3511;box-shadow:0 8px 22px rgba(126,62,16,.22);background:#ffe4a8}
