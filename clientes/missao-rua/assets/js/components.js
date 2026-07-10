@@ -4,6 +4,7 @@
   const active=document.body.dataset.page||pages[file]||'inicio';
   const nav=[['inicio','index.html','Início'],['como-ajudar','como-ajudar.html','Como ajudar'],['transparencia','transparencia.html','Transparência'],['contato','contato.html','Contato'],['sobre','sobre.html','Sobre']];
   const instagram='https://www.instagram.com/missao.rua/';
+  const whatsapp='https://wa.me/551998675130?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20a%20Miss%C3%A3o%20Rua.';
   const pixKey='214.794.088-75';
   const style=document.createElement('style');
   style.textContent=`
@@ -49,7 +50,12 @@
   const footerTarget=document.getElementById('site-footer');
   if(footerTarget){footerTarget.innerHTML=`<footer class="footer" style="min-height:160px;padding:70px 0 18px;display:flex;align-items:flex-end;"><div class="footer__inner" style="align-items:end;"><div><strong class="footer__title">Missão Rua</strong><p>Juntos somos mais fortes.</p><a class="footer-social" href="${instagram}" target="_blank" rel="noopener noreferrer">@missao.rua</a></div><nav class="footer__links footer__links--policies" aria-label="Políticas"><a href="privacidade.html">Privacidade</a><a href="cookies.html">Cookies</a><a href="termos.html">Termos</a></nav><div><strong class="footer__title">Projeto solidário</strong><p class="credit">Site solidário desenvolvido por <a href="https://xgreat.com.br" target="_blank" rel="noopener noreferrer">XGR Digital</a>.</p></div></div></footer>`;}
   let wa=document.querySelector('.whatsapp-float');
-  if(!wa){wa=document.createElement('a');wa.className='whatsapp-float';wa.href='contato.html#whatsapp';wa.setAttribute('aria-label','Falar pelo WhatsApp');wa.setAttribute('title','WhatsApp da Missão Rua');document.body.appendChild(wa);}else{wa.href=wa.getAttribute('href')||'contato.html#whatsapp';}
+  if(!wa){wa=document.createElement('a');wa.className='whatsapp-float';document.body.appendChild(wa);}
+  wa.href=whatsapp;
+  wa.setAttribute('aria-label','Falar pelo WhatsApp oficial da Missão Rua');
+  wa.setAttribute('title','WhatsApp da Missão Rua');
+  wa.setAttribute('target','_blank');
+  wa.setAttribute('rel','noopener noreferrer');
   wa.innerHTML='<img src="assets/img/Whats.png?v=1" alt="WhatsApp">';
   document.querySelectorAll('[data-copy-pix]').forEach(function(button){button.addEventListener('click',function(){const value=button.getAttribute('data-copy-pix')||pixKey;const status=document.querySelector(button.getAttribute('data-copy-target')||'');const done=function(){if(status){status.textContent='Chave Pix copiada.';}};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(value).then(done).catch(done);}else{const input=document.createElement('input');input.value=value;document.body.appendChild(input);input.select();document.execCommand('copy');document.body.removeChild(input);done();}});});
 })();
