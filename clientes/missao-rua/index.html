@@ -10,6 +10,14 @@
   <link rel="icon" type="image/png" href="assets/img/Favicon_Missao.png?v=1">
   <link rel="stylesheet" href="assets/css/style.css?v=2">
   <link rel="stylesheet" href="assets/css/media.css?v=8">
+  <style>
+    .real-photo-card{position:relative;min-height:280px;border-radius:28px;overflow:hidden;border:1px solid rgba(79,50,25,.18);box-shadow:0 18px 54px rgba(83,45,13,.12);background:#fffaf2}
+    .real-photo-card img{width:100%;height:100%;min-height:280px;object-fit:cover;display:block}
+    .real-photo-card__caption{position:absolute;left:16px;right:16px;bottom:16px;padding:14px 16px;border-radius:18px;background:rgba(255,250,242,.92);backdrop-filter:blur(8px);box-shadow:0 10px 30px rgba(0,0,0,.12)}
+    .real-photo-card__caption strong{display:block;color:#2b2118;font-size:1rem;line-height:1.1}.real-photo-card__caption span{display:block;color:#6f5b48;font-weight:750;font-size:.9rem;margin-top:4px}
+    .mission-poster img{width:100%;height:100%;max-height:560px;object-fit:cover;border-radius:32px;box-shadow:0 22px 70px rgba(83,45,13,.14);border:12px solid rgba(255,255,255,.75)}
+    @media(max-width:900px){.real-photo-card,.real-photo-card img{min-height:230px}.mission-poster img{max-height:none}}
+  </style>
 </head>
 <body data-page="inicio">
 <div id="site-header"></div>
@@ -26,11 +34,23 @@
         </div>
         <span class="copy-status" id="homePixStatus">Chave Pix: 214.794.088-75</span>
       </div>
-      <aside class="mission-poster" aria-label="Cartaz oficial Missão Rua"><img src="assets/img/Missao_Participe.jpg?v=1" alt="Cartaz Missão Rua: faça a diferença na vida de uma pessoa que precisa da sua ajuda"></aside>
+      <aside class="mission-poster" aria-label="Ação da Missão Rua"><img src="assets/img/Home_Ruas.jpeg?v=1" alt="Voluntários da Missão Rua em ação nas ruas"></aside>
     </div>
   </section>
+
   <section class="section section--tight"><div class="wrapper--wide callout"><div><h2>Você pode ajudar de várias formas.</h2><p>Roupas, cobertores, alimentos, utensílios, ração, Pix, preparo de refeições, entrega ou compartilhamento.</p></div><a class="btn" href="como-ajudar.html">Ver formas de apoio</a></div></section>
-  <section class="section"><div class="wrapper--wide"><div class="section__head"><div><span class="kicker">Registros futuros</span><h2>A missão em ação.</h2></div><p>Espaços reservados para fotos reais das ações.</p></div><div class="photo-grid photo-grid--3"><div class="photo-slot"><div><strong>Ação nas ruas</strong><span>Arquivo: acao-home-01.jpg</span></div></div><div class="photo-slot"><div><strong>Preparo das refeições</strong><span>Arquivo: acao-home-02.jpg</span></div></div><div class="photo-slot"><div><strong>Entrega e apoio</strong><span>Arquivo: acao-home-03.jpg</span></div></div></div></div></section>
+
+  <section class="section">
+    <div class="wrapper--wide">
+      <div class="section__head"><div><span class="kicker">Registros reais</span><h2>A missão em ação.</h2></div><p>Alguns registros das doações, preparo e entregas feitas pela Missão Rua.</p></div>
+      <div class="photo-grid photo-grid--3">
+        <article class="real-photo-card"><img src="assets/img/Home_Ruas.jpeg?v=1" alt="Ação da Missão Rua nas ruas"><div class="real-photo-card__caption"><strong>Ação nas ruas</strong><span>Presença, cuidado e entrega direta.</span></div></article>
+        <article class="real-photo-card"><img src="assets/img/Home_Preparo.jpeg?v=1" alt="Preparo de refeições da Missão Rua"><div class="real-photo-card__caption"><strong>Preparo das refeições</strong><span>Bastidores antes das entregas.</span></div></article>
+        <article class="real-photo-card"><img src="assets/img/Home_Mantimentos.jpeg?v=1" alt="Mantimentos organizados para doação"><div class="real-photo-card__caption"><strong>Mantimentos</strong><span>Itens arrecadados para apoiar as ações.</span></div></article>
+      </div>
+    </div>
+  </section>
+
   <section class="section"><div class="wrapper--wide"><div class="section__head"><div><span class="kicker">Como a missão atua</span><h2>Ajuda prática, sem enfeite.</h2></div><p>O foco é organizar recursos, preparar doações e entregar apoio para quem está passando necessidade.</p></div><div class="smart-grid"><article class="smart-card"><span class="icon-badge">🧥</span><div><h3>Roupas e cobertores</h3><p>Itens essenciais para atravessar noites frias com mais segurança, conforto e dignidade.</p></div></article><article class="smart-card"><span class="icon-badge">🍲</span><div><h3>Alimentos e refeições</h3><p>Arrecadação, preparo e distribuição de alimentos para pessoas em situação de vulnerabilidade.</p></div></article><article class="smart-card"><span class="icon-badge">🐾</span><div><h3>Ração para cães e gatos</h3><p>A missão também recebe ração para os animais que acompanham pessoas nas ruas.</p></div></article><article class="smart-card"><span class="icon-badge">🤝</span><div><h3>Preparo e entrega</h3><p>Participar da preparação das refeições e da entrega também fortalece a missão.</p></div></article></div></div></section>
 </main>
 <div id="site-footer"></div>
