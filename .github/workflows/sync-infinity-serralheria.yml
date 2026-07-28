@@ -1,0 +1,77 @@
+name: Sync Infinity Serralheria
+
+on:
+  push:
+    paths:
+      - '.github/workflows/sync-infinity-serralheria.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout site principal
+        uses: actions/checkout@v4
+
+      - name: Checkout repositório de clientes
+        uses: actions/checkout@v4
+        with:
+          repository: rafaelxgr/xgreat-clientes
+          ref: main
+          path: _clientes_source
+
+      - name: Copiar projeto Infinity
+        run: |
+          rm -rf clientes/infinity-serralheria
+          mkdir -p clientes/infinity-serralheria
+          cp -R _clientes_source/infinity-serralheria/. clientes/infinity-serralheria/
+          rm -rf _clientes_source
+
+      - name: Ajustar SEO para URL oficial
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path('clientes/infinity-serralheria/index.html')
+          html = path.read_text(encoding='utf-8')
+
+          canonical = '<link rel="canonical" href="https://xgreat.com.br/clientes/infinity-serralheria/">'
+          if canonical not in html:
+              html = html.replace(
+                  '<link rel="icon" href="assets/FaviconInfinity.png" type="image/png">',
+                  canonical + '\n  <link rel="icon" href="assets/FaviconInfinity.png" type="image/png">'
+              )
+
+          html = html.replace(
+              '<meta property="og:image" content="assets/portao1.jpg">',
+              '<meta property="og:image" content="https://xgreat.com.br/clientes/infinity-serralheria/assets/portao1.jpg">'
+          )
+
+          html = html.replace(
+              '"name": "Infinity Serralheria",',
+              '"name": "Infinity Serralheria",\n    "url": "https://xgreat.com.br/clientes/infinity-serralheria/",'
+          )
+
+          html = html.replace(
+              '"image": "assets/LogoInfinity.png",',
+              '"image": "https://xgreat.com.br/clientes/infinity-serralheria/assets/LogoInfinity.png",'
+          )
+
+          path.write_text(html, encoding='utf-8')
+          PY
+
+      - name: Publicar arquivos
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add clientes/infinity-serralheria
+          if git diff --cached --quiet; then
+            echo "Nenhuma alteração para publicar."
+          else
+            git commit -m "Publica Infinity Serralheria em clientes"
+            git push
+          fi
