@@ -11,6 +11,18 @@
   brandingStyles.href = 'branding-final.css?v=1';
   document.head.appendChild(brandingStyles);
 
+  const logoStyles = document.createElement('link');
+  logoStyles.rel = 'stylesheet';
+  logoStyles.href = 'logo-update.css?v=2';
+  document.head.appendChild(logoStyles);
+
+  const logoUrl = 'https://raw.githubusercontent.com/rafaelxgr/xgreat-clientes/main/infinity-serralheria/assets/InfinitySemfundo.png?v=2';
+  document.querySelectorAll('.brand-crop img').forEach((logo) => {
+    logo.src = logoUrl;
+    logo.alt = 'Infinity Serralheria';
+    logo.decoding = 'async';
+  });
+
   const body = document.body;
   const menuToggle = document.querySelector('.menu-toggle');
   const mainNav = document.querySelector('.main-nav');
