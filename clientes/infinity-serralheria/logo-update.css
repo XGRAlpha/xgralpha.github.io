@@ -1,0 +1,64 @@
+/* Nova logo transparente da Infinity: header e rodapé, desktop e mobile */
+.brand-crop,
+.brand-crop-small {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: visible;
+  background: transparent;
+}
+
+.brand-crop {
+  width: 172px;
+  height: 58px;
+}
+
+.brand-crop-small {
+  width: 132px;
+  height: 46px;
+}
+
+.brand-crop img,
+.brand-crop-small img {
+  position: static;
+  top: auto;
+  left: auto;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transform: none;
+  background: transparent;
+  filter: drop-shadow(0 5px 12px rgba(0, 0, 0, .26));
+}
+
+.site-header .brand,
+.site-footer .brand {
+  background: transparent;
+}
+
+@media (max-width: 820px) {
+  .brand-crop {
+    width: 138px;
+    height: 48px;
+  }
+
+  .brand-crop-small {
+    width: 116px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand-crop {
+    width: 126px;
+    height: 44px;
+  }
+
+  .brand-crop-small {
+    width: 108px;
+    height: 38px;
+  }
+}
