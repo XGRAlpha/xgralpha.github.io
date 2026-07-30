@@ -16,6 +16,11 @@
   logoStyles.href = 'logo-update.css?v=2';
   document.head.appendChild(logoStyles);
 
+  const materialStyles = document.createElement('link');
+  materialStyles.rel = 'stylesheet';
+  materialStyles.href = 'material-update.css?v=1';
+  document.head.appendChild(materialStyles);
+
   const logoUrl = 'https://raw.githubusercontent.com/rafaelxgr/xgreat-clientes/main/infinity-serralheria/assets/InfinitySemfundo.png?v=2';
   document.querySelectorAll('.brand-crop img').forEach((logo) => {
     logo.src = logoUrl;
@@ -121,7 +126,7 @@
 
         observer.unobserve(video);
       });
-    }, { rootMargin: '280px 0px' });
+    }, { rootMargin: '220px 0px' });
 
     videos.forEach((video) => videoObserver.observe(video));
   } else {
