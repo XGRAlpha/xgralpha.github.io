@@ -105,7 +105,7 @@
 
     @keyframes petal-drift{
       0%{transform:translate3d(0,0,0) rotate(-5deg)}
-      50%{transform:translate3d(calc(var(--dx)*.55),-14px,0) rotate(7deg)}
+      50%{transform:translate3d(0,-14px,0) rotate(7deg)}
       100%{transform:translate3d(var(--dx),-27px,0) rotate(-3deg)}
     }
     @keyframes wing-left{to{transform:perspective(70px) rotateY(58deg)}}
@@ -598,7 +598,7 @@
     @media(prefers-reduced-motion:reduce){
       *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
       .name-mask-rect{width:100%}
-      .reserve,.ribbon-wrap,.age-block,.anniversary,.ornament,.preview-message,.card-recipient,.details-soon,.close-invite,.replay,.bird,.star{opacity:1;transform:none}
+      .reserve,.ribbon-wrap,.age-block,.anniversary,.ornament,.preview-message,.card-recipient,.details-soon,.close-invite,.replay,.butterfly,.star{opacity:1;transform:none}
       .quill{display:none}
     }
   </style>
