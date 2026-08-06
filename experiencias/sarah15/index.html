@@ -20,7 +20,8 @@
       --lilac: #8c6c9c;
       --lilac-dark: #674d73;
       --paper: #fffdf9;
-      --wine: #7d283e;
+      --wine: #87649a;
+      --butterfly: #9a79ad;
     }
 
     * { box-sizing: border-box; }
@@ -61,6 +62,50 @@
     }
 
     .lavender { z-index: -3; overflow: hidden; }
+
+    .butterfly {
+      position: absolute;
+      left: var(--x);
+      top: var(--y);
+      width: var(--s);
+      height: calc(var(--s) * .72);
+      opacity: var(--o);
+      transform: rotate(var(--r));
+      animation: flutter var(--d) ease-in-out infinite alternate;
+      filter: drop-shadow(0 5px 7px rgba(81,55,93,.14));
+    }
+
+    .butterfly::before,
+    .butterfly::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 52%;
+      height: 100%;
+      background: linear-gradient(145deg, rgba(177,144,195,.78), rgba(125,91,146,.45));
+      border: 1px solid rgba(104,72,123,.18);
+    }
+
+    .butterfly::before {
+      right: 48%;
+      border-radius: 80% 25% 62% 36%;
+      transform-origin: right center;
+      animation: wingLeft .8s ease-in-out infinite alternate;
+    }
+
+    .butterfly::after {
+      left: 48%;
+      border-radius: 25% 80% 36% 62%;
+      transform-origin: left center;
+      animation: wingRight .8s ease-in-out infinite alternate;
+    }
+
+    @keyframes flutter {
+      to { transform: translate3d(var(--dx), -12px, 0) rotate(calc(var(--r) + 7deg)); }
+    }
+
+    @keyframes wingLeft { to { transform: perspective(60px) rotateY(48deg); } }
+    @keyframes wingRight { to { transform: perspective(60px) rotateY(-48deg); } }
 
     .stem {
       position: absolute;
@@ -159,7 +204,7 @@
       position: absolute;
       inset: 19% 0 0;
       border-radius: 5px 5px 13px 13px;
-      background: linear-gradient(145deg, #eee3d5, #fbf6ed 60%, #e7d9c8);
+      background: linear-gradient(145deg, #e7d8ed, #fbf7fd 60%, #d9c3e2);
     }
 
     .envelope::before,
@@ -173,7 +218,7 @@
     .envelope::before {
       z-index: 3;
       clip-path: polygon(0 0, 50% 61%, 100% 0, 100% 100%, 0 100%);
-      background: linear-gradient(153deg, #f8f1e7 0 48%, #e5d7c5 49% 100%);
+      background: linear-gradient(153deg, #f7effa 0 48%, #d8c1e2 49% 100%);
     }
 
     .envelope::after {
@@ -190,7 +235,7 @@
       width: 100%;
       height: 64%;
       clip-path: polygon(0 0, 100% 0, 50% 100%);
-      background: linear-gradient(155deg, #f7f0e5, #e2d3c1);
+      background: linear-gradient(155deg, #f8f0fa, #dac4e3);
       transform-origin: top;
       transition: transform 1s cubic-bezier(.68,-.1,.25,1.2), z-index 0s .48s;
       backface-visibility: hidden;
@@ -222,8 +267,8 @@
       border-radius: 50%;
       color: #efd9c2;
       background:
-        radial-gradient(circle at 35% 25%, #a7465d, transparent 23%),
-        radial-gradient(circle, #8f3048 0 62%, #6f1f35 64% 100%);
+        radial-gradient(circle at 35% 25%, #b08ac2, transparent 23%),
+        radial-gradient(circle, #8c679f 0 62%, #684777 64% 100%);
       box-shadow: 0 4px 8px rgba(62,17,31,.38), inset 0 0 0 4px rgba(255,222,202,.13);
       font-family: "Parisienne", cursive;
       font-size: 1.9rem;
@@ -238,7 +283,7 @@
       inset: -4px;
       z-index: -1;
       border-radius: 45% 55% 49% 51%;
-      background: #78243b;
+      background: #765285;
       transform: rotate(13deg);
     }
 
@@ -296,7 +341,7 @@
 
     .card::before,
     .card::after {
-      content: "❦";
+      content: "ʚɞ";
       position: absolute;
       color: rgba(117,82,129,.48);
       font-size: 2rem;
@@ -321,6 +366,15 @@
       font-weight: 400;
       line-height: .72;
       text-shadow: 0 4px 15px rgba(110,77,119,.13);
+      clip-path: inset(0 100% 0 0);
+    }
+
+    body.open .monogram {
+      animation: writeName 2.1s cubic-bezier(.2,.72,.2,1) 1.15s forwards;
+    }
+
+    @keyframes writeName {
+      to { clip-path: inset(0 0 0 0); }
     }
 
     .fifteen {
@@ -454,16 +508,17 @@
     }
 
     const lavender = document.getElementById('lavender');
-    for (let i = 0; i < 48; i++) {
-      const stem = document.createElement('i');
-      const edge = i < 24 ? Math.random() * 33 : 67 + Math.random() * 33;
-      stem.className = 'stem';
-      stem.style.setProperty('--x', edge + '%');
-      stem.style.setProperty('--h', (120 + Math.random() * 210) + 'px');
-      stem.style.setProperty('--r', ((Math.random() - .5) * 18) + 'deg');
-      stem.style.setProperty('--o', (.24 + Math.random() * .52));
-      stem.style.setProperty('--b', (Math.random() * 1.2) + 'px');
-      lavender.appendChild(stem);
+    for (let i = 0; i < 18; i++) {
+      const butterfly = document.createElement('i');
+      butterfly.className = 'butterfly';
+      butterfly.style.setProperty('--x', (3 + Math.random() * 92) + '%');
+      butterfly.style.setProperty('--y', (5 + Math.random() * 88) + '%');
+      butterfly.style.setProperty('--s', (12 + Math.random() * 24) + 'px');
+      butterfly.style.setProperty('--r', ((Math.random() - .5) * 36) + 'deg');
+      butterfly.style.setProperty('--o', (.18 + Math.random() * .5));
+      butterfly.style.setProperty('--d', (2.2 + Math.random() * 3.8) + 's');
+      butterfly.style.setProperty('--dx', ((Math.random() - .5) * 24) + 'px');
+      lavender.appendChild(butterfly);
     }
 
     const petals = document.getElementById('petals');
