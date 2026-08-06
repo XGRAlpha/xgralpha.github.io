@@ -26,7 +26,7 @@ button{font:inherit}.experience{position:relative;display:grid;place-items:cente
 .envelope{position:absolute;inset:19% 0 0;border-radius:6px 6px 14px 14px;background:linear-gradient(145deg,#dfcbea,#fbf7fd 60%,#cdb0dc)}
 .envelope:before,.envelope:after{content:"";position:absolute;inset:0;border-radius:inherit}.envelope:before{z-index:3;clip-path:polygon(0 0,50% 61%,100% 0,100% 100%,0 100%);background:linear-gradient(153deg,#f7effa 0 48%,#d4bade 49%)}.envelope:after{z-index:4;clip-path:polygon(0 100%,0 35%,50% 75%,100% 35%,100% 100%);background:linear-gradient(170deg,transparent 0 48%,rgba(188,157,202,.35) 49%)}
 .flap{position:absolute;z-index:5;top:0;left:0;width:100%;height:64%;clip-path:polygon(0 0,100% 0,50% 100%);background:linear-gradient(155deg,#f8effb,#d1b5dd);transform-origin:top;transition:transform 1s cubic-bezier(.68,-.1,.25,1.2),z-index 0s .48s;backface-visibility:hidden}.letter-peek{position:absolute;z-index:2;left:7%;right:7%;bottom:8%;height:91%;border:1px solid rgba(126,99,132,.18);border-radius:5px;background:var(--paper);transition:transform 1.05s cubic-bezier(.22,.76,.3,1)}
-.seal{position:absolute;z-index:8;left:50%;top:58%;display:grid;place-items:center;width:64px;aspect-ratio:1;border:0;border-radius:50%;color:#f3dfcb;background:radial-gradient(circle at 35% 25%,#b58bc7,transparent 23%),radial-gradient(circle,#8c609f 0 62%,#684477 64%);box-shadow:0 4px 9px rgba(62,17,31,.35),inset 0 0 0 4px rgba(255,222,202,.14);font:2rem Parisienne,cursive;transform:translate(-50%,-50%);cursor:pointer;transition:.35s ease}
+.seal{position:absolute;z-index:8;left:50%;top:58%;display:grid;place-items:center;width:82px;height:64px;border:0;border-radius:50%;color:#fff4e7;background:radial-gradient(circle at 35% 25%,#b58bc7,transparent 23%),radial-gradient(circle,#8c609f 0 62%,#684477 64%);box-shadow:0 4px 9px rgba(62,17,31,.35),inset 0 0 0 4px rgba(255,222,202,.14);font:600 .88rem "Cormorant Garamond",serif;letter-spacing:.12em;text-transform:uppercase;transform:translate(-50%,-50%);cursor:pointer;transition:.35s ease}
 .hint{border:0;color:#6f4b80;background:transparent;font-size:.67rem;font-weight:500;letter-spacing:.19em;text-transform:uppercase;cursor:pointer;animation:breathe 2.2s ease-in-out infinite}.hint:before{content:"✦";margin-right:9px}@keyframes breathe{50%{opacity:.53;transform:translateY(2px)}}
 .invite{position:fixed;z-index:20;inset:0;display:grid;place-items:center;padding:max(14px,env(safe-area-inset-top)) 12px max(14px,env(safe-area-inset-bottom));visibility:hidden;opacity:0;background:rgba(227,213,237,.74);backdrop-filter:blur(13px);transition:opacity .75s ease .75s,visibility 0s 1.5s}
 .card{position:relative;width:min(94vw,520px);height:min(92svh,720px);min-height:590px;overflow:hidden;border:1px solid rgba(123,83,145,.32);border-radius:12px;text-align:center;background:linear-gradient(150deg,rgba(255,255,255,.97),rgba(248,239,251,.96) 48%,rgba(229,210,239,.97));box-shadow:0 30px 80px rgba(57,30,71,.28);transform:translateY(70px) scale(.93);transition:transform 1s cubic-bezier(.18,.85,.27,1) .75s}
@@ -40,14 +40,14 @@ body.open .flap{z-index:1;transform:rotateX(178deg)}body.open .letter-peek{trans
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}}
 </style>
 </head>
-<body data-event="sarah-15" data-build="sarah-final-2026-08-06">
+<body data-event="sarah-15" data-build="sarah-seal-name-2026-08-06">
 <main class="experience">
 <div class="glow"></div><div class="floaters" id="floaters"></div>
 <section class="intro">
 <p class="eyebrow">Uma celebração inesquecível</p>
 <h1>Você recebeu<br>algo especial</h1>
 <p class="recipient" id="recipientIntro"></p>
-<div class="scene" id="scene" role="button" tabindex="0" aria-label="Abrir o convite de Sarah"><div class="envelope"><div class="letter-peek"></div><div class="flap"></div><button class="seal" id="seal" type="button" aria-label="Abrir o convite">S</button></div></div>
+<div class="scene" id="scene" role="button" tabindex="0" aria-label="Abrir o convite de Sarah"><div class="envelope"><div class="letter-peek"></div><div class="flap"></div><button class="seal" id="seal" type="button" aria-label="Abrir o convite de Sarah">Sarah</button></div></div>
 <button class="hint" id="openHint" type="button">Toque no lacre para abrir</button>
 </section>
 </main>
