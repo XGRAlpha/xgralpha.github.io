@@ -9,6 +9,7 @@
   <meta property="og:title" content="Sarah — 15 anos">
   <meta property="og:description" content="Um convite especial espera por você. Toque para abrir.">
   <meta property="og:url" content="https://xgreat.com.br/experiencias/sarah15/">
+  <link rel="canonical" href="https://xgreat.com.br/experiencias/sarah15/">
   <title>Sarah — 15 anos</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -105,7 +106,7 @@
 
     @keyframes petal-drift{
       0%{transform:translate3d(0,0,0) rotate(-5deg)}
-      50%{transform:translate3d(0,-14px,0) rotate(7deg)}
+      50%{transform:translate3d(calc(var(--dx)*.55),-14px,0) rotate(7deg)}
       100%{transform:translate3d(var(--dx),-27px,0) rotate(-3deg)}
     }
     @keyframes wing-left{to{transform:perspective(70px) rotateY(58deg)}}
@@ -544,7 +545,7 @@
 
     @keyframes rise{to{opacity:1;transform:translateY(0)}}
 
-    .close-invite,.replay{
+    .close-invite,.replay,.sound-toggle{
       position:absolute;
       z-index:20;
       display:grid;
@@ -559,9 +560,10 @@
     }
     .close-invite{top:22px;right:22px;width:40px;height:40px;border-radius:50%;font-size:1.35rem}
     .replay{right:22px;bottom:22px;width:auto;height:34px;padding:0 12px;border-radius:999px;font-size:.51rem;letter-spacing:.13em;text-transform:uppercase}
-    body.open .close-invite,body.open .replay{animation:rise .6s ease 5.15s forwards}
-    .close-invite:hover,.replay:hover{background:#fff;transform:translateY(-2px)}
-    .close-invite:focus-visible,.replay:focus-visible{outline:2px solid #734c84;outline-offset:3px}
+    .sound-toggle{left:22px;bottom:22px;width:auto;height:34px;padding:0 12px;border-radius:999px;font-size:.51rem;letter-spacing:.13em;text-transform:uppercase}
+    body.open .close-invite,body.open .replay,body.open .sound-toggle{animation:rise .6s ease 5.15s forwards}
+    .close-invite:hover,.replay:hover,.sound-toggle:hover{background:#fff;transform:translateY(-2px)}
+    .close-invite:focus-visible,.replay:focus-visible,.sound-toggle:focus-visible{outline:2px solid #734c84;outline-offset:3px}
 
     body.open .flap{z-index:1;transform:rotateX(178deg)}
     body.open .letter-peek{transform:translateY(-78%);opacity:.45}
@@ -598,12 +600,12 @@
     @media(prefers-reduced-motion:reduce){
       *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
       .name-mask-rect{width:100%}
-      .reserve,.ribbon-wrap,.age-block,.anniversary,.ornament,.preview-message,.card-recipient,.details-soon,.close-invite,.replay,.butterfly,.star{opacity:1;transform:none}
+      .reserve,.ribbon-wrap,.age-block,.anniversary,.ornament,.preview-message,.card-recipient,.details-soon,.close-invite,.replay,.sound-toggle,.butterfly,.star{opacity:1;transform:none}
       .quill{display:none}
     }
   </style>
 </head>
-<body data-event="sarah-15" data-build="sarah-magic-refine-20260806">
+<body data-event="sarah-15" data-build="sarah-single-source-music-20260806">
   <main class="experience">
     <div class="ambient" aria-hidden="true"></div>
     <div class="petal-field" id="petalField" aria-hidden="true"></div>
@@ -683,6 +685,7 @@
       <div class="glow-sweep" aria-hidden="true"></div>
 
       <button class="close-invite" id="closeInvite" type="button" aria-label="Fechar convite">×</button>
+      <button class="sound-toggle" id="soundToggle" type="button" aria-label="Pausar música" aria-pressed="true">♫ Som</button>
       <button class="replay" id="replay" type="button" aria-label="Repetir animação">↻ Repetir</button>
 
       <div class="invite-content">
@@ -733,6 +736,10 @@
     </article>
   </section>
 
+  <audio id="soundtrack" preload="metadata" loop>
+    <source src="./Laufey.mp3" type="audio/mpeg">
+  </audio>
+
   <script>
     const params = new URLSearchParams(location.search);
     const recipient = (params.get("para") || "").trim().slice(0, 60).replace(/[<>]/g, "");
@@ -743,6 +750,33 @@
     const openHint = document.getElementById("openHint");
     const closeInvite = document.getElementById("closeInvite");
     const replay = document.getElementById("replay");
+    const soundtrack = document.getElementById("soundtrack");
+    const soundToggle = document.getElementById("soundToggle");
+
+    // Links antigos com ?build= ou ?v= deixam de criar rotas aparentes diferentes.
+    // Somente o nome do convidado permanece na URL.
+    if ([...params.keys()].some(key => key !== "para")) {
+      const cleanParams = new URLSearchParams();
+      if (recipient) cleanParams.set("para", recipient);
+      const cleanUrl = location.pathname + (cleanParams.size ? "?" + cleanParams.toString() : "");
+      history.replaceState(null, "", cleanUrl);
+    }
+
+    soundtrack.volume = .52;
+
+    function updateSoundButton() {
+      const playing = !soundtrack.paused;
+      soundToggle.textContent = playing ? "♫ Som" : "♫ Sem som";
+      soundToggle.setAttribute("aria-pressed", String(playing));
+      soundToggle.setAttribute("aria-label", playing ? "Pausar música" : "Tocar música");
+    }
+
+    function startSoundtrack() {
+      soundtrack.play().then(updateSoundButton).catch(() => {
+        soundToggle.textContent = "♫ Tocar música";
+        soundToggle.setAttribute("aria-pressed", "false");
+      });
+    }
 
     if (recipient) {
       recipientIntro.textContent = recipient + ", este convite é para você.";
@@ -777,6 +811,7 @@
     function openInvitation() {
       if (opened) return;
       opened = true;
+      startSoundtrack();
       document.body.classList.add("open");
       scene.setAttribute("aria-expanded", "true");
       inviteLayer.setAttribute("aria-hidden", "false");
@@ -785,6 +820,8 @@
 
     function closeInvitation() {
       opened = false;
+      soundtrack.pause();
+      updateSoundButton();
       document.body.classList.remove("open");
       scene.setAttribute("aria-expanded", "false");
       inviteLayer.setAttribute("aria-hidden", "true");
@@ -797,6 +834,14 @@
       document.body.classList.add("open");
     }
 
+    function toggleSoundtrack() {
+      if (soundtrack.paused) startSoundtrack();
+      else {
+        soundtrack.pause();
+        updateSoundButton();
+      }
+    }
+
     scene.addEventListener("click", openInvitation);
     openHint.addEventListener("click", openInvitation);
     scene.addEventListener("keydown", event => {
@@ -807,6 +852,7 @@
     });
     closeInvite.addEventListener("click", closeInvitation);
     replay.addEventListener("click", replayInvitation);
+    soundToggle.addEventListener("click", toggleSoundtrack);
     document.addEventListener("keydown", event => {
       if (event.key === "Escape" && opened) closeInvitation();
     });
