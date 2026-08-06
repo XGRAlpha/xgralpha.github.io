@@ -1,562 +1,84 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#f2edf5">
-  <meta name="description" content="Você recebeu um convite especial para celebrar os 15 anos da Sarah.">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Sarah — 15 anos">
-  <meta property="og:description" content="Um convite especial espera por você. Toque para abrir.">
-  <meta property="og:url" content="https://xgreat.com.br/experiencias/sarah15/">
-  <meta name="twitter:card" content="summary">
-  <title>Sarah — 15 anos</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&family=Parisienne&display=swap');
-
-    :root {
-      --ink: #47374f;
-      --muted: #75677a;
-      --lilac: #8c6c9c;
-      --lilac-dark: #674d73;
-      --paper: #fffdf9;
-      --wine: #87649a;
-      --butterfly: #9a79ad;
-    }
-
-    * { box-sizing: border-box; }
-
-    html, body { min-height: 100%; }
-
-    body {
-      margin: 0;
-      overflow-x: hidden;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at 50% 18%, rgba(255,255,255,.96) 0 20%, rgba(246,241,248,.7) 52%, rgba(225,214,232,.92) 100%),
-        #eee7f1;
-      font-family: Montserrat, sans-serif;
-    }
-
-    button { font: inherit; }
-
-    .experience {
-      position: relative;
-      display: grid;
-      place-items: center;
-      min-height: 100svh;
-      padding: max(24px, env(safe-area-inset-top)) 18px max(28px, env(safe-area-inset-bottom));
-      isolation: isolate;
-    }
-
-    .mist,
-    .lavender,
-    .petals { position: fixed; inset: 0; pointer-events: none; }
-
-    .mist {
-      z-index: -4;
-      background:
-        radial-gradient(ellipse at 10% 78%, rgba(130,100,148,.28), transparent 40%),
-        radial-gradient(ellipse at 92% 82%, rgba(122,91,145,.34), transparent 42%);
-      filter: blur(2px);
-    }
-
-    .lavender { z-index: -3; overflow: hidden; }
-
-    .butterfly {
-      position: absolute;
-      left: var(--x);
-      top: var(--y);
-      width: var(--s);
-      height: calc(var(--s) * .72);
-      opacity: var(--o);
-      transform: rotate(var(--r));
-      animation: flutter var(--d) ease-in-out infinite alternate;
-      filter: drop-shadow(0 5px 7px rgba(81,55,93,.14));
-    }
-
-    .butterfly::before,
-    .butterfly::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      width: 52%;
-      height: 100%;
-      background: linear-gradient(145deg, rgba(177,144,195,.78), rgba(125,91,146,.45));
-      border: 1px solid rgba(104,72,123,.18);
-    }
-
-    .butterfly::before {
-      right: 48%;
-      border-radius: 80% 25% 62% 36%;
-      transform-origin: right center;
-      animation: wingLeft .8s ease-in-out infinite alternate;
-    }
-
-    .butterfly::after {
-      left: 48%;
-      border-radius: 25% 80% 36% 62%;
-      transform-origin: left center;
-      animation: wingRight .8s ease-in-out infinite alternate;
-    }
-
-    @keyframes flutter {
-      to { transform: translate3d(var(--dx), -12px, 0) rotate(calc(var(--r) + 7deg)); }
-    }
-
-    @keyframes wingLeft { to { transform: perspective(60px) rotateY(48deg); } }
-    @keyframes wingRight { to { transform: perspective(60px) rotateY(-48deg); } }
-
-    .stem {
-      position: absolute;
-      bottom: -48px;
-      left: var(--x);
-      width: 3px;
-      height: var(--h);
-      border-radius: 99px;
-      background: linear-gradient(#806b7f, #495b42);
-      opacity: var(--o);
-      transform-origin: bottom;
-      transform: rotate(var(--r));
-      filter: blur(var(--b));
-    }
-
-    .stem::before {
-      content: "";
-      position: absolute;
-      top: -8px;
-      left: 50%;
-      width: 22px;
-      height: 62%;
-      transform: translateX(-50%);
-      background:
-        radial-gradient(ellipse at 50% 4%, #79598a 0 16%, transparent 18%),
-        radial-gradient(ellipse at 18% 17%, #9070a2 0 13%, transparent 15%),
-        radial-gradient(ellipse at 82% 20%, #725083 0 14%, transparent 16%),
-        radial-gradient(ellipse at 28% 34%, #9a77a6 0 14%, transparent 16%),
-        radial-gradient(ellipse at 72% 38%, #745285 0 14%, transparent 16%),
-        radial-gradient(ellipse at 36% 54%, #8b6699 0 14%, transparent 16%),
-        radial-gradient(ellipse at 66% 57%, #694679 0 14%, transparent 16%),
-        radial-gradient(ellipse at 48% 76%, #85608f 0 15%, transparent 17%);
-      filter: drop-shadow(0 5px 5px rgba(64,42,72,.16));
-    }
-
-    .petal {
-      position: absolute;
-      top: -20px;
-      left: var(--x);
-      width: var(--s);
-      height: calc(var(--s) * .55);
-      border-radius: 80% 10% 80% 10%;
-      background: rgba(137,102,152,.35);
-      animation: drift var(--d) linear infinite;
-      animation-delay: var(--delay);
-    }
-
-    @keyframes drift {
-      to { transform: translate3d(var(--dx), 110vh, 0) rotate(540deg); }
-    }
-
-    .intro {
-      width: min(100%, 560px);
-      text-align: center;
-      transition: opacity .7s ease, transform .8s ease;
-    }
-
-    .eyebrow {
-      margin: 0 0 9px;
-      color: var(--lilac-dark);
-      font-size: .67rem;
-      font-weight: 500;
-      letter-spacing: .28em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 0;
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(2.25rem, 9vw, 4.3rem);
-      font-weight: 500;
-      line-height: .98;
-    }
-
-    .recipient {
-      min-height: 22px;
-      margin: 12px 0 2px;
-      color: var(--muted);
-      font-family: "Cormorant Garamond", serif;
-      font-size: 1.15rem;
-      font-style: italic;
-    }
-
-    .scene {
-      position: relative;
-      width: min(86vw, 420px);
-      height: min(66vw, 310px);
-      min-height: 250px;
-      margin: 25px auto 8px;
-      perspective: 1100px;
-      cursor: pointer;
-      filter: drop-shadow(0 25px 28px rgba(57,35,64,.22));
-    }
-
-    .envelope {
-      position: absolute;
-      inset: 19% 0 0;
-      border-radius: 5px 5px 13px 13px;
-      background: linear-gradient(145deg, #e7d8ed, #fbf7fd 60%, #d9c3e2);
-    }
-
-    .envelope::before,
-    .envelope::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-    }
-
-    .envelope::before {
-      z-index: 3;
-      clip-path: polygon(0 0, 50% 61%, 100% 0, 100% 100%, 0 100%);
-      background: linear-gradient(153deg, #f7effa 0 48%, #d8c1e2 49% 100%);
-    }
-
-    .envelope::after {
-      z-index: 4;
-      clip-path: polygon(0 100%, 0 35%, 50% 75%, 100% 35%, 100% 100%);
-      background: linear-gradient(170deg, transparent 0 48%, rgba(215,199,178,.48) 49% 100%);
-    }
-
-    .flap {
-      position: absolute;
-      z-index: 5;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 64%;
-      clip-path: polygon(0 0, 100% 0, 50% 100%);
-      background: linear-gradient(155deg, #f8f0fa, #dac4e3);
-      transform-origin: top;
-      transition: transform 1s cubic-bezier(.68,-.1,.25,1.2), z-index 0s .48s;
-      backface-visibility: hidden;
-    }
-
-    .letter-peek {
-      position: absolute;
-      z-index: 2;
-      left: 7%;
-      right: 7%;
-      bottom: 8%;
-      height: 91%;
-      border: 1px solid rgba(126,99,132,.18);
-      border-radius: 5px;
-      background: var(--paper);
-      transition: transform 1.05s cubic-bezier(.22,.76,.3,1), opacity .6s ease;
-    }
-
-    .seal {
-      position: absolute;
-      z-index: 8;
-      left: 50%;
-      top: 58%;
-      display: grid;
-      place-items: center;
-      width: 62px;
-      aspect-ratio: 1;
-      border: 0;
-      border-radius: 50%;
-      color: #efd9c2;
-      background:
-        radial-gradient(circle at 35% 25%, #b08ac2, transparent 23%),
-        radial-gradient(circle, #8c679f 0 62%, #684777 64% 100%);
-      box-shadow: 0 4px 8px rgba(62,17,31,.38), inset 0 0 0 4px rgba(255,222,202,.13);
-      font-family: "Parisienne", cursive;
-      font-size: 1.9rem;
-      transform: translate(-50%, -50%);
-      cursor: pointer;
-      transition: opacity .35s ease, transform .35s ease;
-    }
-
-    .seal::before {
-      content: "";
-      position: absolute;
-      inset: -4px;
-      z-index: -1;
-      border-radius: 45% 55% 49% 51%;
-      background: #765285;
-      transform: rotate(13deg);
-    }
-
-    .hint {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      margin-top: 4px;
-      border: 0;
-      color: var(--lilac-dark);
-      background: transparent;
-      font-size: .68rem;
-      font-weight: 500;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      cursor: pointer;
-      animation: breathe 2.2s ease-in-out infinite;
-    }
-
-    .hint::before { content: "✦"; font-size: .72rem; }
-
-    @keyframes breathe { 50% { opacity: .53; transform: translateY(2px); } }
-
-    .invite {
-      position: fixed;
-      z-index: 20;
-      inset: 0;
-      display: grid;
-      place-items: center;
-      padding: max(22px, env(safe-area-inset-top)) 16px max(22px, env(safe-area-inset-bottom));
-      visibility: hidden;
-      opacity: 0;
-      background: rgba(242,236,246,.78);
-      backdrop-filter: blur(12px);
-      transition: opacity .8s ease .8s, visibility 0s 1.6s;
-    }
-
-    .card {
-      position: relative;
-      width: min(92vw, 530px);
-      max-height: calc(100svh - 36px);
-      overflow: auto;
-      padding: clamp(44px, 8vh, 72px) 24px 42px;
-      border: 1px solid rgba(121,92,128,.25);
-      border-radius: 7px;
-      color: var(--ink);
-      text-align: center;
-      background:
-        linear-gradient(rgba(255,253,249,.92), rgba(255,253,249,.96)),
-        repeating-linear-gradient(0deg, transparent 0 3px, rgba(91,69,95,.02) 4px);
-      box-shadow: 0 28px 70px rgba(50,30,58,.22);
-      transform: translateY(70px) scale(.93);
-      transition: transform 1s cubic-bezier(.18,.85,.27,1) .8s;
-    }
-
-    .card::before,
-    .card::after {
-      content: "ʚɞ";
-      position: absolute;
-      color: rgba(117,82,129,.48);
-      font-size: 2rem;
-    }
-
-    .card::before { top: 18px; left: 22px; transform: rotate(-42deg); }
-    .card::after { right: 22px; bottom: 18px; transform: rotate(138deg); }
-
-    .card-kicker {
-      margin: 0 0 18px;
-      color: var(--lilac-dark);
-      font-size: .62rem;
-      letter-spacing: .34em;
-      text-transform: uppercase;
-    }
-
-    .monogram {
-      margin: 0;
-      color: var(--lilac-dark);
-      font-family: Parisienne, cursive;
-      font-size: clamp(4.8rem, 21vw, 7.6rem);
-      font-weight: 400;
-      line-height: .72;
-      text-shadow: 0 4px 15px rgba(110,77,119,.13);
-      clip-path: inset(0 100% 0 0);
-    }
-
-    body.open .monogram {
-      animation: writeName 2.1s cubic-bezier(.2,.72,.2,1) 1.15s forwards;
-    }
-
-    @keyframes writeName {
-      to { clip-path: inset(0 0 0 0); }
-    }
-
-    .fifteen {
-      display: block;
-      margin: 13px 0 24px;
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(2.2rem, 9vw, 3.6rem);
-      font-weight: 500;
-      letter-spacing: .09em;
-      line-height: 1;
-    }
-
-    .rule {
-      width: 76px;
-      height: 1px;
-      margin: 0 auto 24px;
-      background: linear-gradient(90deg, transparent, #8b6d92, transparent);
-    }
-
-    .card-copy {
-      max-width: 360px;
-      margin: 0 auto;
-      color: #65596a;
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(1.15rem, 4.8vw, 1.42rem);
-      line-height: 1.48;
-    }
-
-    .card-recipient {
-      margin: 19px 0 0;
-      color: var(--lilac-dark);
-      font-family: Parisienne, cursive;
-      font-size: 1.65rem;
-    }
-
-    .soon {
-      display: inline-block;
-      margin-top: 27px;
-      padding: 10px 15px;
-      border: 1px solid rgba(110,80,119,.22);
-      border-radius: 999px;
-      color: #756579;
-      font-size: .58rem;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-    }
-
-    .close {
-      position: absolute;
-      top: 12px;
-      right: 13px;
-      width: 38px;
-      height: 38px;
-      border: 0;
-      color: #76647c;
-      background: transparent;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    body.open .flap { z-index: 1; transform: rotateX(178deg); }
-    body.open .letter-peek { transform: translateY(-78%); }
-    body.open .seal { opacity: 0; transform: translate(-50%, -50%) scale(.65); pointer-events: none; }
-    body.open .intro { opacity: .25; transform: scale(.97); }
-    body.open .invite { visibility: visible; opacity: 1; transition: opacity .8s ease .8s, visibility 0s; }
-    body.open .card { transform: translateY(0) scale(1); }
-
-    @media (max-height: 660px) {
-      .experience { padding-top: 14px; }
-      .scene { height: 245px; margin-top: 12px; }
-      .eyebrow { margin-bottom: 3px; }
-      h1 { font-size: 2.25rem; }
-      .recipient { margin-top: 6px; }
-      .card { padding-top: 36px; padding-bottom: 28px; }
-      .monogram { font-size: 4.7rem; }
-      .soon { margin-top: 18px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0s !important; transition-duration: .01ms !important; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#eadff3">
+<meta name="description" content="Você recebeu um convite especial para celebrar os 15 anos da Sarah.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sarah — 15 anos">
+<meta property="og:description" content="Um convite especial espera por você. Toque para abrir.">
+<meta property="og:url" content="https://xgreat.com.br/experiencias/sarah15/">
+<title>Sarah — 15 anos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&family=Parisienne&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#493650;--purple:#78558d;--purple2:#a883bd;--paper:#fffafb;--gold:#c4a67b}
+*{box-sizing:border-box}html,body{min-height:100%}body{margin:0;overflow:hidden;color:var(--ink);font-family:Montserrat,sans-serif;background:radial-gradient(circle at 50% 30%,#fff 0,#f3ebf7 42%,#dfcfe9 100%)}
+button{font:inherit}.experience{position:relative;display:grid;place-items:center;min-height:100svh;padding:24px 18px;isolation:isolate}.glow{position:fixed;inset:0;z-index:-3;background:radial-gradient(circle at 20% 15%,rgba(255,255,255,.9),transparent 26%),radial-gradient(circle at 82% 78%,rgba(163,126,183,.38),transparent 34%)}.floaters{position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden}
+.bfly{position:absolute;left:var(--x);top:var(--y);width:var(--s);height:calc(var(--s)*.7);opacity:var(--o);filter:drop-shadow(0 5px 8px rgba(77,47,92,.2));animation:float var(--d) ease-in-out infinite alternate}
+.bfly:before,.bfly:after{content:"";position:absolute;top:0;width:52%;height:100%;background:linear-gradient(145deg,rgba(201,174,218,.95),rgba(126,82,151,.6));border:1px solid rgba(92,57,111,.24)}
+.bfly:before{right:48%;border-radius:85% 25% 65% 35%;transform-origin:right center;animation:leftwing .8s ease-in-out infinite alternate}.bfly:after{left:48%;border-radius:25% 85% 35% 65%;transform-origin:left center;animation:rightwing .8s ease-in-out infinite alternate}
+@keyframes float{to{transform:translate3d(var(--dx),-14px,0) rotate(8deg)}}@keyframes leftwing{to{transform:perspective(70px) rotateY(48deg)}}@keyframes rightwing{to{transform:perspective(70px) rotateY(-48deg)}}
+.intro{width:min(100%,560px);text-align:center;transition:.8s ease}.eyebrow{margin:0 0 8px;color:#755486;font-size:.66rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase}.intro h1{margin:0;font:500 clamp(2.3rem,9vw,4.3rem)/.98 "Cormorant Garamond",serif}.recipient{min-height:22px;margin:13px 0 0;color:#756779;font:italic 1.13rem "Cormorant Garamond",serif}
+.scene{position:relative;width:min(86vw,420px);height:min(66vw,310px);min-height:250px;margin:24px auto 5px;perspective:1100px;cursor:pointer;filter:drop-shadow(0 25px 28px rgba(57,35,64,.24))}
+.envelope{position:absolute;inset:19% 0 0;border-radius:6px 6px 14px 14px;background:linear-gradient(145deg,#dfcbea,#fbf7fd 60%,#cdb0dc)}
+.envelope:before,.envelope:after{content:"";position:absolute;inset:0;border-radius:inherit}.envelope:before{z-index:3;clip-path:polygon(0 0,50% 61%,100% 0,100% 100%,0 100%);background:linear-gradient(153deg,#f7effa 0 48%,#d4bade 49%)}.envelope:after{z-index:4;clip-path:polygon(0 100%,0 35%,50% 75%,100% 35%,100% 100%);background:linear-gradient(170deg,transparent 0 48%,rgba(188,157,202,.35) 49%)}
+.flap{position:absolute;z-index:5;top:0;left:0;width:100%;height:64%;clip-path:polygon(0 0,100% 0,50% 100%);background:linear-gradient(155deg,#f8effb,#d1b5dd);transform-origin:top;transition:transform 1s cubic-bezier(.68,-.1,.25,1.2),z-index 0s .48s;backface-visibility:hidden}.letter-peek{position:absolute;z-index:2;left:7%;right:7%;bottom:8%;height:91%;border:1px solid rgba(126,99,132,.18);border-radius:5px;background:var(--paper);transition:transform 1.05s cubic-bezier(.22,.76,.3,1)}
+.seal{position:absolute;z-index:8;left:50%;top:58%;display:grid;place-items:center;width:64px;aspect-ratio:1;border:0;border-radius:50%;color:#f3dfcb;background:radial-gradient(circle at 35% 25%,#b58bc7,transparent 23%),radial-gradient(circle,#8c609f 0 62%,#684477 64%);box-shadow:0 4px 9px rgba(62,17,31,.35),inset 0 0 0 4px rgba(255,222,202,.14);font:2rem Parisienne,cursive;transform:translate(-50%,-50%);cursor:pointer;transition:.35s ease}
+.hint{border:0;color:#6f4b80;background:transparent;font-size:.67rem;font-weight:500;letter-spacing:.19em;text-transform:uppercase;cursor:pointer;animation:breathe 2.2s ease-in-out infinite}.hint:before{content:"✦";margin-right:9px}@keyframes breathe{50%{opacity:.53;transform:translateY(2px)}}
+.invite{position:fixed;z-index:20;inset:0;display:grid;place-items:center;padding:max(14px,env(safe-area-inset-top)) 12px max(14px,env(safe-area-inset-bottom));visibility:hidden;opacity:0;background:rgba(227,213,237,.74);backdrop-filter:blur(13px);transition:opacity .75s ease .75s,visibility 0s 1.5s}
+.card{position:relative;width:min(94vw,520px);height:min(92svh,720px);min-height:590px;overflow:hidden;border:1px solid rgba(123,83,145,.32);border-radius:12px;text-align:center;background:linear-gradient(150deg,rgba(255,255,255,.97),rgba(248,239,251,.96) 48%,rgba(229,210,239,.97));box-shadow:0 30px 80px rgba(57,30,71,.28);transform:translateY(70px) scale(.93);transition:transform 1s cubic-bezier(.18,.85,.27,1) .75s}
+.frame{position:absolute;inset:17px;border:1px solid rgba(186,151,105,.62);border-radius:7px;pointer-events:none}.frame:before,.frame:after{content:"";position:absolute;width:62px;height:62px;border-color:rgba(117,78,139,.5)}.frame:before{left:-6px;top:-6px;border-left:2px solid;border-top:2px solid;border-radius:7px 0 0}.frame:after{right:-6px;bottom:-6px;border-right:2px solid;border-bottom:2px solid;border-radius:0 0 7px}
+.corner{position:absolute;width:190px;height:190px;opacity:.76;filter:blur(.1px)}.corner.one{left:-56px;top:-42px;transform:rotate(-18deg)}.corner.two{right:-62px;bottom:-48px;transform:rotate(160deg)}.sprig{position:absolute;left:50%;bottom:0;width:3px;height:178px;border-radius:99px;background:linear-gradient(#6e8061,#849478);transform:translateX(-50%) rotate(var(--r));transform-origin:bottom}.sprig:before{content:"";position:absolute;left:50%;top:-8px;width:35px;height:140px;transform:translateX(-50%);background:radial-gradient(ellipse at 50% 3%,#7f5a91 0 10%,transparent 12%),radial-gradient(ellipse at 20% 18%,#aa84bd 0 10%,transparent 12%),radial-gradient(ellipse at 80% 22%,#754b88 0 11%,transparent 13%),radial-gradient(ellipse at 28% 39%,#9570a8 0 11%,transparent 13%),radial-gradient(ellipse at 72% 45%,#68427b 0 11%,transparent 13%),radial-gradient(ellipse at 35% 61%,#b08bc0 0 12%,transparent 14%),radial-gradient(ellipse at 67% 68%,#765087 0 12%,transparent 14%),radial-gradient(ellipse at 50% 86%,#9067a1 0 13%,transparent 15%)}
+.hero-bfly{position:absolute;width:86px;height:58px;opacity:.74;filter:drop-shadow(0 8px 10px rgba(74,45,91,.16))}.hero-bfly.a{right:34px;top:76px;transform:rotate(18deg)}.hero-bfly.b{left:39px;bottom:88px;width:62px;height:43px;transform:rotate(-22deg)}.hero-bfly:before,.hero-bfly:after{content:"";position:absolute;top:0;width:53%;height:100%;background:linear-gradient(150deg,rgba(221,201,232,.94),rgba(131,86,155,.6));border:1px solid rgba(112,70,136,.28)}.hero-bfly:before{right:48%;border-radius:90% 20% 70% 30%}.hero-bfly:after{left:48%;border-radius:20% 90% 30% 70%}
+.content{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;padding:66px 42px}.card-kicker{margin:0 0 25px;color:#755583;font-size:.61rem;letter-spacing:.34em;text-transform:uppercase}.monogram{margin:0;color:#725083;font:400 clamp(5.5rem,23vw,8.7rem)/.72 Parisienne,cursive;text-shadow:0 5px 18px rgba(102,67,116,.16);clip-path:inset(0 100% 0 0)}body.open .monogram{animation:write 2.15s cubic-bezier(.2,.72,.2,1) 1.05s forwards}@keyframes write{to{clip-path:inset(0)}}
+.fifteen{display:block;margin:20px 0 25px;color:#3f3047;font:500 clamp(2.25rem,10vw,3.8rem)/1 "Cormorant Garamond",serif;letter-spacing:.13em}.ornament{display:flex;align-items:center;gap:10px;width:150px;margin-bottom:24px;color:#9675a6}.ornament:before,.ornament:after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,#b89a70)}.ornament:after{background:linear-gradient(90deg,#b89a70,transparent)}.copy{max-width:350px;margin:0;color:#625466;font:clamp(1.1rem,4.7vw,1.4rem)/1.48 "Cormorant Garamond",serif}.card-recipient{margin:20px 0 0;color:#735184;font:1.65rem Parisienne,cursive}.soon{display:inline-block;margin-top:28px;padding:10px 16px;border:1px solid rgba(130,93,145,.27);border-radius:99px;color:#78677c;background:rgba(255,255,255,.35);font-size:.56rem;letter-spacing:.2em;text-transform:uppercase}.close{position:absolute;z-index:10;top:23px;right:23px;width:42px;height:42px;border:0;color:#765d7d;background:rgba(255,255,255,.42);border-radius:50%;font-size:1.45rem;cursor:pointer}
+body.open .flap{z-index:1;transform:rotateX(178deg)}body.open .letter-peek{transform:translateY(-78%)}body.open .seal{opacity:0;transform:translate(-50%,-50%) scale(.65);pointer-events:none}body.open .intro{opacity:.22;transform:scale(.97)}body.open .invite{visibility:visible;opacity:1;transition:opacity .75s ease .75s,visibility 0s}body.open .card{transform:none}
+@media(max-height:670px){.card{height:calc(100svh - 16px);min-height:0}.content{padding:45px 36px}.card-kicker{margin-bottom:17px}.monogram{font-size:5rem}.fifteen{margin:15px 0 17px;font-size:2.35rem}.ornament{margin-bottom:16px}.soon{margin-top:17px}.corner{transform:scale(.8)}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}}
+</style>
 </head>
 <body>
-  <main class="experience">
-    <div class="mist" aria-hidden="true"></div>
-    <div class="lavender" id="lavender" aria-hidden="true"></div>
-    <div class="petals" id="petals" aria-hidden="true"></div>
-
-    <section class="intro" aria-labelledby="intro-title">
-      <p class="eyebrow">Uma celebração inesquecível</p>
-      <h1 id="intro-title">Você recebeu<br>algo especial</h1>
-      <p class="recipient" id="recipientIntro"></p>
-
-      <div class="scene" id="scene" role="button" tabindex="0" aria-label="Abrir o convite de Sarah">
-        <div class="envelope">
-          <div class="letter-peek"></div>
-          <div class="flap"></div>
-          <button class="seal" id="seal" type="button" aria-label="Romper o lacre e abrir o convite">S</button>
-        </div>
-      </div>
-
-      <button class="hint" id="openHint" type="button">Toque no lacre para abrir</button>
-    </section>
-  </main>
-
-  <section class="invite" id="invite" aria-hidden="true" aria-label="Convite de quinze anos de Sarah">
-    <article class="card">
-      <button class="close" id="closeInvite" type="button" aria-label="Fechar convite">×</button>
-      <p class="card-kicker">Reserve este momento</p>
-      <h2 class="monogram">Sarah</h2>
-      <span class="fifteen">XV ANOS</span>
-      <div class="rule"></div>
-      <p class="card-copy">Uma nova história está prestes a começar — e será ainda mais especial com você fazendo parte dela.</p>
-      <p class="card-recipient" id="recipientCard"></p>
-      <span class="soon">Detalhes da celebração em breve</span>
-    </article>
-  </section>
-
-  <script>
-    const params = new URLSearchParams(location.search);
-    const rawRecipient = (params.get('para') || '').trim().slice(0, 60);
-    const recipient = rawRecipient.replace(/[<>]/g, '');
-
-    if (recipient) {
-      document.getElementById('recipientIntro').textContent = recipient + ', este convite é para você.';
-      document.getElementById('recipientCard').textContent = 'Com carinho, para ' + recipient;
-      document.title = recipient + ' — convite de Sarah';
-    } else {
-      document.getElementById('recipientIntro').textContent = 'Um convite de Sarah espera por você.';
-    }
-
-    const lavender = document.getElementById('lavender');
-    for (let i = 0; i < 18; i++) {
-      const butterfly = document.createElement('i');
-      butterfly.className = 'butterfly';
-      butterfly.style.setProperty('--x', (3 + Math.random() * 92) + '%');
-      butterfly.style.setProperty('--y', (5 + Math.random() * 88) + '%');
-      butterfly.style.setProperty('--s', (12 + Math.random() * 24) + 'px');
-      butterfly.style.setProperty('--r', ((Math.random() - .5) * 36) + 'deg');
-      butterfly.style.setProperty('--o', (.18 + Math.random() * .5));
-      butterfly.style.setProperty('--d', (2.2 + Math.random() * 3.8) + 's');
-      butterfly.style.setProperty('--dx', ((Math.random() - .5) * 24) + 'px');
-      lavender.appendChild(butterfly);
-    }
-
-    const petals = document.getElementById('petals');
-    for (let i = 0; i < 12; i++) {
-      const petal = document.createElement('i');
-      petal.className = 'petal';
-      petal.style.setProperty('--x', (Math.random() * 100) + '%');
-      petal.style.setProperty('--s', (5 + Math.random() * 7) + 'px');
-      petal.style.setProperty('--d', (9 + Math.random() * 9) + 's');
-      petal.style.setProperty('--delay', (-Math.random() * 15) + 's');
-      petal.style.setProperty('--dx', ((Math.random() - .5) * 180) + 'px');
-      petals.appendChild(petal);
-    }
-
-    const invite = document.getElementById('invite');
-    let opening = false;
-    function openInvite() {
-      if (opening) return;
-      opening = true;
-      document.body.classList.add('open');
-      invite.setAttribute('aria-hidden', 'false');
-      setTimeout(() => document.getElementById('closeInvite').focus(), 1500);
-    }
-
-    function closeInvite() {
-      opening = false;
-      document.body.classList.remove('open');
-      invite.setAttribute('aria-hidden', 'true');
-      setTimeout(() => document.getElementById('seal').focus(), 100);
-    }
-
-    document.getElementById('scene').addEventListener('click', openInvite);
-    document.getElementById('openHint').addEventListener('click', openInvite);
-    document.getElementById('scene').addEventListener('keydown', event => {
-      if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openInvite(); }
-    });
-    document.getElementById('closeInvite').addEventListener('click', closeInvite);
-    document.addEventListener('keydown', event => { if (event.key === 'Escape' && opening) closeInvite(); });
-  </script>
+<main class="experience">
+<div class="glow"></div><div class="floaters" id="floaters"></div>
+<section class="intro">
+<p class="eyebrow">Uma celebração inesquecível</p>
+<h1>Você recebeu<br>algo especial</h1>
+<p class="recipient" id="recipientIntro"></p>
+<div class="scene" id="scene" role="button" tabindex="0" aria-label="Abrir o convite de Sarah"><div class="envelope"><div class="letter-peek"></div><div class="flap"></div><button class="seal" id="seal" type="button" aria-label="Abrir o convite">S</button></div></div>
+<button class="hint" id="openHint" type="button">Toque no lacre para abrir</button>
+</section>
+</main>
+<section class="invite" id="invite" aria-hidden="true">
+<article class="card">
+<div class="frame"></div>
+<div class="corner one"><i class="sprig" style="--r:-34deg"></i><i class="sprig" style="--r:-12deg"></i><i class="sprig" style="--r:15deg"></i><i class="sprig" style="--r:38deg"></i></div>
+<div class="corner two"><i class="sprig" style="--r:-34deg"></i><i class="sprig" style="--r:-12deg"></i><i class="sprig" style="--r:15deg"></i><i class="sprig" style="--r:38deg"></i></div>
+<i class="hero-bfly a"></i><i class="hero-bfly b"></i>
+<button class="close" id="closeInvite" type="button" aria-label="Fechar convite">×</button>
+<div class="content">
+<p class="card-kicker">Reserve este momento</p>
+<h2 class="monogram">Sarah</h2>
+<span class="fifteen">XV ANOS</span>
+<div class="ornament">✦</div>
+<p class="copy">Uma nova história está prestes a começar — e será ainda mais especial com você fazendo parte dela.</p>
+<p class="card-recipient" id="recipientCard"></p>
+<span class="soon">Detalhes da celebração em breve</span>
+</div>
+</article>
+</section>
+<script>
+const params=new URLSearchParams(location.search);
+const recipient=(params.get("para")||"").trim().slice(0,60).replace(/[<>]/g,"");
+if(recipient){recipientIntro.textContent=recipient+", este convite é para você.";recipientCard.textContent="Com carinho, para "+recipient;document.title=recipient+" — convite de Sarah"}else{recipientIntro.textContent="Um convite de Sarah espera por você."}
+const floaters=document.getElementById("floaters");
+for(let i=0;i<16;i++){const b=document.createElement("i");b.className="bfly";b.style.setProperty("--x",(2+Math.random()*94)+"%");b.style.setProperty("--y",(3+Math.random()*90)+"%");b.style.setProperty("--s",(15+Math.random()*30)+"px");b.style.setProperty("--o",(.2+Math.random()*.48));b.style.setProperty("--d",(2.2+Math.random()*4)+"s");b.style.setProperty("--dx",((Math.random()-.5)*28)+"px");floaters.appendChild(b)}
+const invite=document.getElementById("invite");let opening=false;
+function openInvite(){if(opening)return;opening=true;document.body.classList.add("open");invite.setAttribute("aria-hidden","false")}
+function closeInvite(){opening=false;document.body.classList.remove("open");invite.setAttribute("aria-hidden","true")}
+scene.addEventListener("click",openInvite);openHint.addEventListener("click",openInvite);scene.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openInvite()}});closeInvite.addEventListener("click",closeInvite);document.addEventListener("keydown",e=>{if(e.key==="Escape"&&opening)closeInvite()});
+</script>
 </body>
 </html>
