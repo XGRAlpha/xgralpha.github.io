@@ -40,7 +40,7 @@ body.open .flap{z-index:1;transform:rotateX(178deg)}body.open .letter-peek{trans
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}}
 </style>
 </head>
-<body>
+<body data-event="sarah-15" data-build="sarah-final-2026-08-06">
 <main class="experience">
 <div class="glow"></div><div class="floaters" id="floaters"></div>
 <section class="intro">
@@ -60,7 +60,7 @@ body.open .flap{z-index:1;transform:rotateX(178deg)}body.open .letter-peek{trans
 <button class="close" id="closeInvite" type="button" aria-label="Fechar convite">×</button>
 <div class="content">
 <p class="card-kicker">Reserve este momento</p>
-<h2 class="monogram">Sarah</h2>
+<h2 class="monogram" data-event-name>Sarah</h2>
 <span class="fifteen">XV ANOS</span>
 <div class="ornament">✦</div>
 <p class="copy">Uma nova história está prestes a começar — e será ainda mais especial com você fazendo parte dela.</p>
@@ -70,6 +70,8 @@ body.open .flap{z-index:1;transform:rotateX(178deg)}body.open .letter-peek{trans
 </article>
 </section>
 <script>
+const EVENT_NAME="Sarah";
+document.querySelectorAll("[data-event-name]").forEach(el=>{el.textContent=EVENT_NAME});
 const params=new URLSearchParams(location.search);
 const recipient=(params.get("para")||"").trim().slice(0,60).replace(/[<>]/g,"");
 if(recipient){recipientIntro.textContent=recipient+", este convite é para você.";recipientCard.textContent="Com carinho, para "+recipient;document.title=recipient+" — convite de Sarah"}else{recipientIntro.textContent="Um convite de Sarah espera por você."}
