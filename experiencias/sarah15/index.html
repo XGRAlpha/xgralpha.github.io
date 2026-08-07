@@ -81,36 +81,12 @@
     .ambient::before{width:48vw;height:48vw;left:-18vw;top:-20vw;background:#fffdf6}
     .ambient::after{width:56vw;height:56vw;right:-25vw;bottom:-29vw;background:#a77aba}
 
-    .petal-field{position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden}
-    .petal{
-      position:absolute;
-      left:var(--x);
-      top:var(--y);
-      width:var(--s);
-      height:calc(var(--s)*.74);
-      opacity:var(--o);
-      filter:drop-shadow(0 5px 8px rgba(89,54,104,.13));
-      animation:petal-drift var(--d) ease-in-out infinite alternate;
-    }
-    .petal::before,.petal::after{
-      content:"";
-      position:absolute;
-      top:0;
-      width:55%;
-      height:100%;
-      background:linear-gradient(145deg,rgba(217,187,229,.95),rgba(137,91,158,.54));
-      border:1px solid rgba(113,70,131,.12);
-    }
-    .petal::before{right:48%;border-radius:92% 18% 82% 28%;transform-origin:right center;animation:wing-left .78s ease-in-out infinite alternate}
-    .petal::after{left:48%;border-radius:18% 92% 28% 82%;transform-origin:left center;animation:wing-right .78s ease-in-out infinite alternate}
-
-    @keyframes petal-drift{
-      0%{transform:translate3d(0,0,0) rotate(-5deg)}
-      50%{transform:translate3d(calc(var(--dx)*.55),-14px,0) rotate(7deg)}
-      100%{transform:translate3d(var(--dx),-27px,0) rotate(-3deg)}
-    }
-    @keyframes wing-left{to{transform:perspective(70px) rotateY(58deg)}}
-    @keyframes wing-right{to{transform:perspective(70px) rotateY(-58deg)}}
+    .cosmos-field{position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden}
+    .ambient-star{position:absolute;left:var(--x);top:var(--y);width:var(--s);aspect-ratio:1;opacity:var(--o);color:rgba(255,250,226,.96);filter:drop-shadow(0 0 8px rgba(255,245,210,.85)) drop-shadow(0 0 18px rgba(174,124,196,.45));animation:ambient-drift var(--d) ease-in-out var(--delay) infinite alternate}
+    .ambient-star::before,.ambient-star::after{content:"";position:absolute;left:50%;top:50%;border-radius:999px;background:currentColor;transform:translate(-50%,-50%)}
+    .ambient-star::before{width:100%;height:12%}
+    .ambient-star::after{width:12%;height:100%}
+    @keyframes ambient-drift{0%{opacity:calc(var(--o)*.45);transform:translate3d(0,0,0) rotate(0deg) scale(.72)}52%{opacity:var(--o);transform:translate3d(calc(var(--dx)*.5),calc(var(--dy)*.5),0) rotate(22deg) scale(1.12)}100%{opacity:calc(var(--o)*.68);transform:translate3d(var(--dx),var(--dy),0) rotate(44deg) scale(.88)}}
 
     .opening{
       width:min(100%,640px);
@@ -341,7 +317,7 @@
       text-shadow:0 0 13px rgba(163,121,183,.58);
     }
     body.open .star{animation:twinkle 2.6s ease-in-out var(--delay) infinite}
-    @keyframes twinkle{0%,100%{opacity:.15;transform:scale(.65) rotate(0)}50%{opacity:.94;transform:scale(1.15) rotate(25deg)}}
+    @keyframes twinkle{0%,100%{opacity:.12;transform:translate3d(0,0,0) scale(.6) rotate(0);filter:brightness(.85)}50%{opacity:.98;transform:translate3d(var(--dx,6px),var(--dy,-7px),0) scale(1.18) rotate(28deg);filter:brightness(1.35)}}
 
     .filigree{
       position:absolute;
@@ -355,24 +331,12 @@
     .filigree.top-left{left:-4px;top:-3px}
     .filigree.bottom-right{right:-4px;bottom:-3px;transform:rotate(180deg)}
 
-    .bird-flight{position:absolute;z-index:3;left:18px;right:18px;top:23px;height:108px;pointer-events:none}
-    .butterfly{position:absolute;width:86px;height:60px;overflow:visible;opacity:0;color:#8c64a0;filter:drop-shadow(0 7px 7px rgba(76,49,91,.18))}
-    .butterfly.one{left:7%;top:22px;transform:rotate(-9deg)}
-    .butterfly.two{left:38%;top:-2px;transform:rotate(5deg) scale(.78)}
-    .butterfly.three{right:4%;top:24px;transform:rotate(11deg)}
-    .butterfly .wing{transform-box:fill-box}
-    .butterfly .wing-left{transform-origin:right center;animation:butterfly-wing-left .72s ease-in-out infinite alternate}
-    .butterfly .wing-right{transform-origin:left center;animation:butterfly-wing-right .72s ease-in-out infinite alternate}
-    .butterfly .wing-detail{fill:none;stroke:rgba(255,255,255,.72);stroke-width:1.5;stroke-linecap:round}
-    .butterfly .body{fill:#593968}
-    body.open .butterfly{animation:butterfly-in .95s cubic-bezier(.2,.75,.25,1) forwards,butterfly-hover 2.35s ease-in-out 2.15s infinite alternate}
-    body.open .butterfly.one{animation-delay:1s,2.15s}
-    body.open .butterfly.two{animation-delay:1.12s,2.28s}
-    body.open .butterfly.three{animation-delay:1.24s,2.4s}
-    @keyframes butterfly-in{from{opacity:0;translate:-24px 18px}to{opacity:.84;translate:0 0}}
-    @keyframes butterfly-hover{from{translate:0 0}to{translate:9px -10px}}
-    @keyframes butterfly-wing-left{to{transform:perspective(90px) rotateY(54deg)}}
-    @keyframes butterfly-wing-right{to{transform:perspective(90px) rotateY(-54deg)}}
+    .celestial-crown{position:absolute;z-index:3;left:24px;right:24px;top:25px;height:105px;pointer-events:none}
+    .celestial-star{position:absolute;left:var(--x);top:var(--y);color:var(--c,#b996c8);font-size:var(--s);opacity:0;text-shadow:0 0 10px rgba(255,255,255,.95),0 0 24px rgba(158,106,181,.68);transform:scale(.35) rotate(-18deg)}
+    .celestial-star::after{content:"";position:absolute;inset:42%;border-radius:50%;background:#fff8db;box-shadow:0 0 16px 7px rgba(255,245,199,.36)}
+    body.open .celestial-star{animation:celestial-arrive .9s cubic-bezier(.2,.75,.25,1) var(--delay) forwards,celestial-float 2.7s ease-in-out calc(var(--delay) + .9s) infinite alternate}
+    @keyframes celestial-arrive{to{opacity:.9;transform:scale(1) rotate(12deg)}}
+    @keyframes celestial-float{from{translate:0 0;filter:brightness(.88)}to{translate:var(--dx) var(--dy);filter:brightness(1.35)}}
 
     .invite-content{
       position:relative;
@@ -525,23 +489,12 @@
     }
     body.open .card-recipient{animation:rise .85s ease 4.86s forwards}
 
-    .details-soon{
-      display:inline-flex;
-      align-items:center;
-      min-height:34px;
-      margin-top:clamp(15px,2.8svh,25px);
-      padding:8px 16px;
-      border:1px solid rgba(129,90,145,.25);
-      border-radius:999px;
-      color:#79677e;
-      background:rgba(255,255,255,.43);
-      font-size:clamp(.48rem,1.35vw,.58rem);
-      letter-spacing:.2em;
-      text-transform:uppercase;
-      opacity:0;
-      transform:translateY(8px);
-    }
-    body.open .details-soon{animation:rise .85s ease 5.02s forwards}
+    .location-link{display:grid;justify-items:center;gap:3px;max-width:350px;min-height:48px;margin-top:clamp(13px,2.4svh,22px);padding:9px 17px 10px;border:1px solid rgba(129,90,145,.28);border-radius:14px;color:#604d67;background:rgba(255,255,255,.58);box-shadow:0 8px 22px rgba(75,45,86,.08);text-decoration:none;opacity:0;transform:translateY(8px);transition:background .25s ease,transform .25s ease,box-shadow .25s ease}
+    .location-link:hover{background:rgba(255,255,255,.9);box-shadow:0 10px 25px rgba(75,45,86,.15);transform:translateY(-2px)}
+    .location-label{color:#785887;font-size:clamp(.47rem,1.3vw,.56rem);font-weight:500;letter-spacing:.19em;text-transform:uppercase}
+    .location-address{font:500 clamp(.77rem,2.7vw,.91rem)/1.25 "Cormorant Garamond",serif}
+    .location-neighborhood{font:400 clamp(.66rem,2.25vw,.76rem)/1.2 Montserrat,sans-serif;color:#7d6d81}
+    body.open .location-link{animation:rise .85s ease 5.02s forwards}
 
     @keyframes rise{to{opacity:1;transform:translateY(0)}}
 
@@ -584,7 +537,7 @@
       .ornament{margin:12px 0 10px}
       .preview-message{font-size:.95rem;line-height:1.28}
       .card-recipient{margin-top:9px;font-size:1.15rem}
-      .details-soon{margin-top:10px;min-height:30px;padding:6px 12px}
+      .location-link{margin-top:10px;min-height:30px;padding:6px 12px}
       .filigree{transform:scale(.82);transform-origin:top left}.filigree.bottom-right{transform:rotate(180deg) scale(.82);transform-origin:center}
     }
 
@@ -600,20 +553,20 @@
     @media(prefers-reduced-motion:reduce){
       *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
       .name-mask-rect{width:100%}
-      .reserve,.ribbon-wrap,.age-block,.anniversary,.ornament,.preview-message,.card-recipient,.details-soon,.close-invite,.replay,.sound-toggle,.butterfly,.star{opacity:1;transform:none}
+      .reserve,.ribbon-wrap,.age-block,.anniversary,.ornament,.preview-message,.card-recipient,.location-link,.close-invite,.replay,.sound-toggle,.celestial-star,.ambient-star,.star{opacity:1;transform:none}
       .quill{display:none}
     }
   </style>
 </head>
-<body data-event="sarah-15" data-build="sarah-single-source-music-20260806">
+<body data-event="sarah-15" data-build="sarah-final-general-stars-20260807">
   <main class="experience">
     <div class="ambient" aria-hidden="true"></div>
-    <div class="petal-field" id="petalField" aria-hidden="true"></div>
+    <div class="cosmos-field" id="cosmosField" aria-hidden="true"></div>
 
     <section class="opening" aria-labelledby="openingTitle">
       <p class="opening-kicker">Uma celebração inesquecível</p>
       <h1 class="opening-title" id="openingTitle">Você recebeu<br>algo especial</h1>
-      <p class="opening-copy" id="recipientIntro">Um convite de Sarah espera por você.</p>
+      <p class="opening-copy" >Um convite de Sarah espera por você.</p>
 
       <div class="scene" id="scene" role="button" tabindex="0" aria-label="Abrir o convite de Sarah" aria-expanded="false">
         <div class="envelope">
@@ -645,40 +598,12 @@
         <circle cx="49" cy="49" r="3" fill="currentColor" opacity=".55"/>
       </svg>
 
-      <div class="bird-flight" aria-hidden="true">
-        <svg class="butterfly one" viewBox="0 0 100 70">
-          <g class="wing wing-left">
-            <path d="M48 35C33 5 7 3 8 23c1 14 19 19 39 17C28 43 15 54 23 64c9 10 23-8 27-25Z" fill="#9d76b0"/>
-            <path class="wing-detail" d="M43 33C29 20 18 16 11 20M42 41C31 45 25 53 24 60"/>
-          </g>
-          <g class="wing wing-right">
-            <path d="M52 35C67 5 93 3 92 23c-1 14-19 19-39 17 19 3 32 14 24 24-9 10-23-8-27-25Z" fill="#b99bc7"/>
-            <path class="wing-detail" d="M57 33C71 20 82 16 89 20M58 41C69 45 75 53 76 60"/>
-          </g>
-          <path class="body" d="M48 24c0-4 4-7 2-11M52 24c0-4-4-7-2-11M47 27c0-6 6-6 6 0v21c0 5-6 5-6 0Z"/>
-        </svg>
-        <svg class="butterfly two" viewBox="0 0 100 70">
-          <g class="wing wing-left">
-            <path d="M48 35C33 5 7 3 8 23c1 14 19 19 39 17C28 43 15 54 23 64c9 10 23-8 27-25Z" fill="#866098"/>
-            <path class="wing-detail" d="M43 33C29 20 18 16 11 20M42 41C31 45 25 53 24 60"/>
-          </g>
-          <g class="wing wing-right">
-            <path d="M52 35C67 5 93 3 92 23c-1 14-19 19-39 17 19 3 32 14 24 24-9 10-23-8-27-25Z" fill="#c0a5cd"/>
-            <path class="wing-detail" d="M57 33C71 20 82 16 89 20M58 41C69 45 75 53 76 60"/>
-          </g>
-          <path class="body" d="M48 24c0-4 4-7 2-11M52 24c0-4-4-7-2-11M47 27c0-6 6-6 6 0v21c0 5-6 5-6 0Z"/>
-        </svg>
-        <svg class="butterfly three" viewBox="0 0 100 70">
-          <g class="wing wing-left">
-            <path d="M48 35C33 5 7 3 8 23c1 14 19 19 39 17C28 43 15 54 23 64c9 10 23-8 27-25Z" fill="#aa82ba"/>
-            <path class="wing-detail" d="M43 33C29 20 18 16 11 20M42 41C31 45 25 53 24 60"/>
-          </g>
-          <g class="wing wing-right">
-            <path d="M52 35C67 5 93 3 92 23c-1 14-19 19-39 17 19 3 32 14 24 24-9 10-23-8-27-25Z" fill="#cbb3d5"/>
-            <path class="wing-detail" d="M57 33C71 20 82 16 89 20M58 41C69 45 75 53 76 60"/>
-          </g>
-          <path class="body" d="M48 24c0-4 4-7 2-11M52 24c0-4-4-7-2-11M47 27c0-6 6-6 6 0v21c0 5-6 5-6 0Z"/>
-        </svg>
+      <div class="celestial-crown" aria-hidden="true">
+        <i class="celestial-star" style="--x:7%;--y:24px;--s:2.2rem;--delay:1s;--dx:10px;--dy:-8px">✦</i>
+        <i class="celestial-star" style="--x:29%;--y:2px;--s:1rem;--delay:1.12s;--dx:-6px;--dy:8px">✧</i>
+        <i class="celestial-star" style="--x:47%;--y:29px;--s:1.55rem;--delay:1.2s;--dx:7px;--dy:-11px">✦</i>
+        <i class="celestial-star" style="--x:68%;--y:5px;--s:1.15rem;--delay:1.3s;--dx:-8px;--dy:7px">✧</i>
+        <i class="celestial-star" style="--x:88%;--y:30px;--s:2rem;--delay:1.4s;--dx:-11px;--dy:-9px">✦</i>
       </div>
 
       <div class="star-field" id="starField" aria-hidden="true"></div>
@@ -730,8 +655,12 @@
         <h2 class="anniversary">Aniversário</h2>
         <div class="ornament" aria-hidden="true">✦</div>
         <p class="preview-message">Você é meu convidado especial para uma festa intimista, ao lado das pessoas de quem eu gosto.</p>
-        <p class="card-recipient" id="recipientCard">Com carinho, Sarah</p>
-        <span class="details-soon">Detalhes da celebração em breve</span>
+        <p class="card-recipient" >Com carinho, Sarah</p>
+        <a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=Avenida%20Conde%20Francisco%20Matarazzo%2C%20534%2C%20S%C3%A3o%20Caetano%20do%20Sul%20-%20SP%2C%2009520-120" target="_blank" rel="noopener" aria-label="Abrir endereço da festa no Google Maps">
+          <span class="location-label">✦ Abrir no Google Maps</span>
+          <span class="location-address">Av. Conde Francisco Matarazzo, 534 — apto. 185</span>
+          <span class="location-neighborhood">Fundação · São Caetano do Sul/SP · CEP 09520-120</span>
+        </a>
       </div>
     </article>
   </section>
@@ -741,10 +670,6 @@
   </audio>
 
   <script>
-    const params = new URLSearchParams(location.search);
-    const recipient = (params.get("para") || "").trim().slice(0, 60).replace(/[<>]/g, "");
-    const recipientIntro = document.getElementById("recipientIntro");
-    const recipientCard = document.getElementById("recipientCard");
     const scene = document.getElementById("scene");
     const inviteLayer = document.getElementById("inviteLayer");
     const openHint = document.getElementById("openHint");
@@ -753,14 +678,8 @@
     const soundtrack = document.getElementById("soundtrack");
     const soundToggle = document.getElementById("soundToggle");
 
-    // Links antigos com ?build= ou ?v= deixam de criar rotas aparentes diferentes.
-    // Somente o nome do convidado permanece na URL.
-    if ([...params.keys()].some(key => key !== "para")) {
-      const cleanParams = new URLSearchParams();
-      if (recipient) cleanParams.set("para", recipient);
-      const cleanUrl = location.pathname + (cleanParams.size ? "?" + cleanParams.toString() : "");
-      history.replaceState(null, "", cleanUrl);
-    }
+    // O convite é geral: qualquer parâmetro antigo é removido da URL.
+    if (location.search) history.replaceState(null, "", location.pathname);
 
     soundtrack.volume = .52;
 
@@ -778,23 +697,18 @@
       });
     }
 
-    if (recipient) {
-      recipientIntro.textContent = recipient + ", este convite é para você.";
-      recipientCard.textContent = "Com carinho, para " + recipient;
-      document.title = recipient + " — convite de Sarah";
-    }
-
-    const petalField = document.getElementById("petalField");
-    const positions = [
-      [8,18,32,.34,5.8,-12],[18,71,22,.27,4.6,13],[34,11,18,.3,5.1,8],
-      [70,16,24,.32,6.2,-15],[88,34,30,.4,5.4,14],[78,77,18,.29,4.7,-8],
-      [52,89,25,.26,6.4,11],[5,86,17,.22,5.2,9],[94,73,20,.28,5.8,-13]
+    const cosmosField = document.getElementById("cosmosField");
+    const ambientStars = [
+      [5,14,16,.7,4.4,-8,16,.1],[14,76,9,.48,3.8,14,-10,1.1],[26,24,7,.42,4.8,-9,-14,.5],
+      [36,88,13,.52,5.2,12,-18,1.7],[48,9,10,.48,4.1,-7,12,.8],[59,74,8,.4,3.7,15,-9,1.3],
+      [70,18,15,.64,4.9,-11,15,.2],[82,86,10,.48,4.2,10,-14,1.9],[93,37,18,.7,5.4,-15,9,.6],
+      [8,50,6,.38,3.5,9,-8,2.2],[91,67,7,.4,4.6,-8,-12,1.5],[54,92,6,.36,3.9,8,-10,.9]
     ];
-    positions.forEach(([x,y,s,o,d,dx]) => {
-      const p = document.createElement("i");
-      p.className = "petal";
-      p.style.cssText = `--x:${x}%;--y:${y}%;--s:${s * 2}px;--o:${Math.min(o + .08, .52)};--d:${(d * .72).toFixed(2)}s;--dx:${dx * 1.7}px`;
-      petalField.appendChild(p);
+    ambientStars.forEach(([x,y,size,opacity,duration,dx,dy,delay]) => {
+      const star = document.createElement("i");
+      star.className = "ambient-star";
+      star.style.cssText = `--x:${x}%;--y:${y}%;--s:${size}px;--o:${opacity};--d:${duration}s;--dx:${dx}px;--dy:${dy}px;--delay:${delay}s`;
+      cosmosField.appendChild(star);
     });
 
     const starField = document.getElementById("starField");
@@ -803,7 +717,9 @@
       const star = document.createElement("i");
       star.className = "star";
       star.textContent = index % 3 === 0 ? "✧" : "✦";
-      star.style.cssText = `--x:${x}%;--y:${y}%;--s:${s}px;--delay:${delay}s`;
+      const dx = index % 2 ? -7 : 8;
+      const dy = index % 3 ? -8 : 7;
+      star.style.cssText = `--x:${x}%;--y:${y}%;--s:${s}px;--delay:${delay}s;--dx:${dx}px;--dy:${dy}px`;
       starField.appendChild(star);
     });
 
