@@ -82,11 +82,11 @@
     .ambient::after{width:56vw;height:56vw;right:-25vw;bottom:-29vw;background:#a77aba}
 
     .cosmos-field{position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden}
-    .ambient-star{position:absolute;left:var(--x);top:var(--y);width:var(--s);aspect-ratio:1;opacity:var(--o);color:rgba(255,250,226,.96);filter:drop-shadow(0 0 8px rgba(255,245,210,.85)) drop-shadow(0 0 18px rgba(174,124,196,.45));animation:ambient-drift var(--d) ease-in-out var(--delay) infinite alternate}
-    .ambient-star::before,.ambient-star::after{content:"";position:absolute;left:50%;top:50%;border-radius:999px;background:currentColor;transform:translate(-50%,-50%)}
-    .ambient-star::before{width:100%;height:12%}
-    .ambient-star::after{width:12%;height:100%}
-    @keyframes ambient-drift{0%{opacity:calc(var(--o)*.45);transform:translate3d(0,0,0) rotate(0deg) scale(.72)}52%{opacity:var(--o);transform:translate3d(calc(var(--dx)*.5),calc(var(--dy)*.5),0) rotate(22deg) scale(1.12)}100%{opacity:calc(var(--o)*.68);transform:translate3d(var(--dx),var(--dy),0) rotate(44deg) scale(.88)}}
+    .ambient-star{position:absolute;left:var(--x);top:var(--y);width:var(--s);aspect-ratio:1;opacity:var(--o);color:rgba(255,251,229,.98);filter:drop-shadow(0 0 7px rgba(255,247,210,.95)) drop-shadow(0 0 22px rgba(174,124,196,.68));animation:ambient-drift var(--d) cubic-bezier(.45,.05,.55,.95) var(--delay) infinite alternate}
+    .ambient-star::before,.ambient-star::after{content:"";position:absolute;left:50%;top:50%;border-radius:999px;background:currentColor;transform:translate(-50%,-50%);box-shadow:0 0 9px 2px rgba(255,248,218,.48)}
+    .ambient-star::before{width:100%;height:8%}
+    .ambient-star::after{width:8%;height:100%}
+    @keyframes ambient-drift{0%{opacity:calc(var(--o)*.35);transform:translate3d(0,0,0) rotate(-18deg) scale(.68)}35%{opacity:var(--o);transform:translate3d(calc(var(--dx)*.38),calc(var(--dy)*.38),0) rotate(8deg) scale(1.18)}68%{opacity:calc(var(--o)*.62);transform:translate3d(calc(var(--dx)*.72),calc(var(--dy)*.72),0) rotate(28deg) scale(.88)}100%{opacity:var(--o);transform:translate3d(var(--dx),var(--dy),0) rotate(52deg) scale(1.08)}}
 
     .opening{
       width:min(100%,640px);
@@ -289,7 +289,11 @@
       transform:rotate(-2deg);
     }
 
-    .star-field{position:absolute;inset:0;z-index:2;pointer-events:none}
+    .star-field{position:absolute;inset:0;z-index:3;pointer-events:none}
+    .stardust-field{position:absolute;inset:20px;z-index:2;overflow:hidden;border-radius:4px;pointer-events:none;mask-image:linear-gradient(to bottom,transparent 0,#000 10%,#000 91%,transparent 100%)}
+    .stardust{position:absolute;left:var(--x);top:var(--y);width:var(--s);height:var(--s);border-radius:50%;opacity:0;background:radial-gradient(circle,#fff 0 22%,#ffecc2 30%,rgba(196,153,216,.78) 58%,transparent 72%);box-shadow:0 0 6px 1px rgba(255,245,206,.7),0 0 14px 3px rgba(168,116,192,.25)}
+    body.open .stardust{animation:stardust-drift var(--d) ease-in-out var(--delay) infinite}
+    @keyframes stardust-drift{0%{opacity:0;transform:translate3d(0,12px,0) scale(.45)}18%{opacity:var(--o)}52%{opacity:calc(var(--o)*.58);transform:translate3d(calc(var(--dx)*.55),calc(var(--dy)*.55),0) scale(1.25)}82%{opacity:var(--o)}100%{opacity:0;transform:translate3d(var(--dx),var(--dy),0) scale(.55)}}
 
     .glow-sweep{
       position:absolute;
@@ -313,11 +317,15 @@
       left:var(--x);top:var(--y);
       color:var(--c,#b89ac4);
       font-size:var(--s);
+      line-height:1;
       opacity:0;
-      text-shadow:0 0 13px rgba(163,121,183,.58);
+      transform-origin:center;
+      text-shadow:0 0 5px rgba(255,255,255,.98),0 0 15px rgba(255,238,191,.72),0 0 30px rgba(153,95,181,.52);
+      filter:drop-shadow(0 0 8px rgba(255,246,211,.72));
     }
-    body.open .star{animation:twinkle 2.6s ease-in-out var(--delay) infinite}
-    @keyframes twinkle{0%,100%{opacity:.12;transform:translate3d(0,0,0) scale(.6) rotate(0);filter:brightness(.85)}50%{opacity:.98;transform:translate3d(var(--dx,6px),var(--dy,-7px),0) scale(1.18) rotate(28deg);filter:brightness(1.35)}}
+    .star::after{content:"";position:absolute;left:50%;top:50%;width:22%;aspect-ratio:1;border-radius:50%;background:#fff9db;transform:translate(-50%,-50%);box-shadow:0 0 11px 5px rgba(255,244,196,.36)}
+    body.open .star{animation:twinkle var(--d,3.1s) cubic-bezier(.42,0,.58,1) var(--delay) infinite alternate}
+    @keyframes twinkle{0%{opacity:.2;transform:translate3d(0,0,0) scale(.62) rotate(-18deg);filter:brightness(.82)}32%{opacity:.92;transform:translate3d(calc(var(--dx)*.35),calc(var(--dy)*.35),0) scale(1.12) rotate(4deg);filter:brightness(1.4)}68%{opacity:.46;transform:translate3d(calc(var(--dx)*.72),calc(var(--dy)*.72),0) scale(.84) rotate(22deg);filter:brightness(1.02)}100%{opacity:1;transform:translate3d(var(--dx),var(--dy),0) scale(1.22) rotate(42deg);filter:brightness(1.55)}}
 
     .filigree{
       position:absolute;
@@ -331,7 +339,7 @@
     .filigree.top-left{left:-4px;top:-3px}
     .filigree.bottom-right{right:-4px;bottom:-3px;transform:rotate(180deg)}
 
-    .celestial-crown{position:absolute;z-index:3;left:24px;right:24px;top:25px;height:105px;pointer-events:none}
+    .celestial-crown{position:absolute;z-index:4;left:20px;right:20px;top:20px;height:118px;pointer-events:none}
     .celestial-star{position:absolute;left:var(--x);top:var(--y);color:var(--c,#b996c8);font-size:var(--s);opacity:0;text-shadow:0 0 10px rgba(255,255,255,.95),0 0 24px rgba(158,106,181,.68);transform:scale(.35) rotate(-18deg)}
     .celestial-star::after{content:"";position:absolute;inset:42%;border-radius:50%;background:#fff8db;box-shadow:0 0 16px 7px rgba(255,245,199,.36)}
     body.open .celestial-star{animation:celestial-arrive .9s cubic-bezier(.2,.75,.25,1) var(--delay) forwards,celestial-float 2.7s ease-in-out calc(var(--delay) + .9s) infinite alternate}
@@ -553,12 +561,12 @@
     @media(prefers-reduced-motion:reduce){
       *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
       .name-mask-rect{width:100%}
-      .reserve,.ribbon-wrap,.age-block,.anniversary,.ornament,.preview-message,.card-recipient,.location-link,.close-invite,.replay,.sound-toggle,.celestial-star,.ambient-star,.star{opacity:1;transform:none}
+      .reserve,.ribbon-wrap,.age-block,.anniversary,.ornament,.preview-message,.card-recipient,.location-link,.close-invite,.replay,.sound-toggle,.celestial-star,.ambient-star,.star,.stardust{opacity:1;transform:none}
       .quill{display:none}
     }
   </style>
 </head>
-<body data-event="sarah-15" data-build="sarah-final-general-stars-20260807">
+<body data-event="sarah-15" data-build="sarah-stars-stardust-final-20260807">
   <main class="experience">
     <div class="ambient" aria-hidden="true"></div>
     <div class="cosmos-field" id="cosmosField" aria-hidden="true"></div>
@@ -599,13 +607,14 @@
       </svg>
 
       <div class="celestial-crown" aria-hidden="true">
-        <i class="celestial-star" style="--x:7%;--y:24px;--s:2.2rem;--delay:1s;--dx:10px;--dy:-8px">✦</i>
-        <i class="celestial-star" style="--x:29%;--y:2px;--s:1rem;--delay:1.12s;--dx:-6px;--dy:8px">✧</i>
-        <i class="celestial-star" style="--x:47%;--y:29px;--s:1.55rem;--delay:1.2s;--dx:7px;--dy:-11px">✦</i>
-        <i class="celestial-star" style="--x:68%;--y:5px;--s:1.15rem;--delay:1.3s;--dx:-8px;--dy:7px">✧</i>
-        <i class="celestial-star" style="--x:88%;--y:30px;--s:2rem;--delay:1.4s;--dx:-11px;--dy:-9px">✦</i>
+        <i class="celestial-star" style="--x:4%;--y:28px;--s:2.8rem;--delay:1s;--dx:16px;--dy:-13px">✦</i>
+        <i class="celestial-star" style="--x:27%;--y:0;--s:1.45rem;--delay:1.12s;--dx:-11px;--dy:13px">✧</i>
+        <i class="celestial-star" style="--x:46%;--y:34px;--s:2.05rem;--delay:1.2s;--dx:13px;--dy:-17px">✦</i>
+        <i class="celestial-star" style="--x:68%;--y:3px;--s:1.55rem;--delay:1.3s;--dx:-13px;--dy:12px">✧</i>
+        <i class="celestial-star" style="--x:86%;--y:29px;--s:2.65rem;--delay:1.4s;--dx:-17px;--dy:-14px">✦</i>
       </div>
 
+      <div class="stardust-field" id="stardustField" aria-hidden="true"></div>
       <div class="star-field" id="starField" aria-hidden="true"></div>
       <div class="glow-sweep" aria-hidden="true"></div>
 
@@ -699,10 +708,10 @@
 
     const cosmosField = document.getElementById("cosmosField");
     const ambientStars = [
-      [5,14,16,.7,4.4,-8,16,.1],[14,76,9,.48,3.8,14,-10,1.1],[26,24,7,.42,4.8,-9,-14,.5],
-      [36,88,13,.52,5.2,12,-18,1.7],[48,9,10,.48,4.1,-7,12,.8],[59,74,8,.4,3.7,15,-9,1.3],
-      [70,18,15,.64,4.9,-11,15,.2],[82,86,10,.48,4.2,10,-14,1.9],[93,37,18,.7,5.4,-15,9,.6],
-      [8,50,6,.38,3.5,9,-8,2.2],[91,67,7,.4,4.6,-8,-12,1.5],[54,92,6,.36,3.9,8,-10,.9]
+      [5,14,24,.78,3.8,-15,25,.1],[14,76,14,.54,3.4,22,-17,1.1],[26,24,12,.48,4.1,-16,-22,.5],
+      [36,88,20,.6,4.4,20,-28,1.7],[48,9,16,.55,3.6,-14,21,.8],[59,74,13,.46,3.2,24,-16,1.3],
+      [70,18,23,.72,4.2,-18,24,.2],[82,86,16,.56,3.7,18,-23,1.9],[93,37,27,.78,4.6,-25,16,.6],
+      [8,50,11,.44,3.1,16,-15,2.2],[91,67,12,.46,3.9,-15,-20,1.5],[54,92,10,.42,3.4,15,-18,.9]
     ];
     ambientStars.forEach(([x,y,size,opacity,duration,dx,dy,delay]) => {
       const star = document.createElement("i");
@@ -711,15 +720,31 @@
       cosmosField.appendChild(star);
     });
 
+    const stardustField = document.getElementById("stardustField");
+    Array.from({ length:54 }, (_, index) => {
+      const dust = document.createElement("i");
+      dust.className = "stardust";
+      const x = (index * 37 + 11) % 97;
+      const y = (index * 53 + 7) % 96;
+      const size = 1 + (index % 4) * .62;
+      const duration = 3.8 + (index % 7) * .46;
+      const delay = .9 + (index % 13) * .31;
+      const opacity = .28 + (index % 6) * .1;
+      const dx = ((index * 17) % 42) - 21;
+      const dy = -34 - (index % 8) * 9;
+      dust.style.cssText = `--x:${x}%;--y:${y}%;--s:${size}px;--d:${duration}s;--delay:${delay}s;--o:${opacity};--dx:${dx}px;--dy:${dy}px`;
+      stardustField.appendChild(dust);
+    });
+
     const starField = document.getElementById("starField");
-    const stars = [[12,25,18,1.1],[84,18,13,1.6],[89,44,20,.9],[14,63,11,2.2],[78,69,15,1.3],[23,86,17,1.9],[68,91,10,.7],[91,84,13,2.5],[8,47,10,1.8],[31,18,8,.4],[72,31,9,2.1],[38,74,7,1.45],[58,58,11,2.75],[47,92,8,.95]];
-    stars.forEach(([x,y,s,delay], index) => {
+    const stars = [[10,22,27,1.1,3.2],[83,17,22,1.6,2.8],[88,43,31,.9,3.5],[12,62,19,2.2,2.9],[77,68,25,1.3,3.3],[20,84,28,1.9,3.7],[67,89,18,.7,2.7],[90,82,23,2.5,3.1],[7,46,18,1.8,3.6],[30,17,15,.4,2.8],[72,30,17,2.1,3.4],[37,73,14,1.45,2.9],[57,57,20,2.75,3.5],[46,90,15,.95,3.2]];
+    stars.forEach(([x,y,s,delay,duration], index) => {
       const star = document.createElement("i");
       star.className = "star";
       star.textContent = index % 3 === 0 ? "✧" : "✦";
-      const dx = index % 2 ? -7 : 8;
-      const dy = index % 3 ? -8 : 7;
-      star.style.cssText = `--x:${x}%;--y:${y}%;--s:${s}px;--delay:${delay}s;--dx:${dx}px;--dy:${dy}px`;
+      const dx = index % 2 ? -15 : 17;
+      const dy = index % 3 ? -17 : 14;
+      star.style.cssText = `--x:${x}%;--y:${y}%;--s:${s}px;--delay:${delay}s;--d:${duration}s;--dx:${dx}px;--dy:${dy}px`;
       starField.appendChild(star);
     });
 
