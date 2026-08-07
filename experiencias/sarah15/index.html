@@ -497,7 +497,13 @@
     }
     body.open .card-recipient{animation:rise .85s ease 4.86s forwards}
 
-    .location-link{display:grid;justify-items:center;gap:3px;max-width:350px;min-height:48px;margin-top:clamp(13px,2.4svh,22px);padding:9px 17px 10px;border:1px solid rgba(129,90,145,.28);border-radius:14px;color:#604d67;background:rgba(255,255,255,.58);box-shadow:0 8px 22px rgba(75,45,86,.08);text-decoration:none;opacity:0;transform:translateY(8px);transition:background .25s ease,transform .25s ease,box-shadow .25s ease}
+    .event-date{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:clamp(8px,1.4svh,13px);color:#62466d;opacity:0;transform:translateY(8px)}
+    .event-date span{font:500 clamp(.84rem,3vw,1rem)/1 "Bodoni Moda",serif;letter-spacing:.04em}
+    .event-date span::after{content:"✦";margin-left:10px;color:#aa80b9;font-size:.66em}
+    .event-date small{font:500 clamp(.57rem,1.8vw,.66rem)/1 Montserrat,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+    body.open .event-date{animation:rise .85s ease 4.96s forwards}
+
+    .location-link{display:grid;justify-items:center;gap:3px;max-width:350px;min-height:48px;margin-top:clamp(8px,1.5svh,13px);padding:9px 17px 10px;border:1px solid rgba(129,90,145,.28);border-radius:14px;color:#604d67;background:rgba(255,255,255,.58);box-shadow:0 8px 22px rgba(75,45,86,.08);text-decoration:none;opacity:0;transform:translateY(8px);transition:background .25s ease,transform .25s ease,box-shadow .25s ease}
     .location-link:hover{background:rgba(255,255,255,.9);box-shadow:0 10px 25px rgba(75,45,86,.15);transform:translateY(-2px)}
     .location-label{color:#785887;font-size:clamp(.47rem,1.3vw,.56rem);font-weight:500;letter-spacing:.19em;text-transform:uppercase}
     .location-address{font:500 clamp(.77rem,2.7vw,.91rem)/1.25 "Cormorant Garamond",serif}
@@ -544,8 +550,9 @@
       .anniversary{font-size:1.65rem;margin-top:12px}
       .ornament{margin:12px 0 10px}
       .preview-message{font-size:.95rem;line-height:1.28}
-      .card-recipient{margin-top:9px;font-size:1.15rem}
-      .location-link{margin-top:10px;min-height:30px;padding:6px 12px}
+      .card-recipient{margin-top:7px;font-size:1.15rem}
+      .event-date{margin-top:6px}
+      .location-link{margin-top:6px;min-height:30px;padding:6px 12px}
       .filigree{transform:scale(.82);transform-origin:top left}.filigree.bottom-right{transform:rotate(180deg) scale(.82);transform-origin:center}
     }
 
@@ -566,7 +573,7 @@
     }
   </style>
 </head>
-<body data-event="sarah-15" data-build="sarah-stars-stardust-final-20260807">
+<body data-event="sarah-15" data-build="sarah-date-final-20260807">
   <main class="experience">
     <div class="ambient" aria-hidden="true"></div>
     <div class="cosmos-field" id="cosmosField" aria-hidden="true"></div>
@@ -665,6 +672,10 @@
         <div class="ornament" aria-hidden="true">✦</div>
         <p class="preview-message">Você é meu convidado especial para uma festa intimista, ao lado das pessoas de quem eu gosto.</p>
         <p class="card-recipient" >Com carinho, Sarah</p>
+        <div class="event-date" aria-label="Data e horário da festa">
+          <span>23 de agosto</span>
+          <small>A partir das 17h</small>
+        </div>
         <a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=Avenida%20Conde%20Francisco%20Matarazzo%2C%20534%2C%20S%C3%A3o%20Caetano%20do%20Sul%20-%20SP%2C%2009520-120" target="_blank" rel="noopener" aria-label="Abrir endereço da festa no Google Maps">
           <span class="location-label">✦ Abrir no Google Maps</span>
           <span class="location-address">Av. Conde Francisco Matarazzo, 534 — apto. 185</span>
