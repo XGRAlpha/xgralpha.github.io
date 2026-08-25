@@ -66,8 +66,35 @@
 
       <div class="cards">
         <article class="card">
-          <button class="case-thumb" type="button" data-image="assets/img_projetos/InifinitySerralheria.jpeg" data-title="Infinity Serralheria | Site institucional com domínio próprio" aria-label="Ampliar imagem do case Infinity Serralheria">
-            <img src="assets/img_projetos/InifinitySerralheria.jpeg" alt="Prévia do projeto Infinity Serralheria" loading="lazy">
+          <button class="case-thumb" type="button" data-image="assets/img_projetos/GVDesktop.png" data-image-mobile="assets/img_projetos/GVVidros_Mobile.png" data-title="GV Vidros Free | Site institucional responsivo com domínio próprio" aria-label="Ampliar imagem do case GV Vidros Free">
+            <picture style="display:block;">
+              <source media="(max-width: 600px)" srcset="assets/img_projetos/GVVidros_Mobile.png">
+              <img src="assets/img_projetos/GVDesktop.png" alt="Case GV Vidros Free em versão responsiva" loading="eager" style="width:100%;height:auto;aspect-ratio:auto;object-fit:contain;">
+            </picture>
+            <span class="case-thumb-badge">Clique para ampliar</span>
+          </button>
+          <div class="case-topline"><span class="case-status">Projeto finalizado</span><span class="case-brand">XGR Digital</span></div>
+          <h3>GV Vidros Free</h3>
+          <p class="case-summary">Site institucional desenvolvido para transformar os serviços e trabalhos reais da vidraçaria em uma presença digital profissional, responsiva e pronta para gerar orçamentos.</p>
+          <ul>
+            <li>Experiência responsiva para desktop e dispositivos móveis</li>
+            <li>Serviços, projetos realizados e diferenciais organizados</li>
+            <li>Contato direto pelo WhatsApp e integração com Instagram</li>
+            <li>Domínio próprio, DNS, HTTPS e estrutura técnica configurados</li>
+            <li>Localização, políticas legais e base de indexação preparadas</li>
+          </ul>
+          <div class="case-links">
+            <a class="case-link is-primary" href="https://gvvidrosfree.com.br/" target="_blank" rel="noopener noreferrer"><span>gvvidrosfree.com.br</span></a>
+            <a class="case-mini-link" href="contato.html"><span>Quero um site profissional</span></a>
+          </div>
+        </article>
+
+        <article class="card">
+          <button class="case-thumb" type="button" data-image="assets/img_projetos/Infinity_Desktop.png" data-image-mobile="assets/img_projetos/InifinitySerralheria.jpeg" data-title="Infinity Serralheria | Site institucional com domínio próprio" aria-label="Ampliar imagem do case Infinity Serralheria">
+            <picture style="display:block;">
+              <source media="(max-width: 600px)" srcset="assets/img_projetos/InifinitySerralheria.jpeg">
+              <img src="assets/img_projetos/Infinity_Desktop.png" alt="Case Infinity Serralheria em versão responsiva" loading="lazy" style="width:100%;height:auto;aspect-ratio:auto;object-fit:contain;">
+            </picture>
             <span class="case-thumb-badge">Clique para ampliar</span>
           </button>
           <div class="case-topline"><span class="case-status">Case em destaque</span><span class="case-brand">XGR Digital</span></div>
@@ -221,7 +248,7 @@
   <div class="xgr-cookie-banner" id="xgrCookieBanner" role="dialog" aria-live="polite" aria-label="Aviso de cookies"><div class="xgr-cookie-banner__content"><div class="xgr-cookie-banner__text">Este site utiliza cookies e tecnologias semelhantes para funcionamento básico e medição de acesso. Ao clicar em <strong>“Aceitar”</strong>, você concorda com o uso dessas tecnologias conforme nossa <a href="cookies.html">Política de Cookies</a> e <a href="privacidade.html">Política de Privacidade</a>.</div><div class="xgr-cookie-banner__actions"><button class="xgr-cookie-btn" type="button" id="xgrCookieReject">Recusar</button><button class="xgr-cookie-btn primary" type="button" id="xgrCookieAccept">Aceitar</button></div></div></div>
   <div class="modal" id="caseModal" aria-hidden="true" role="dialog" aria-label="Visualização ampliada do case"><div class="modal__dialog"><button class="modal__close" type="button" id="caseModalClose" aria-label="Fechar imagem ampliada"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.71 12 12l6.3 6.29-1.42 1.42L10.59 13.4 4.29 19.71 2.87 18.3 9.17 12 2.87 5.71 4.29 4.29l6.3 6.3 6.29-6.3z"></path></svg></button><img class="modal__image" id="caseModalImage" src="" alt=""></div></div>
   <script src="assets/js/cookie-consent.js?v=8"></script>
-  <script>(function(){var modal=document.getElementById('caseModal');var modalImage=document.getElementById('caseModalImage');var closeBtn=document.getElementById('caseModalClose');var triggers=document.querySelectorAll('.case-thumb');if(!modal||!modalImage||!closeBtn||!triggers.length)return;function openModal(src,title){modalImage.src=src;modalImage.alt=title||'Imagem ampliada do case';modal.classList.add('is-open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}function closeModal(){modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true');modalImage.src='';modalImage.alt='';document.body.style.overflow=''}triggers.forEach(function(trigger){trigger.addEventListener('click',function(){openModal(trigger.getAttribute('data-image'),trigger.getAttribute('data-title'))})});closeBtn.addEventListener('click',closeModal);modal.addEventListener('click',function(event){if(event.target===modal)closeModal()});document.addEventListener('keydown',function(event){if(event.key==='Escape'&&modal.classList.contains('is-open'))closeModal()})})();</script>
+  <script>(function(){var modal=document.getElementById('caseModal');var modalImage=document.getElementById('caseModalImage');var closeBtn=document.getElementById('caseModalClose');var triggers=document.querySelectorAll('.case-thumb');if(!modal||!modalImage||!closeBtn||!triggers.length)return;function openModal(src,title){modalImage.src=src;modalImage.alt=title||'Imagem ampliada do case';modal.classList.add('is-open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}function closeModal(){modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true');modalImage.src='';modalImage.alt='';document.body.style.overflow=''}triggers.forEach(function(trigger){trigger.addEventListener('click',function(){var mobileImage=trigger.getAttribute('data-image-mobile');var imageSource=mobileImage&&window.matchMedia('(max-width: 600px)').matches?mobileImage:trigger.getAttribute('data-image');openModal(imageSource,trigger.getAttribute('data-title'))})});closeBtn.addEventListener('click',closeModal);modal.addEventListener('click',function(event){if(event.target===modal)closeModal()});document.addEventListener('keydown',function(event){if(event.key==='Escape'&&modal.classList.contains('is-open'))closeModal()})})();</script>
   <a class="whatsapp-float" href="https://wa.me/5511912131177?text=Olá%2C%20vim%20pelo%20site%20da%20XGreat%20e%20quero%20falar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp" title="Falar no WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.4.7 4.7 1.9 6.7L3.5 29l6.7-1.8c1.8 1 3.8 1.5 5.9 1.5 7.2 0 13-5.7 13-12.8C29 8.7 23.2 3 16 3zm0 23.4c-1.9 0-3.7-.5-5.2-1.5l-.4-.2-4 1.1 1.1-3.9-.3-.4c-1.1-1.7-1.7-3.6-1.7-5.6C5.5 10 10.2 5.3 16 5.3S26.5 10 26.5 15.8 21.8 26.4 16 26.4zm5.8-7.8c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-.9 1.2-.3.3-.6.1c-.3-.2-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2s0-.4.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.3 3.4 1.5 3.6c.2.2 2.5 3.8 6.1 5.3.9.4 1.5.6 2.1.7.9.3 1.6.2 2.2.1.7-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.1-.3-.2-.6-.4z"></path></svg></a>
 </body>
 </html>
